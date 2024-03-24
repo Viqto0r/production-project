@@ -1,17 +1,9 @@
 .Sidebar {
-  width: var(--sidebar-width);
   height: calc(100vh - var(--navbar-height));
-  background-color: var(--inverted-bg-color);
-
-  position: relative;
+  width: var(--sidebar-width);
   transition: all 0.2s;
-}
-
-.collapsed {
-  width: var(--sidebar-width-collapsed);
-  .switchers {
-    flex-direction: column;
-  }
+  background-color: var(--inverted-bg-color);
+  position: relative;
 }
 
 .switchers {
@@ -21,4 +13,12 @@
   justify-content: center;
   width: 100%;
   gap: 20px;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+
+  .switchers {
+    flex-direction: column;
+  }
 }

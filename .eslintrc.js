@@ -3,7 +3,11 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['standard-with-typescript', 'plugin:react/recommended'],
+  extends: [
+    'standard-with-typescript',
+    'plugin:react/recommended',
+    'plugin:i18next/recommended',
+  ],
   overrides: [
     {
       env: {
@@ -19,7 +23,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['react', '@typescript-eslint', 'i18next'],
   rules: {
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
@@ -31,6 +35,7 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     'react/no-deprecated': 'off',
     '@typescript-eslint/naming-convention': 'off',
+    'i18next/no-literal-string': ['error', { markupOnly: true }],
   },
   settings: {
     react: {
