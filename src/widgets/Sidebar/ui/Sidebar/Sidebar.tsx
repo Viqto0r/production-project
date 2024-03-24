@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames'
 import cls from './Sidebar.module.scss'
-import { FC, useState } from 'react'
+import { type FC, useState } from 'react'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher'
 

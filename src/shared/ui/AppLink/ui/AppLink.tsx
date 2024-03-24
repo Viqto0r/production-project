@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import { Link, LinkProps } from 'react-router-dom'
+import { type FC } from 'react'
+import { Link, type LinkProps } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames'
 import cls from './AppLink.module.scss'
 

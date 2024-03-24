@@ -1,13 +1,12 @@
 import { useTheme } from './providers/ThemeProvider'
 import { AppRouter } from './providers/router'
 import { classNames } from 'shared/lib/classNames'
+import { type FC, Suspense } from 'react'
 import { Navbar } from 'widgets/Navbar'
-import './styles/index.scss'
 import { Sidebar } from 'widgets/Sidebar/ui/Sidebar/Sidebar'
-import { useTranslation } from 'react-i18next'
-import { Suspense } from 'react'
+import './styles/index.scss'
 
-export const App = () => {
+export const App: FC = () => {
   const { theme } = useTheme()
 
   return (
