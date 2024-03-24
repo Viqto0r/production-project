@@ -11,7 +11,7 @@ export const buildLoaders = ({
     exclude: /node_modules/,
   }
 
-  const cssloader = {
+  const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
       isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
@@ -29,5 +29,21 @@ export const buildLoaders = ({
       'sass-loader',
     ],
   }
-  return [typescriptLoader, cssloader]
+
+  const svgLoader = {
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
+    use: ['@svgr/webpack'],
+  }
+
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2?)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  }
+
+  return [typescriptLoader, cssLoader, svgLoader, fileLoader]
 }
