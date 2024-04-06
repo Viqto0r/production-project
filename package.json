@@ -28,6 +28,7 @@
     "@types/react-dom": "^17.0.2",
     "@types/react-router-dom": "^5.3.3",
     "@types/webpack": "^5.28.0",
+    "@types/webpack-bundle-analyzer": "^4.7.0",
     "@types/webpack-dev-server": "^4.7.2",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "babel-loader": "^8.2.3",
@@ -52,6 +53,7 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3",
     "webpack": "^5.69.1",
+    "webpack-bundle-analyzer": "^4.10.1",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.7.4"
   },

@@ -1,9 +1,9 @@
+import { type FC, Suspense } from 'react'
 import { useTheme } from './providers/ThemeProvider'
 import { AppRouter } from './providers/router'
 import { classNames } from 'shared/lib/classNames'
-import { type FC, Suspense } from 'react'
 import { Navbar } from 'widgets/Navbar'
-import { Sidebar } from 'widgets/Sidebar/ui/Sidebar/Sidebar'
+import { Sidebar } from 'widgets/Sidebar'
 import './styles/index.scss'
 
 export const App: FC = () => {

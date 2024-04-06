@@ -4,6 +4,7 @@ import { type FC, useState } from 'react'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher'
 import { useTranslation } from 'react-i18next'
+import { ThrowButton } from 'app/providers/ErrorBoundary'
 
 interface ISidebarProps {
   className?: string
@@ -28,6 +29,7 @@ export const Sidebar: FC<ISidebarProps> = ({ className }) => {
         <ThemeSwitcher />
         <LanguageSwitcher />
       </div>
+      <ThrowButton />
     </div>
   )
 }

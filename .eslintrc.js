@@ -35,7 +35,8 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     'react/no-deprecated': 'off',
     '@typescript-eslint/naming-convention': 'off',
-    'i18next/no-literal-string': ['error', { markupOnly: true }],
+		'i18next/no-literal-string': ['error', { markupOnly: true }],
+		'@typescript-eslint/indent': 'off',
   },
   settings: {
     react: {
