@@ -35,12 +35,26 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     'react/no-deprecated': 'off',
     '@typescript-eslint/naming-convention': 'off',
-		'i18next/no-literal-string': ['error', { markupOnly: true }],
-		'@typescript-eslint/indent': 'off',
+    'i18next/no-literal-string': [
+      'error',
+      { markupOnly: true, onlyAttribute: [''] },
+    ],
+    '@typescript-eslint/indent': 'off',
   },
+  //global: {
+  //  __IS_DEV: true,
+  //},
   settings: {
     react: {
       version: 'detect',
     },
   },
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+  ],
 }

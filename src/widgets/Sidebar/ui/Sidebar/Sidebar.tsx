@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames'
+import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Sidebar.module.scss'
 import { type FC, useState } from 'react'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
@@ -20,11 +20,14 @@ export const Sidebar: FC<ISidebarProps> = ({ className }) => {
 
   return (
     <div
+      data-testid='sidebar'
       className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
         className,
       ])}
     >
-      <button onClick={toggleCollapse}>{t('переключить')}</button>
+      <button data-testid='sidebar-toggle' onClick={toggleCollapse}>
+        {t('переключить')}
+      </button>
       <div className={cls.switchers}>
         <ThemeSwitcher />
         <LanguageSwitcher />
