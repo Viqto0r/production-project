@@ -1,22 +1,20 @@
 name: pipeline
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: 
-  push
-    branches:
-      [master]
-  pull_request
-    branches:
-      [master]
-  
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
 jobs:
   Pipeline:
     runs-on: ubuntu-latest
     steps:
-      - name: "Build"
+      - name: 'Build'
         run: npm run build:prod
       - name: Typescript lint
         run: npm run lint:ts
-      - name: "Styles ling"
+      - name: 'Styles ling'
         run: npm run lint:scss
-      - name: "Unit test"
+      - name: 'Unit test'
         run: npm run test:unit
