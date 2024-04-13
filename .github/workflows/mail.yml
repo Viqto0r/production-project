@@ -9,8 +9,19 @@ on:
 jobs:
   Pipeline:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [17.x]
     steps:
-      - name: 'Build'
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1.4.3
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Checkout master branch
+        uses: actions/checkout@v2
+      - name: Init
+        run: npm init
+      - name: Build
         run: npm run build:prod
       - name: Typescript lint
         run: npm run lint:ts
