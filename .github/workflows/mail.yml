@@ -20,7 +20,7 @@ jobs:
       - name: Checkout master branch
         uses: actions/checkout@v2
       - name: Init
-        run: npm init
+        run: npm install
       - name: Build
         run: npm run build:prod
       - name: Typescript lint
