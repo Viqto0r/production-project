@@ -1,6 +1,5 @@
 import path from 'path'
 import { type BuildPaths } from '../build/types/config'
-import type RuleSetRule from 'webpack'
 import type webpack from 'webpack'
 import { buildCssLoader } from '../build/loaders/buildCssLoader'
 
@@ -13,7 +12,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
   }
   config.resolve.modules.push(paths.src)
   config.resolve.extensions.push('ts', 'tsx')
-  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+  config.module.rules = config.module.rules.map((rule: { test: string }) => {
+    // eslint-disable-next-line
     if (/svg/.test(rule.test)) {
       return { ...rule, exclude: /\.svg$/i }
     }
