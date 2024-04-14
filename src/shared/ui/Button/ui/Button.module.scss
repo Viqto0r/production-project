@@ -28,6 +28,18 @@
   border: none;
 }
 
+.m-size {
+  font: var(--font-m);
+}
+
+.l-size {
+  font: var(--font-l);
+}
+
+.xl-size {
+  font: var(--font-xl);
+}
+
 .square {
   width: 40px;
   height: 40px;
@@ -50,16 +62,4 @@
   font: var(--font-xl);
   width: var(--font-line-xl);
   height: var(--font-line-xl);
-}
-
-.m-size {
-  font: var(--font-m);
-}
-
-.l-size {
-  font: var(--font-l);
-}
-
-.xl-size {
-  font: var(--font-xl);
 }

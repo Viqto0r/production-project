@@ -27,7 +27,7 @@ jobs:
       - name: Typescript lint
         run: npm run lint:ts
         if: always()
-      - name: 'Styles ling'
+      - name: 'Styles lint'
         run: npm run lint:scss
         if: always()
       - name: 'Unit test'

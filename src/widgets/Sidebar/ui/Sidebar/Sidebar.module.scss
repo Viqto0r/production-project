@@ -15,12 +15,19 @@
   gap: 20px;
 }
 
+.link {
+  margin-left: 10px;
+  opacity: 1;
+  transition: 0.2s opacity;
+}
+
 .collapsed {
   width: var(--sidebar-width-collapsed);
 
   .switchers {
     flex-direction: column;
   }
+
   .link {
     opacity: 0;
     width: 0;
@@ -47,10 +54,4 @@
 
 .icon {
   fill: var(--inverted-primary-color);
-}
-
-.link {
-  margin-left: 10px;
-  opacity: 1;
-  transition: 0.2s opacity;
 }
