@@ -3,8 +3,13 @@ import { useTranslation } from 'react-i18next'
 import { Button, EThemeButton } from 'shared/ui/Button'
 import cls from './LanguageSwitcher.module.scss'
 
-export const LanguageSwitcher: FC = () => {
+interface LanguageSwitcherProps {
+  short: boolean
+}
+
+export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ short }) => {
   const { t, i18n } = useTranslation()
+  const language = short ? 'короткий язык' : 'язык'
 
   const toggle = async () =>
     await i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
@@ -15,7 +20,7 @@ export const LanguageSwitcher: FC = () => {
       onClick={toggle}
       className={cls.LanguageSwitcher}
     >
-      {t('язык')}
+      {t(language)}
     </Button>
   )
 }

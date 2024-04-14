@@ -41,6 +41,7 @@ module.exports = {
       { markupOnly: true, onlyAttribute: [''] },
     ],
     '@typescript-eslint/indent': 'off',
+    '@typescript-eslint/space-before-function-paren': 'off',
   },
   //global: {
   //  __IS_DEV: true,
