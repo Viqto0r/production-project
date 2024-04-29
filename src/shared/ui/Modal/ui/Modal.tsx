@@ -2,7 +2,6 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
 import { useCallback, useEffect, useRef, useState, type FC } from 'react'
 import { Portal } from 'widgets/Portal/Portal'
-import { useTheme } from 'app/providers/ThemeProvider'
 
 interface IModalProps {
   className?: string
@@ -19,7 +18,6 @@ export const Modal: FC<IModalProps> = ({
 }) => {
   const [isClosing, setIsClosing] = useState(false)
   const timeoutRef = useRef<NodeJS.Timeout>()
-  const { theme } = useTheme()
 
   const handleOnClose = useCallback(() => {
     setIsClosing(true)
@@ -58,7 +56,7 @@ export const Modal: FC<IModalProps> = ({
         className={classNames(
           cls.Modal,
           { [cls.open]: isOpen, [cls.isClosing]: isClosing },
-          [className, `app ${theme}`]
+          [className]
         )}
       >
         <div className={cls.overlay} onClick={handleOnClose}>
