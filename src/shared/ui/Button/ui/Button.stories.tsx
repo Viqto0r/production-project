@@ -33,6 +33,13 @@ export const ClearButtonLight: Story = {
   },
 }
 
+export const ClearInvertedButtonLight: Story = {
+  args: {
+    theme: EButtonTheme.CLEAR_INVERTED,
+    children: 'Кнопка',
+  },
+}
+
 export const OutlineButtonLight: Story = {
   args: {
     theme: EButtonTheme.OUTLINE,
@@ -88,6 +95,14 @@ export const PrimaryButtonDark: Story = {
 export const ClearButtonDark: Story = {
   args: {
     theme: EButtonTheme.CLEAR,
+    children: 'Кнопка',
+  },
+  decorators: [themeDecorator(ETheme.DARK)],
+}
+
+export const ClearInvertedButtonDark: Story = {
+  args: {
+    theme: EButtonTheme.CLEAR_INVERTED,
     children: 'Кнопка',
   },
   decorators: [themeDecorator(ETheme.DARK)],
