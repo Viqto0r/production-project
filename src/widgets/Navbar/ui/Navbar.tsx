@@ -26,11 +26,12 @@ export const Navbar: FC<INavbarProps> = ({ className }) => {
         </Button>
       </div>
       <Modal isOpen={isOpen} onClose={handleOpenModal}>
-        {/* eslint-disable-next-line */}
+        {/* eslint-disable */}
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat aliquam
         repudiandae eum laboriosam corrupti aut maiores beatae dicta blanditiis
         a, sunt sint sapiente doloremque, deserunt neque? Doloribus illum nobis
         quasi.
+        {/* eslint-enable */}
       </Modal>
     </div>
   )
