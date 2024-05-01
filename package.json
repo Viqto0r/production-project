@@ -21,7 +21,7 @@
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "storybook": "storybook dev -p 6006 --config-dir ./config/storybook/",
     "storybook:build": "storybook build --config-dir ./config/storybook/",
-    "prepare": "npm run lint:ts && npm run lint:scss && npm run test:unit"
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -68,6 +68,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "json-server": "^0.17.0",
