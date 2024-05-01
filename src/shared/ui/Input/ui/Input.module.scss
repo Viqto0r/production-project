@@ -1,0 +1,56 @@
+.Input {
+  display: flex;
+  color: var(--primary-color);
+}
+
+.caret {
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  display: inline-block;
+  width: 8.8px;
+  height: 3px;
+  background: var(--primary-color);
+  opacity: 0;
+
+  &.caretFreeze {
+    opacity: 1;
+    animation: none !important;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  position: relative;
+
+  input {
+    width: 97.2%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--primary-color);
+    caret-color: transparent;
+
+    &:focus + .caret {
+      animation: blink 1s infinite;
+    }
+  }
+}
+
+.placeholder {
+  margin-right: 5px;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.01;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

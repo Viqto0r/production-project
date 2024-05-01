@@ -44,10 +44,9 @@ module.exports = {
     '@typescript-eslint/space-before-function-paren': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'react/display-name': 'off',
+    'react/prop-types': 'off',
   },
-  //global: {
-  //  __IS_DEV: true,
-  //},
   settings: {
     react: {
       version: 'detect',
