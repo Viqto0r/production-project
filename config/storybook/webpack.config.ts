@@ -2,6 +2,7 @@ import path from 'path'
 import { type BuildPaths } from '../build/types/config'
 import type webpack from 'webpack'
 import { buildCssLoader } from '../build/loaders/buildCssLoader'
+import { DefinePlugin } from 'webpack'
 
 export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPaths = {
@@ -25,5 +26,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     { test: /\.svg$/i, issuer: /\.[jt]sx?$/, use: ['@svgr/webpack'] },
     buildCssLoader(true)
   )
+
+  config.plugins.push(new DefinePlugin({ __IS_DEV__: true }))
   return config
 }

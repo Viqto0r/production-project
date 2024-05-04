@@ -5,6 +5,8 @@ import { Button } from 'shared/ui/Button'
 import { useTranslation } from 'react-i18next'
 import { EButtonTheme } from 'shared/ui/Button/ui/Button'
 import { LoginModal } from 'features/AuthByUsername/ui/LoginModal/LoginModal'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserAuthData, userActions } from 'entitites/User'
 
 interface INavbarProps {
   className?: string
@@ -13,10 +15,28 @@ interface INavbarProps {
 export const Navbar: FC<INavbarProps> = ({ className }) => {
   const [isOpen, setIsOpen] = useState(false)
   const { t } = useTranslation()
+  const authData = useSelector(getUserAuthData)
+  const dispatch = useDispatch()
 
   const handleOpenModal = useCallback(() => {
     setIsOpen((prev) => !prev)
   }, [])
+
+  const handleLogout = useCallback(() => {
+    dispatch(userActions.logout())
+  }, [dispatch])
+
+  if (authData) {
+    return (
+      <div className={classNames(cls.NavBar, {}, [className])}>
+        <div className={cls.links}>
+          <Button theme={EButtonTheme.CLEAR_INVERTED} onClick={handleLogout}>
+            {t('выйти')}
+          </Button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className={classNames(cls.NavBar, {}, [className])}>

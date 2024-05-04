@@ -85,6 +85,23 @@ export const XLSizeButtonLight: Story = {
   },
 }
 
+export const DisabledButtonLight: Story = {
+  args: {
+    theme: EButtonTheme.OUTLINE,
+    children: 'Кнопка',
+    disabled: true,
+  },
+}
+
+export const DisabledButtonDark: Story = {
+  args: {
+    theme: EButtonTheme.OUTLINE,
+    children: 'Кнопка',
+    disabled: true,
+  },
+  decorators: [themeDecorator(ETheme.DARK)],
+}
+
 export const PrimaryButtonDark: Story = {
   args: {
     children: 'Кнопка',

@@ -46,6 +46,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/display-name': 'off',
     'react/prop-types': 'off',
+    'multiline-ternary': 'off',
   },
   settings: {
     react: {

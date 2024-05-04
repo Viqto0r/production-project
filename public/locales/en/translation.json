@@ -7,5 +7,8 @@
   "перезагрузить страницу": "Reload page",
   "главная страница": "Main page",
   "о сайте": "About us",
-  "войти": "Login"
+  "войти": "Login",
+  "форма авторизации": "Auth form",
+  "вы ввели неверный логин или пароль": "You entered an incorrect username or password",
+  "выйти": "Logout"
 }
