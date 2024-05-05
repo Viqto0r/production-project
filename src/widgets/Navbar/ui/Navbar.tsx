@@ -1,4 +1,4 @@
-import { useCallback, useState, type FC } from 'react'
+import { memo, useCallback, useState, type FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Navbar.module.scss'
 import { Button } from 'shared/ui/Button'
@@ -12,7 +12,7 @@ interface INavbarProps {
   className?: string
 }
 
-export const Navbar: FC<INavbarProps> = ({ className }) => {
+export const Navbar: FC<INavbarProps> = memo(({ className }) => {
   const [isOpen, setIsOpen] = useState(false)
   const { t } = useTranslation()
   const authData = useSelector(getUserAuthData)
@@ -27,7 +27,6 @@ export const Navbar: FC<INavbarProps> = ({ className }) => {
   }, [])
 
   const handleLogout = useCallback(() => {
-    setIsOpen(false)
     dispatch(userActions.logout())
   }, [dispatch])
 
@@ -53,4 +52,4 @@ export const Navbar: FC<INavbarProps> = ({ className }) => {
       {isOpen && <LoginModal isOpen={isOpen} onClose={handleCloseModal} />}
     </div>
   )
-}
+})

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { Button } from 'shared/ui/Button'
 import { Input } from 'shared/ui/Input'
 import { EButtonTheme } from 'shared/ui/Button/ui/Button'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { loginActions, loginReducer } from '../../model/slice/loginSlice'
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername'
 import { Text } from 'shared/ui/Text'
@@ -18,14 +18,16 @@ import {
   DynamicModuleLoader,
   type TReducerList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from 'shared/lib/hooks/AppDispatch/AppDispatch'
 
 export interface ILoginFormProps {
+  onSuccess: () => void
   className?: string
 }
 
 const asyncReducers: TReducerList = { loginForm: loginReducer }
 
-const LoginForm: FC<ILoginFormProps> = memo(({ className }) => {
+const LoginForm: FC<ILoginFormProps> = memo(({ onSuccess, className }) => {
   const { t } = useTranslation()
 
   const username = useSelector(getLoginUsername)
@@ -33,7 +35,7 @@ const LoginForm: FC<ILoginFormProps> = memo(({ className }) => {
   const error = useSelector(getLoginError)
   const isLoading = useSelector(getLoginIsLoading)
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const handleChangeUsername = useCallback(
     (value: string) => {
@@ -49,9 +51,12 @@ const LoginForm: FC<ILoginFormProps> = memo(({ className }) => {
     [dispatch]
   )
 
-  const handleLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ username, password }))
-  }, [dispatch, username, password])
+  const handleLoginClick = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }))
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess()
+    }
+  }, [dispatch, username, password, onSuccess])
 
   return (
     <DynamicModuleLoader reducers={asyncReducers} removeAfterunmount>

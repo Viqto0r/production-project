@@ -39,22 +39,22 @@ const initialStateWithLoading: DeepPartial<IStateSchema> = {
 }
 
 export const LoginFormLight: Story = {
-  args: {},
+  args: { onSuccess() {} },
   decorators: [storeDecorator(initialState)],
 }
 
 export const LoginFormWithErrorLight: Story = {
-  args: {},
+  args: { onSuccess() {} },
   decorators: [storeDecorator(initialStateWithError)],
 }
 
 export const LoginFormDark: Story = {
-  args: {},
+  args: { onSuccess() {} },
   decorators: [themeDecorator(ETheme.DARK), storeDecorator(initialState)],
 }
 
 export const LoginFormWithErrorDark: Story = {
-  args: {},
+  args: { onSuccess() {} },
   decorators: [
     themeDecorator(ETheme.DARK),
     storeDecorator(initialStateWithError),
@@ -62,12 +62,12 @@ export const LoginFormWithErrorDark: Story = {
 }
 
 export const LoginFormWithLoadingLight: Story = {
-  args: {},
+  args: { onSuccess() {} },
   decorators: [storeDecorator(initialStateWithLoading)],
 }
 
 export const LoginFormWithLoadingDark: Story = {
-  args: {},
+  args: { onSuccess() {} },
   decorators: [
     themeDecorator(ETheme.DARK),
     storeDecorator(initialStateWithLoading),

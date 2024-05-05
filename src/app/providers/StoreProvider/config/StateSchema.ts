@@ -8,6 +8,7 @@ import {
 import { type ICounterSchema } from 'entitites/Counter'
 import { type IUserSchema } from 'entitites/User'
 import { type ILoginSchema } from 'features/AuthByUsername'
+import { type IProfileSchema } from 'pages/ProfilePage'
 
 export interface IStateSchema {
   counter: ICounterSchema
@@ -15,6 +16,7 @@ export interface IStateSchema {
 
   // Асинхронные редьюсеры
   loginForm?: ILoginSchema
+  profile?: IProfileSchema
 }
 
 export type IStateSchemaKeys = keyof IStateSchema

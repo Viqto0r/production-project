@@ -1,4 +1,4 @@
-import { useCallback, type FC } from 'react'
+import { memo, useCallback, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'shared/ui/Button'
 import cls from './PageError.module.scss'
@@ -7,7 +7,7 @@ interface IPageErrorProps {
   className?: string
 }
 
-export const PageError: FC<IPageErrorProps> = () => {
+export const PageError: FC<IPageErrorProps> = memo(() => {
   const { t } = useTranslation()
   const onReload = useCallback(() => {
     location.reload()
@@ -19,4 +19,4 @@ export const PageError: FC<IPageErrorProps> = () => {
       <Button onClick={onReload}>{t('перезагрузить страницу')}</Button>
     </div>
   )
-}
+})

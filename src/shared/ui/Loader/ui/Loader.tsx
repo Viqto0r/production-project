@@ -1,12 +1,12 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Loader.module.scss'
-import { type FC } from 'react'
+import { memo, type FC } from 'react'
 
 interface ILoaderProps {
   className?: string
 }
 
-export const Loader: FC<ILoaderProps> = ({ className }) => {
+export const Loader: FC<ILoaderProps> = memo(({ className }) => {
   return (
     <div className={classNames(cls['lds-ellipsis'], {}, [className])}>
       <div></div>
@@ -15,4 +15,4 @@ export const Loader: FC<ILoaderProps> = ({ className }) => {
       <div></div>
     </div>
   )
-}
+})

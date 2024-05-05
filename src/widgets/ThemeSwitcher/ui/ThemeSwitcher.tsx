@@ -3,8 +3,9 @@ import LightIcon from 'shared/assets/icons/theme-light.svg'
 import DarkIcon from 'shared/assets/icons/theme-dark.svg'
 import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import { Button, EThemeButton } from 'shared/ui/Button'
+import { memo } from 'react'
 
-export const ThemeSwitcher = () => {
+export const ThemeSwitcher = memo(() => {
   const { theme, toggleTheme } = useTheme()
 
   return (
@@ -12,4 +13,4 @@ export const ThemeSwitcher = () => {
       {theme === ETheme.DARK ? <DarkIcon /> : <LightIcon />}
     </Button>
   )
-}
+})

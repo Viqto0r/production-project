@@ -11,7 +11,9 @@ interface ILoginForm {
 export const LoginModal: FC<ILoginForm> = ({ isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} lazy>
-      <Suspense fallback={<Loader />}>{<LoginFormAsync />}</Suspense>
+      <Suspense fallback={<Loader />}>
+        {<LoginFormAsync onSuccess={onClose} />}
+      </Suspense>
     </Modal>
   )
 }
