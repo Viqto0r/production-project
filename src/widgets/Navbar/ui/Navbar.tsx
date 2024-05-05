@@ -19,10 +19,15 @@ export const Navbar: FC<INavbarProps> = ({ className }) => {
   const dispatch = useDispatch()
 
   const handleOpenModal = useCallback(() => {
-    setIsOpen((prev) => !prev)
+    setIsOpen(true)
+  }, [])
+
+  const handleCloseModal = useCallback(() => {
+    setIsOpen(false)
   }, [])
 
   const handleLogout = useCallback(() => {
+    setIsOpen(false)
     dispatch(userActions.logout())
   }, [dispatch])
 
@@ -45,7 +50,7 @@ export const Navbar: FC<INavbarProps> = ({ className }) => {
           {t('войти')}
         </Button>
       </div>
-      <LoginModal isOpen={isOpen} onClose={handleOpenModal} />
+      {isOpen && <LoginModal isOpen={isOpen} onClose={handleCloseModal} />}
     </div>
   )
 }

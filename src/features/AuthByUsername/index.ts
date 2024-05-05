@@ -1,3 +1,2 @@
-export { LoginForm } from './ui/LoginForm/LoginForm'
+export { LoginFormAsync } from './ui/LoginForm/LoginForm.async'
 export type { ILoginSchema } from './model/types/loginState'
-export { loginReducer } from './model/slice/loginSlice'

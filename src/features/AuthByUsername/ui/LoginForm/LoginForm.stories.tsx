@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { themeDecorator } from 'shared/config/storybook/themeDecorator'
 import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
-import { LoginForm } from './LoginForm'
+import LoginForm from './LoginForm'
 import { storeDecorator } from 'shared/config/storybook/storeDecorator'
 import { type DeepPartial } from '@reduxjs/toolkit'
 import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
