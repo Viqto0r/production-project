@@ -1,5 +1,5 @@
 import { memo, type ButtonHTMLAttributes, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { type TMods, classNames } from 'shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
 export enum EButtonTheme {
@@ -24,14 +24,24 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: FC<IButtonProps> = memo(
-  ({ children, theme, size, square, className, disabled, ...otherProps }) => {
+  ({
+    children,
+    theme = EButtonTheme.OUTLINE,
+    size = EButtonSize.M_SIZE,
+    square,
+    className,
+    disabled,
+    ...otherProps
+  }) => {
+    const mods: TMods = { [cls.square]: square, [cls.disabled]: disabled }
+
     return (
       <button
-        className={classNames(
-          cls.Button,
-          { [cls.square]: square, [cls.disabled]: disabled },
-          [cls[theme], cls[size], className]
-        )}
+        className={classNames(cls.Button, mods, [
+          cls[theme],
+          cls[size],
+          className,
+        ])}
         {...otherProps}
       >
         {children}

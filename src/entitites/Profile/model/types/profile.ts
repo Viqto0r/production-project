@@ -1,3 +1,5 @@
+import { type ICountry, type ICurrency } from 'shared/const/common'
+
 export interface IProfile {
   first: string
   lastname: string
@@ -7,18 +9,6 @@ export interface IProfile {
   city: string
   username: string
   avatar: string
-}
-
-export enum ICurrency {
-  RUB = 'RUB',
-  USD = 'USD',
-  EUR = 'EUR',
-}
-
-export enum ICountry {
-  RUSSIA = 'Russia',
-  USA = 'USA',
-  Germany = 'Germany',
 }
 
 export interface IProfileSchema {

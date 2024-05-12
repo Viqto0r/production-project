@@ -10,8 +10,6 @@ export type TReducerList = {
   [key in IStateSchemaKeys]?: Reducer
 }
 
-type TReducerListEntry = [IStateSchemaKeys, Reducer]
-
 interface IDynamicModuleLoaderProps {
   reducers: TReducerList
   removeAfterunmount?: boolean
@@ -26,15 +24,15 @@ export const DynamicModuleLoader: FC<IDynamicModuleLoaderProps> = ({
   const dispatch = useDispatch()
 
   useEffect(() => {
-    Object.entries(reducers).forEach(([name, reducer]: TReducerListEntry) => {
-      store.reducerManager.add(name, reducer)
+    Object.entries(reducers).forEach(([name, reducer]) => {
+      store.reducerManager.add(name as IStateSchemaKeys, reducer)
       dispatch({ type: `@INIT add ${name} reducer ` })
     })
 
     return () => {
       if (removeAfterunmount) {
-        Object.entries(reducers).forEach(([name]: TReducerListEntry) => {
-          store.reducerManager.remove(name)
+        Object.entries(reducers).forEach(([name]) => {
+          store.reducerManager.remove(name as IStateSchemaKeys)
           dispatch({ type: `@INIT remove ${name} reducer ` })
         })
       }

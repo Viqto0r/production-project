@@ -4,7 +4,6 @@ import { themeDecorator } from 'shared/config/storybook/themeDecorator'
 import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import { Navbar } from './Navbar'
 import { storeDecorator } from 'shared/config/storybook/storeDecorator'
-import { type DeepPartial } from '@reduxjs/toolkit'
 import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
 
 const meta = {

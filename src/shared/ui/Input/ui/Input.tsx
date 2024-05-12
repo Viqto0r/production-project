@@ -16,7 +16,7 @@ type THTMLInputProps = Omit<
 
 interface IInputProps extends THTMLInputProps {
   value: string
-  onChange: (value: string) => void
+  onChange?: (value: string) => void
   className?: string
 }
 
@@ -39,13 +39,13 @@ export const Input: FC<IInputProps> = memo(
       } = event
 
       setCarretFreeze(true)
-      onChange(value)
+      onChange?.(value)
       debouncedCarretFreeze()
     }
 
     const handleSelect = (e: React.SyntheticEvent<HTMLInputElement, Event>) => {
       if (e.target instanceof HTMLInputElement) {
-        const newRange = e.target.selectionStart * 8.8
+        const newRange = (e.target.selectionStart || 0) * 8.8
 
         setSelect(newRange < 308 ? newRange : 308)
       }

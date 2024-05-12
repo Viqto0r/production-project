@@ -1,4 +1,3 @@
-import { type DeepPartial } from '@reduxjs/toolkit'
 import { render } from '@testing-library/react'
 import { StoreProvider } from 'app/providers/StoreProvider'
 import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
@@ -18,10 +17,10 @@ export const componentRender = (
 ) => {
   const { routes = '/', initialState } = options
   return render(
-    <StoreProvider initialState={initialState as IStateSchema}>
-      <MemoryRouter initialEntries={[routes]}>
+    <MemoryRouter initialEntries={[routes]}>
+      <StoreProvider initialState={initialState as IStateSchema}>
         <I18nextProvider i18n={i18nForTest}>{component}</I18nextProvider>
-      </MemoryRouter>
-    </StoreProvider>
+      </StoreProvider>
+    </MemoryRouter>
   )
 }

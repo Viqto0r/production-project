@@ -1,6 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
-import { lazy, useCallback, useEffect, useRef, useState, type FC } from 'react'
+import {
+  type MutableRefObject,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type FC,
+} from 'react'
 import { Portal } from 'widgets/Portal/Portal'
 
 interface IModalProps {
@@ -16,9 +23,10 @@ export const Modal: FC<IModalProps> = ({
   className,
   isOpen,
   onClose,
+  lazy,
 }) => {
   const [isClosing, setIsClosing] = useState(false)
-  const timeoutRef = useRef<NodeJS.Timeout>()
+  const timeoutRef = useRef() as MutableRefObject<NodeJS.Timeout>
   const [isMounted, setIsMounted] = useState(false)
 
   const handleOnClose = useCallback(() => {

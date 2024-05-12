@@ -8,14 +8,14 @@ import './shared/config/i18n/i18n'
 import { StoreProvider } from 'app/providers/StoreProvider'
 
 render(
-  <StoreProvider>
-    <ErrorBoundary>
-      <BrowserRouter>
+  <BrowserRouter>
+    <StoreProvider>
+      <ErrorBoundary>
         <ThemeProvider>
           <App />
         </ThemeProvider>
-      </BrowserRouter>
-    </ErrorBoundary>
-  </StoreProvider>,
+      </ErrorBoundary>
+    </StoreProvider>
+  </BrowserRouter>,
   document.getElementById('root')
 )

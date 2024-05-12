@@ -1,21 +1,27 @@
-import { memo } from 'react'
-import { useTranslation } from 'react-i18next'
+import { memo, useEffect } from 'react'
 import {
   DynamicModuleLoader,
   type TReducerList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { profileReducer } from '../model/slice/profileSlice'
+import { useDispatch } from 'react-redux'
+import { profileReducer } from 'entitites/Profile/model/slice/profileSlice'
+import { fetchProfileData } from 'entitites/Profile/model/services/fetchProfileData/fetchProfileData'
+import { ProfileCard } from 'entitites/Profile/ui/ProfileCard/ProfileCard'
 
 const asyncReducers: TReducerList = {
   profile: profileReducer,
 }
 
 export default memo(function MainPage() {
-  const { t } = useTranslation()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchProfileData())
+  }, [dispatch])
 
   return (
     <DynamicModuleLoader reducers={asyncReducers} removeAfterunmount>
-      <div>{t('профиль')}</div>
+      <ProfileCard />
     </DynamicModuleLoader>
   )
 })
