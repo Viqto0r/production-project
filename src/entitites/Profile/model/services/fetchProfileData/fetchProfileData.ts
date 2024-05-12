@@ -4,6 +4,7 @@ import { type IProfile } from '../../types/profile'
 
 export const fetchProfileData = createAsyncThunk<
   IProfile,
+  // eslint-disable-next-line
   void,
   IThunkConfig<string>
 >('login/loginByUsername', async (_, { rejectWithValue, extra }) => {
