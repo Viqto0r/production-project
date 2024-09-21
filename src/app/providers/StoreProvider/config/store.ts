@@ -1,8 +1,8 @@
 import { $api } from 'shared/api/api'
 import { type ReducersMapObject, configureStore } from '@reduxjs/toolkit'
 import { type IStateSchema } from './StateSchema'
-import { counterReducer } from 'entitites/Counter'
-import { userReducer } from 'entitites/User'
+import { counterReducer } from 'entities/Counter'
+import { userReducer } from 'entities/User'
 import { createReducerManager } from './reducerManager'
 import { type NavigateFunction } from 'react-router-dom'
 

@@ -38,15 +38,15 @@ const LoginForm: FC<ILoginFormProps> = memo(({ onSuccess, className }) => {
   const dispatch = useAppDispatch()
 
   const handleChangeUsername = useCallback(
-    (value: string) => {
-      dispatch(loginActions.setUsername(value))
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch(loginActions.setUsername(e.target.value))
     },
     [dispatch]
   )
 
   const handleChangePassword = useCallback(
-    (value: string) => {
-      dispatch(loginActions.setPassword(value))
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch(loginActions.setPassword(e.target.value))
     },
     [dispatch]
   )
@@ -59,7 +59,7 @@ const LoginForm: FC<ILoginFormProps> = memo(({ onSuccess, className }) => {
   }, [dispatch, username, password, onSuccess])
 
   return (
-    <DynamicModuleLoader reducers={asyncReducers} removeAfterunmount>
+    <DynamicModuleLoader reducers={asyncReducers} removeAfterUnmount>
       <div className={classNames(cls.LoginForm, {}, [className])}>
         <Text title={t('форма авторизации')} />
         {error && (
@@ -71,15 +71,15 @@ const LoginForm: FC<ILoginFormProps> = memo(({ onSuccess, className }) => {
         <Input
           value={username}
           onChange={handleChangeUsername}
-          placeholder='username'
+          placeholder="username"
           maxLength={25}
           autoFocus
         />
         <Input
           value={password}
           onChange={handleChangePassword}
-          placeholder='password'
-          type='password'
+          placeholder="password"
+          type="password"
           maxLength={25}
         />
         <Button

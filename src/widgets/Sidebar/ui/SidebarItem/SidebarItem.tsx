@@ -10,6 +10,7 @@ export interface ISidebarItemProps {
   text: string
   path: string
   collapsed: boolean
+  authOnly?: boolean
 }
 
 export const SidebarItem: FC<ISidebarItemProps> = memo(

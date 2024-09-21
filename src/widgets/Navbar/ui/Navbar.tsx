@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { EButtonTheme } from 'shared/ui/Button/ui/Button'
 import { LoginModal } from 'features/AuthByUsername/ui/LoginModal/LoginModal'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserAuthData, userActions } from 'entitites/User'
+import { getUserAuthData, userActions } from 'entities/User'
 
 interface INavbarProps {
   className?: string

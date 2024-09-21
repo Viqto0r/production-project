@@ -7,6 +7,8 @@ import { Button, EThemeButton } from 'shared/ui/Button'
 import { EButtonSize } from 'shared/ui/Button/ui/Button'
 import { sidebarItemList } from 'widgets/Sidebar/model/items'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
+import { useSelector } from 'react-redux'
+import { getUserAuthData } from 'entities/User'
 
 interface ISidebarProps {
   className?: string
@@ -14,6 +16,7 @@ interface ISidebarProps {
 
 export const Sidebar: FC<ISidebarProps> = memo(({ className }) => {
   const [collapsed, setCollapsed] = useState(false)
+  const isAuth = useSelector(getUserAuthData)
 
   const toggleCollapse = () => {
     setCollapsed((collapsed) => !collapsed)
@@ -21,13 +24,13 @@ export const Sidebar: FC<ISidebarProps> = memo(({ className }) => {
 
   return (
     <div
-      data-testid='sidebar'
+      data-testid="sidebar"
       className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
         className,
       ])}
     >
       <Button
-        data-testid='sidebar-toggle'
+        data-testid="sidebar-toggle"
         onClick={toggleCollapse}
         className={cls.collapsedBtn}
         size={EButtonSize.L_SIZE}
@@ -37,9 +40,12 @@ export const Sidebar: FC<ISidebarProps> = memo(({ className }) => {
         {collapsed ? '>' : '<'}
       </Button>
       <div className={cls.links}>
-        {sidebarItemList.map((item) => (
-          <SidebarItem key={item.path} collapsed={collapsed} {...item} />
-        ))}
+        {sidebarItemList.map((item) => {
+          if (item.authOnly && !isAuth) {
+            return null
+          }
+          return <SidebarItem key={item.path} collapsed={collapsed} {...item} />
+        })}
       </div>
       <div className={cls.switchers}>
         <ThemeSwitcher />

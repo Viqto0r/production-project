@@ -15,7 +15,7 @@ export type Story = StoryObj<typeof meta>
 export const InputLight: Story = {
   args: {
     value: 'test',
-    onChange: (value: string) => {},
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => {},
     placeholder: 'placeholder',
   },
 }
@@ -23,7 +23,7 @@ export const InputLight: Story = {
 export const InputDark: Story = {
   args: {
     value: 'test',
-    onChange: (value: string) => {},
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => {},
     placeholder: 'placeholder',
   },
   decorators: [themeDecorator(ETheme.DARK)],

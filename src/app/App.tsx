@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { useDispatch } from 'react-redux'
-import { userActions } from 'entitites/User'
+import { userActions } from 'entities/User'
 
 export const App: FC = () => {
   const dispatch = useDispatch()
@@ -14,9 +14,9 @@ export const App: FC = () => {
 
   return (
     <div className={classNames('app', {}, [])}>
-      <Suspense fallback=''>
+      <Suspense fallback="">
         <Navbar />
-        <div className='page-content'>
+        <div className="page-content">
           <Sidebar />
           <AppRouter />
         </div>

@@ -31,6 +31,6 @@ export const OutlineLink: Story = {
   args: {
     children: 'Кнопка',
     to: '/',
-    theme: EAppLinkTheme.PRIMARY,
+    theme: EAppLinkTheme.OUTLINE,
   },
 }

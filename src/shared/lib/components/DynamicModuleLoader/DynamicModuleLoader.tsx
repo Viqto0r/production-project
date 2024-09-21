@@ -12,12 +12,12 @@ export type TReducerList = {
 
 interface IDynamicModuleLoaderProps {
   reducers: TReducerList
-  removeAfterunmount?: boolean
+  removeAfterUnmount?: boolean
 }
 
 export const DynamicModuleLoader: FC<IDynamicModuleLoaderProps> = ({
   children,
-  removeAfterunmount,
+  removeAfterUnmount,
   reducers,
 }) => {
   const store = useStore() as IStoreWithReducerManager
@@ -30,7 +30,7 @@ export const DynamicModuleLoader: FC<IDynamicModuleLoaderProps> = ({
     })
 
     return () => {
-      if (removeAfterunmount) {
+      if (removeAfterUnmount) {
         Object.entries(reducers).forEach(([name]) => {
           store.reducerManager.remove(name as IStateSchemaKeys)
           dispatch({ type: `@INIT remove ${name} reducer ` })

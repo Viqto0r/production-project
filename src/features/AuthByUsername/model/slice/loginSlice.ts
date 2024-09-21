@@ -8,6 +8,11 @@ const initialState: ILoginSchema = {
   isLoading: false,
 }
 
+export type TSetFormFieldActionPayload = Record<
+  keyof Pick<ILoginSchema, 'username' | 'password'>,
+  string
+>
+
 const loginSlice = createSlice({
   name: 'login',
   initialState,

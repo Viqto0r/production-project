@@ -6,9 +6,9 @@ import {
   type EnhancedStore,
 } from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
-import { type ICounterSchema } from 'entitites/Counter'
-import { type IProfileSchema } from 'entitites/Profile/model/types/profile'
-import { type IUserSchema } from 'entitites/User'
+import { type ICounterSchema } from 'entities/Counter'
+import { type IProfileSchema } from 'entities/Profile/model/types/profile'
+import { type IUserSchema } from 'entities/User'
 import { type ILoginSchema } from 'features/AuthByUsername'
 import { type NavigateFunction } from 'react-router-dom'
 
@@ -47,4 +47,5 @@ interface IThunkExtraArg {
 export interface IThunkConfig<T> {
   rejectValue: T
   extra: IThunkExtraArg
+  state: IStateSchema
 }

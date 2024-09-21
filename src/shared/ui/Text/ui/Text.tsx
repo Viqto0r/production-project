@@ -7,20 +7,34 @@ export enum ETextTheme {
   ERROR = 'error',
 }
 
+export enum ETextAlign {
+  LEFT = 'left',
+  RIGHT = 'right',
+  CENTER = 'center',
+}
+
 interface ITextProps {
   title?: string
   text?: string
-  theme?: ETextTheme
   className?: string
+  theme?: ETextTheme
+  align?: ETextAlign
 }
 
-export const Text: FC<ITextProps> = memo(
-  ({ title, text, theme = ETextTheme.PRIMARY, className }) => {
-    return (
-      <div className={classNames('Text', { [cls[theme]]: true }, [className])}>
-        {title && <p className={cls.title}>{title}</p>}
-        {text && <p className={cls.text}>{text}</p>}
-      </div>
-    )
-  }
-)
+export const Text: FC<ITextProps> = memo((props) => {
+  const {
+    title,
+    text,
+    theme = ETextTheme.PRIMARY,
+    className,
+    align = ETextAlign.LEFT,
+  } = props
+  return (
+    <div
+      className={classNames('Text', {}, [cls[theme], className, cls[align]])}
+    >
+      {title && <p className={cls.title}>{title}</p>}
+      {text && <p className={cls.text}>{text}</p>}
+    </div>
+  )
+})

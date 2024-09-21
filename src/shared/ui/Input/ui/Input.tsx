@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
 import {
   memo,
+  useCallback,
   useMemo,
   useState,
   type FC,
@@ -11,17 +12,30 @@ import { debounce } from 'shared/lib/debounce/debounce'
 
 type THTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  'onChange' | 'value'
+  'onChange' | 'value' | 'readOnly'
 >
+
+const symbolLength = 8.8
 
 interface IInputProps extends THTMLInputProps {
   value: string
-  onChange?: (value: string) => void
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   className?: string
+  readOnly?: boolean
+  validate?: (value: string) => boolean
 }
 
 export const Input: FC<IInputProps> = memo(
-  ({ onChange, value, className, placeholder, ...otherProps }) => {
+  ({
+    onChange,
+    value,
+    className,
+    placeholder,
+    readOnly,
+    validate,
+    maxLength = 300,
+    ...otherProps
+  }) => {
     const [select, setSelect] = useState(value.length)
     const [caretFreeze, setCarretFreeze] = useState(false)
 
@@ -33,23 +47,34 @@ export const Input: FC<IInputProps> = memo(
       []
     )
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const {
-        target: { value },
-      } = event
+    const replaceCarret = useCallback(
+      (selectionStart: number) => {
+        const newRange = selectionStart * symbolLength
+        const maxRange = (maxLength - 1) * symbolLength
 
-      setCarretFreeze(true)
-      onChange?.(value)
-      debouncedCarretFreeze()
-    }
+        setSelect(newRange < maxRange ? newRange : maxRange)
+      },
+      [maxLength]
+    )
 
     const handleSelect = (e: React.SyntheticEvent<HTMLInputElement, Event>) => {
       if (e.target instanceof HTMLInputElement) {
-        const newRange = (e.target.selectionStart || 0) * 8.8
-
-        setSelect(newRange < 308 ? newRange : 308)
+        replaceCarret(e.target.selectionStart || 0)
       }
     }
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const {
+        target: { selectionStart, value },
+      } = e
+      if (validate && !validate?.(value)) return
+
+      replaceCarret(selectionStart || 0)
+      setCarretFreeze(true)
+      onChange?.(e)
+      debouncedCarretFreeze()
+    }
+
     return (
       <div className={classNames(cls.Input, {}, [className])}>
         {placeholder && (
@@ -58,23 +83,29 @@ export const Input: FC<IInputProps> = memo(
             {'>'}
           </span>
         )}
-        <div className={cls.wrapper}>
+        <div
+          className={classNames(cls.wrapper, { [cls.readonly]: readOnly }, [])}
+        >
           <input
             onChange={handleChange}
             onSelect={handleSelect}
             value={value}
+            readOnly={readOnly}
+            maxLength={maxLength}
             {...otherProps}
           />
-          <span
-            className={classNames(
-              cls.caret,
-              { [cls.caretFreeze]: caretFreeze },
-              []
-            )}
-            style={{
-              left: `${select}px`,
-            }}
-          ></span>
+          {!readOnly && (
+            <span
+              className={classNames(
+                cls.caret,
+                { [cls.caretFreeze]: caretFreeze },
+                []
+              )}
+              style={{
+                left: `${select}px`,
+              }}
+            ></span>
+          )}
         </div>
       </div>
     )

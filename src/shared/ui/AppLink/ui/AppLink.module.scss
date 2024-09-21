@@ -10,3 +10,9 @@
 .secondary {
   color: var(--inverted-primary-color);
 }
+
+.outline {
+  border: 1px solid var(--primary-color);
+  padding: 5px 10px;
+  text-decoration: none;
+}

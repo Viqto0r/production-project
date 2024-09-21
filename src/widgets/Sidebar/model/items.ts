@@ -19,5 +19,6 @@ export const sidebarItemList: Array<Omit<ISidebarItemProps, 'collapsed'>> = [
     Icon: ProfileIcon,
     path: RoutePath.profile,
     text: 'профиль',
+    authOnly: true,
   },
 ]
