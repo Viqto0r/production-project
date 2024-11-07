@@ -1,6 +1,7 @@
 import type webpack from 'webpack'
 import { type BuildOptions } from './types/config'
 import { buildCssLoader } from './loaders/buildCssLoader'
+import { buildBabelLoader } from './loaders/buildBabelLoader'
 
 export const buildLoaders = ({
   isDev,
@@ -11,17 +12,7 @@ export const buildLoaders = ({
     exclude: /node_modules/,
   }
 
-  const babelLoader = {
-    test: /\.(?:jsx?|mjs|cjs|tsx?)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-      },
-    },
-  }
-
+  const babelLoader = buildBabelLoader()
   const cssLoader = buildCssLoader(isDev)
 
   const svgLoader = {
