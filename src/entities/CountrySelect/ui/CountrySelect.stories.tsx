@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { CountrySelect } from './CountrySelect'
 
 const meta = {
-  title: 'Entities/CurrencySelect',
+  title: 'Entities/CountrySelect',
   component: CountrySelect,
   args: {},
 } satisfies Meta<typeof CountrySelect>

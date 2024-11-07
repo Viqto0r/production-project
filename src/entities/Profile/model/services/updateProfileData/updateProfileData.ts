@@ -1,23 +1,34 @@
 import { getFormData } from './../../selectors/getFormData/getFormData'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type IThunkConfig } from 'app/providers/StoreProvider/config/StateSchema'
-import { type IProfile } from '../../types/profile'
+import { EValidateProfileErrors, type IProfile } from '../../types/profile'
+import { validateProfileData } from '../validateProfileData/validateProfileData'
 
 export const updateProfileData = createAsyncThunk<
   IProfile,
   // eslint-disable-next-line
   void,
-  IThunkConfig<string>
+  IThunkConfig<EValidateProfileErrors[]>
 >(
   'profile/updateProfileData',
   async (_, { rejectWithValue, extra, getState }) => {
+    const formData = getFormData(getState())
+    const errors = validateProfileData(formData)
+
+    if (errors.length) {
+      return rejectWithValue(errors)
+    }
+
     try {
-      const formData = getFormData(getState())
       const response = await extra.api.put('/profile', formData)
+
+      if (!response.data) {
+        throw new Error()
+      }
 
       return response.data
     } catch (e) {
-      return rejectWithValue('error')
+      return rejectWithValue([EValidateProfileErrors.SERVER_ERROR])
     }
   }
 )

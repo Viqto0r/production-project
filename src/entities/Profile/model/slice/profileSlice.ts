@@ -9,13 +9,14 @@ const initialState: IProfileSchema = {
   data: undefined,
   form: undefined,
   error: undefined,
+  validateErrors: [],
 }
 
 const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
-    updateProfileDate(state, { payload }: PayloadAction<IProfile>) {
+    updateProfileData(state, { payload }: PayloadAction<IProfile>) {
       state.form = { ...state.form, ...payload }
     },
     setReadonly(state, { payload }: PayloadAction<IProfileSchema['readonly']>) {
@@ -24,6 +25,7 @@ const profileSlice = createSlice({
     resetProfile(state) {
       state.form = state.data
       state.readonly = true
+      state.validateErrors = undefined
     },
   },
   extraReducers(builder) {
@@ -40,21 +42,24 @@ const profileSlice = createSlice({
         state.isLoading = false
         state.data = payload
         state.form = payload
+        state.error = undefined
       })
       .addCase(updateProfileData.pending, (state) => {
         state.isLoading = true
         state.readonly = true
-        state.error = undefined
+        state.validateErrors = undefined
       })
       .addCase(updateProfileData.rejected, (state, { payload }) => {
         state.isLoading = false
         state.readonly = false
-        state.error = payload
+        state.validateErrors = payload
       })
       .addCase(updateProfileData.fulfilled, (state, { payload }) => {
         state.isLoading = false
         state.data = payload
         state.form = payload
+        state.validateErrors = undefined
+        state.readonly = true
       })
   },
 })

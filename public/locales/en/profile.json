@@ -9,9 +9,13 @@
   "сохранить": "Save",
   "ваш возраст": "Your age",
   "ваш город": "Your city",
-  "ваша страна": "Your country",
   "введите ссылку на аватар": "Enter a link to your avatar",
   "аватар": "Avatar",
   "укажите валюту": "Specify currency",
-  "укажите страну": "Please indicate your country"
+  "укажите страну": "Please indicate your country",
+  "данные не указаны": "Data not provided",
+  "имя и фамилия обязательны": "First and last name are required",
+  "некорректный возраст": "Incorrect age",
+  "некорректный регион": "Invalid region",
+  "серверная ошибка при сохранении": "Server error when saving"
 }

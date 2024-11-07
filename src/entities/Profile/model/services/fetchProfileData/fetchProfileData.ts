@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type IThunkConfig } from 'app/providers/StoreProvider/config/StateSchema'
-import { type IProfile } from '../../types/profile'
+import { EValidateProfileErrors, type IProfile } from '../../types/profile'
 
 export const fetchProfileData = createAsyncThunk<
   IProfile,
@@ -11,8 +11,12 @@ export const fetchProfileData = createAsyncThunk<
   try {
     const response = await extra.api.get('/profile')
 
+    if (!response.data) {
+      throw new Error()
+    }
+
     return response.data
   } catch (e) {
-    return rejectWithValue('error')
+    return rejectWithValue(EValidateProfileErrors.SERVER_ERROR)
   }
 })

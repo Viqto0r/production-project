@@ -90,15 +90,6 @@ export const ProfileCard: FC<IProfileCardProps> = (props) => {
           validate={numberValidator}
         />
         <Input
-          value={data?.country || ''}
-          placeholder={t('ваша страна')}
-          className={cls.input}
-          readOnly={readonly}
-          maxLength={15}
-          onChange={onChangeValue}
-          name="country"
-        />
-        <Input
           value={data?.city || ''}
           placeholder={t('ваш город')}
           className={cls.input}
