@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { ETheme, LOCAL_STORAGE_THEME_KEY, ThemeContext } from './ThemeContext'
 
 interface IUseThemeResult {
@@ -8,6 +8,11 @@ interface IUseThemeResult {
 
 export const useTheme = (): IUseThemeResult => {
   const { theme = ETheme.LIGHT, setTheme } = useContext(ThemeContext)
+
+  useEffect(() => {
+    document.body.className = theme
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const toggleTheme = (): void => {
     let newTheme: ETheme

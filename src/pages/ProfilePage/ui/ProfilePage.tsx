@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useMemo } from 'react'
+import { memo, useCallback, useMemo } from 'react'
 import {
   DynamicModuleLoader,
   type TReducerList,
@@ -17,12 +17,13 @@ import {
   getProfileReadonly,
   ProfileCard,
 } from 'entities/Profile'
-import { useAppDispatch } from 'shared/lib/hooks/AppDispatch/AppDispatch'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Text } from 'shared/ui/Text'
 import { getProfileValidateErrors } from 'entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors'
 import { EValidateProfileErrors } from 'entities/Profile/model/types/profile'
 import { ETextTheme } from 'shared/ui/Text/ui/Text'
 import { useTranslation } from 'react-i18next'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 
 const asyncReducers: TReducerList = {
   profile: profileReducer,
@@ -31,11 +32,9 @@ const asyncReducers: TReducerList = {
 export default memo(function MainPage() {
   const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData())
-    }
-  }, [dispatch])
+  useInitialEffect(() => {
+    dispatch(fetchProfileData())
+  })
 
   const data = useSelector(getFormData)
   const isLoading = useSelector(getProfileIsLoading)

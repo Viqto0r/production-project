@@ -18,7 +18,7 @@ import {
   DynamicModuleLoader,
   type TReducerList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { useAppDispatch } from 'shared/lib/hooks/AppDispatch/AppDispatch'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 export interface ILoginFormProps {
   onSuccess: () => void

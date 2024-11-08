@@ -11,6 +11,7 @@ import { type ICounterSchema } from 'entities/Counter'
 import { type IProfileSchema } from 'entities/Profile/model/types/profile'
 import { type IUserSchema } from 'entities/User'
 import { type ILoginSchema } from 'features/AuthByUsername'
+import { type IArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
 import { type NavigateFunction } from 'react-router-dom'
 
 export interface IStateSchema {
@@ -21,6 +22,7 @@ export interface IStateSchema {
   loginForm?: ILoginSchema
   profile?: IProfileSchema
   articleDetails?: IArticleDetailsSchema
+  articleDetailsComments?: IArticleDetailsCommentsSchema
 }
 
 export type IStateSchemaKeys = keyof IStateSchema

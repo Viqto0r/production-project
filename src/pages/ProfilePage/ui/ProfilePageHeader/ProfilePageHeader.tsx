@@ -4,7 +4,7 @@ import cls from './ProfilePageHeader.module.scss'
 import { Text } from 'shared/ui/Text'
 import { Button, EThemeButton } from 'shared/ui/Button'
 import { useTranslation } from 'react-i18next'
-import { useAppDispatch } from 'shared/lib/hooks/AppDispatch/AppDispatch'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { profileActions } from 'entities/Profile/model/slice/profileSlice'
 import { updateProfileData } from 'entities/Profile'
 
