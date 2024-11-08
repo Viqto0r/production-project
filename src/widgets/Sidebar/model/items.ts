@@ -1,6 +1,7 @@
 import MainIcon from 'shared/assets/icons/Main.svg'
 import AboutIcon from 'shared/assets/icons/About.svg'
 import ProfileIcon from 'shared/assets/icons/Profile.svg'
+import ArticleIcon from 'shared/assets/icons/article-20-20.svg'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { type ISidebarItemProps } from '../ui/SidebarItem/SidebarItem'
 
@@ -19,6 +20,12 @@ export const sidebarItemList: Array<Omit<ISidebarItemProps, 'collapsed'>> = [
     Icon: ProfileIcon,
     path: RoutePath.profile,
     text: 'профиль',
+    authOnly: true,
+  },
+  {
+    Icon: ArticleIcon,
+    path: RoutePath.articles,
+    text: 'статьи',
     authOnly: true,
   },
 ]
