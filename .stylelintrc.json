@@ -3,6 +3,7 @@
   "rules": {
     "selector-class-pattern": null,
     "string-quotes": "single",
-    "custom-property-pattern": null
+    "custom-property-pattern": null,
+    "declaration-colon-newline-after": null
   }
 }

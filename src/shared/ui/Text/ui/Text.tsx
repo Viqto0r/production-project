@@ -13,12 +13,18 @@ export enum ETextAlign {
   CENTER = 'center',
 }
 
+export enum ETextSize {
+  M = 'size_m',
+  L = 'size_l',
+}
+
 interface ITextProps {
   title?: string
   text?: string
   className?: string
   theme?: ETextTheme
   align?: ETextAlign
+  size?: ETextSize
 }
 
 export const Text: FC<ITextProps> = memo((props) => {
@@ -28,10 +34,17 @@ export const Text: FC<ITextProps> = memo((props) => {
     theme = ETextTheme.PRIMARY,
     className,
     align = ETextAlign.LEFT,
+    size = ETextSize.M,
   } = props
+
   return (
     <div
-      className={classNames('Text', {}, [cls[theme], className, cls[align]])}
+      className={classNames('Text', {}, [
+        cls[theme],
+        className,
+        cls[align],
+        cls[size],
+      ])}
     >
       {title && <p className={cls.title}>{title}</p>}
       {text && <p className={cls.text}>{text}</p>}

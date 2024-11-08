@@ -6,6 +6,7 @@ import {
   type EnhancedStore,
 } from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
+import { type IArticleDetailsSchema } from 'entities/Article'
 import { type ICounterSchema } from 'entities/Counter'
 import { type IProfileSchema } from 'entities/Profile/model/types/profile'
 import { type IUserSchema } from 'entities/User'
@@ -19,6 +20,7 @@ export interface IStateSchema {
   // Асинхронные редьюсеры
   loginForm?: ILoginSchema
   profile?: IProfileSchema
+  articleDetails?: IArticleDetailsSchema
 }
 
 export type IStateSchemaKeys = keyof IStateSchema

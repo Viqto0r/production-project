@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { themeDecorator } from 'shared/config/storybook/themeDecorator'
 import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
-import { ETextTheme, Text } from './Text'
+import { ETextSize, ETextTheme, Text } from './Text'
 
 const meta = {
   title: 'Shared/Text',
@@ -47,4 +47,8 @@ export const OnlyTextDark: Story = {
 export const ErrorDark: Story = {
   args: { title: 'Title', theme: ETextTheme.ERROR },
   decorators: [themeDecorator(ETheme.DARK)],
+}
+
+export const SizeL: Story = {
+  args: { title: 'Title', text: 'Text', size: ETextSize.L },
 }
