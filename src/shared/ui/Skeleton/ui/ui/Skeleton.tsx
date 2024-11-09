@@ -19,9 +19,6 @@ export const Skeleton: FC<ISkeletonProps> = memo((props) => {
   }
 
   return (
-    <div
-      className={classNames(cls.Skeleton, {}, [className])}
-      style={styles}
-    ></div>
+    <div className={classNames(cls.Skeleton, {}, [className])} style={styles} />
   )
 })

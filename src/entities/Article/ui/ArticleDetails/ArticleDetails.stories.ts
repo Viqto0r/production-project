@@ -16,7 +16,7 @@ const meta = {
 export default meta
 export type Story = StoryObj<typeof meta>
 
-const article: IArticle = {
+export const articleMock: IArticle = {
   id: '1',
   title: 'Javascript news',
   subtitle: 'Что нового в JS за 2024год?',
@@ -24,6 +24,12 @@ const article: IArticle = {
   views: 1022,
   createdAt: '08.11.2024',
   type: [EArticleType.IT],
+  user: {
+    id: '1',
+    username: 'Admin',
+    avatar:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png',
+  },
   blocks: [
     {
       id: '1',
@@ -91,7 +97,7 @@ export const ArticleDetailsNormal: Story = {
   decorators: [
     storeDecorator({
       articleDetails: {
-        data: article,
+        data: articleMock,
       },
     }),
   ],

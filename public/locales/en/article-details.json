@@ -1,5 +1,10 @@
 {
   "статья не найдена": "Article not found",
   "произошла ошибка при загрузке статьи": "There was an error loading the article",
-  "комментарии": "Comments"
+  "комментарии": "Comments",
+  "введите текст комментария": "Enter comment text",
+  "комментарии отсутствуют": "No comments",
+  "отправить": "Send",
+  "читать далее": "Read more...",
+  "назад к списку": "Back to list"
 }
