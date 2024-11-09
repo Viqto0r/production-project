@@ -5,10 +5,9 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher'
 import { Button, EThemeButton } from 'shared/ui/Button'
 import { EButtonSize } from 'shared/ui/Button/ui/Button'
-import { sidebarItemList } from 'widgets/Sidebar/model/items'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { useSelector } from 'react-redux'
-import { getUserAuthData } from 'entities/User'
+import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 
 interface ISidebarProps {
   className?: string
@@ -16,11 +15,12 @@ interface ISidebarProps {
 
 export const Sidebar: FC<ISidebarProps> = memo(({ className }) => {
   const [collapsed, setCollapsed] = useState(false)
-  const isAuth = useSelector(getUserAuthData)
 
   const toggleCollapse = () => {
     setCollapsed((collapsed) => !collapsed)
   }
+
+  const sidebarItemList = useSelector(getSidebarItems)
 
   return (
     <div
@@ -41,9 +41,6 @@ export const Sidebar: FC<ISidebarProps> = memo(({ className }) => {
       </Button>
       <div className={cls.links}>
         {sidebarItemList.map((item) => {
-          if (item.authOnly && !isAuth) {
-            return null
-          }
           return <SidebarItem key={item.path} collapsed={collapsed} {...item} />
         })}
       </div>
