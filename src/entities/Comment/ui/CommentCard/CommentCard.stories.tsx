@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { CommentCard } from './CommentCard'
 
 const meta = {
-  title: 'Entities/CommentCard',
+  title: 'Entities/Comments/CommentCard',
   component: CommentCard,
   args: {},
 } satisfies Meta<typeof CommentCard>
@@ -18,8 +18,25 @@ export const CommentCardNormal: Story = {
       user: {
         id: '1',
         username: 'Name',
-        avatar: '',
+        avatar:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png',
       },
     },
+  },
+}
+
+export const CommentCardIsLoading: Story = {
+  args: {
+    comment: {
+      id: '1',
+      text: '123',
+      user: {
+        id: '1',
+        username: 'Name',
+        avatar:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png',
+      },
+    },
+    isLoading: true,
   },
 }

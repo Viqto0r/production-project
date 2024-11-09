@@ -20,7 +20,7 @@ describe('fetchProfileData', () => {
     const thunk = new TestAsyncThunk(fetchProfileData)
     thunk.api.get.mockReturnValue(Promise.resolve({ data: responseValue }))
 
-    const response = await thunk.callThunk()
+    const response = await thunk.callThunk('1')
 
     expect(response.payload).toEqual(responseValue)
     // eslint-disable-next-line
@@ -33,7 +33,7 @@ describe('fetchProfileData', () => {
     const thunk = new TestAsyncThunk(fetchProfileData)
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }))
 
-    const response = await thunk.callThunk()
+    const response = await thunk.callThunk('1')
     expect(response.meta.requestStatus).toBe('rejected')
     // eslint-disable-next-line
     expect(thunk.api.get).toHaveBeenCalled()

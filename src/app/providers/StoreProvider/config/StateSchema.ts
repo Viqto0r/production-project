@@ -10,6 +10,7 @@ import { type IArticleDetailsSchema } from 'entities/Article'
 import { type ICounterSchema } from 'entities/Counter'
 import { type IProfileSchema } from 'entities/Profile/model/types/profile'
 import { type IUserSchema } from 'entities/User'
+import { type IAddCommentFormSchema } from 'features/AddCommentForm/model/types/addCommentForm'
 import { type ILoginSchema } from 'features/AuthByUsername'
 import { type IArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
 import { type NavigateFunction } from 'react-router-dom'
@@ -23,6 +24,7 @@ export interface IStateSchema {
   profile?: IProfileSchema
   articleDetails?: IArticleDetailsSchema
   articleDetailsComments?: IArticleDetailsCommentsSchema
+  addCommentForm?: IAddCommentFormSchema
 }
 
 export type IStateSchemaKeys = keyof IStateSchema

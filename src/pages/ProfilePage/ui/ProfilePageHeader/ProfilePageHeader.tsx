@@ -6,7 +6,9 @@ import { Button, EThemeButton } from 'shared/ui/Button'
 import { useTranslation } from 'react-i18next'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { profileActions } from 'entities/Profile/model/slice/profileSlice'
-import { updateProfileData } from 'entities/Profile'
+import { getProfileData, updateProfileData } from 'entities/Profile'
+import { useSelector } from 'react-redux'
+import { getUserAuthData } from 'entities/User'
 
 interface IProfilePageHeaderProps {
   className?: string
@@ -17,6 +19,9 @@ export const ProfilePageHeader: FC<IProfilePageHeaderProps> = memo((props) => {
   const { className, readonly } = props
   const { t } = useTranslation('profile')
   const dispatch = useAppDispatch()
+  const authData = useSelector(getUserAuthData)
+  const profileData = useSelector(getProfileData)
+  const canEdit = authData?.id === profileData?.id
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false))
@@ -33,26 +38,29 @@ export const ProfilePageHeader: FC<IProfilePageHeaderProps> = memo((props) => {
   return (
     <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
       <Text title={t('профиль')} />
-      <div className={cls.buttons}>
-        {readonly ? (
-          <Button theme={EThemeButton.OUTLINE} onClick={onEdit}>
-            {t('редактировать')}
-          </Button>
-        ) : (
-          <>
-            <Button
-              theme={EThemeButton.OUTLINE_RED}
-              className={cls.cancelBtn}
-              onClick={handleResetProfile}
-            >
-              {t('отменить')}
+      {canEdit && (
+        <div className={cls.buttons}>
+          {readonly ? (
+            <Button theme={EThemeButton.OUTLINE} onClick={onEdit}>
+              {t('редактировать')}
             </Button>
-            <Button theme={EThemeButton.OUTLINE} onClick={onSave}>
-              {t('сохранить')}
-            </Button>
-          </>
-        )}
-      </div>
+          ) : (
+            <>
+              <Button
+                theme={EThemeButton.OUTLINE_RED}
+                className={cls.cancelBtn}
+                onClick={handleResetProfile}
+              >
+                {t('отменить')}
+              </Button>
+
+              <Button theme={EThemeButton.OUTLINE} onClick={onSave}>
+                {t('сохранить')}
+              </Button>
+            </>
+          )}
+        </div>
+      )}
     </div>
   )
 })

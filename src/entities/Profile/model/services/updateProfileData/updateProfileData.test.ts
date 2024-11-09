@@ -6,6 +6,7 @@ import { EValidateProfileErrors } from '../../types/profile'
 
 describe('fetchProfileData', () => {
   const initialValue = {
+    id: '1',
     firstName: 'Viqtor',
     lastName: 'Viq',
     age: 34,

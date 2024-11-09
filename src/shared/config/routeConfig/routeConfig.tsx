@@ -23,7 +23,7 @@ export enum EAppRoutes {
 export const RoutePath: Record<EAppRoutes, string> = {
   [EAppRoutes.MAIN]: '/',
   [EAppRoutes.ABOUT]: '/about',
-  [EAppRoutes.PROFILE]: '/profile',
+  [EAppRoutes.PROFILE]: '/profile/', // + :id
   [EAppRoutes.ARTICLES]: '/articles',
   [EAppRoutes.ARTICLE_DETAILS]: '/articles/', // + :id
   // last
@@ -34,7 +34,7 @@ export const routeConfig: Record<EAppRoutes, IAppRouteProps> = {
   [EAppRoutes.MAIN]: { path: RoutePath.main, element: <MainPage /> },
   [EAppRoutes.ABOUT]: { path: RoutePath.about, element: <AboutPage /> },
   [EAppRoutes.PROFILE]: {
-    path: RoutePath.profile,
+    path: `${RoutePath.profile}:id`,
     element: <ProfilePage />,
     authOnly: true,
   },

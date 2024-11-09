@@ -4,12 +4,11 @@ import { EValidateProfileErrors, type IProfile } from '../../types/profile'
 
 export const fetchProfileData = createAsyncThunk<
   IProfile,
-  // eslint-disable-next-line
-  void,
+  string,
   IThunkConfig<string>
->('profile/fetchProfileData', async (_, { rejectWithValue, extra }) => {
+>('profile/fetchProfileData', async (profileId, { rejectWithValue, extra }) => {
   try {
-    const response = await extra.api.get('/profile')
+    const response = await extra.api.get(`/profile/${profileId}`)
 
     if (!response.data) {
       throw new Error()

@@ -24,6 +24,7 @@ import { EValidateProfileErrors } from 'entities/Profile/model/types/profile'
 import { ETextTheme } from 'shared/ui/Text/ui/Text'
 import { useTranslation } from 'react-i18next'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { useParams } from 'react-router-dom'
 
 const asyncReducers: TReducerList = {
   profile: profileReducer,
@@ -31,9 +32,12 @@ const asyncReducers: TReducerList = {
 
 export default memo(function MainPage() {
   const dispatch = useAppDispatch()
+  const { id: profileId } = useParams<{ id: string }>()
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData())
+    if (profileId) {
+      dispatch(fetchProfileData(profileId))
+    }
   })
 
   const data = useSelector(getFormData)
@@ -70,7 +74,7 @@ export default memo(function MainPage() {
   )
 
   return (
-    <DynamicModuleLoader reducers={asyncReducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={asyncReducers}>
       <ProfilePageHeader readonly={readonly} />
       {validateErrors?.map((error) => (
         <Text

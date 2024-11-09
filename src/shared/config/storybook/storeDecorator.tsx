@@ -4,22 +4,26 @@ import { StoreProvider } from 'app/providers/StoreProvider'
 import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice'
 import { profileReducer } from 'entities/Profile/model/slice/profileSlice'
+import { addCommentFormReducer } from 'features/AddCommentForm/model/slices/addCommentFormSlice'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
+import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice'
 
 const defaultAsyncReducers: DeepPartial<ReducersMapObject<IStateSchema>> = {
   loginForm: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
+  articleDetailsComments: articleDetailsCommentsReducer,
+  addCommentForm: addCommentFormReducer,
 }
 
 export const storeDecorator =
   (
-    intialState: DeepPartial<IStateSchema>,
+    initialState: DeepPartial<IStateSchema>,
     asyncReducers?: DeepPartial<ReducersMapObject<IStateSchema>>
   ) =>
   (Story: StoryFn) => (
     <StoreProvider
-      initialState={intialState as IStateSchema}
+      initialState={initialState as IStateSchema}
       asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
     >
       <Story />
