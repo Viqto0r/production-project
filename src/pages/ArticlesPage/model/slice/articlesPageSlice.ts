@@ -6,7 +6,7 @@ import {
 import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
 import { EArticleView, type IArticle } from 'entities/Article'
 import { type IArticlePageSchema } from '../types/articlePageSchema'
-import { fetchArticlesList } from '../services/fetchArticlesList'
+import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList'
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 
 const articlesAdapter = createEntityAdapter<IArticle>({
@@ -18,11 +18,13 @@ export const getArticles = articlesAdapter.getSelectors<IStateSchema>(
 )
 
 const articlesPageSlice = createSlice({
-  name: 'articleDetailsCommentsSlice',
+  name: 'articlesPage',
   initialState: articlesAdapter.getInitialState<IArticlePageSchema>({
     isLoading: false,
     error: undefined,
     view: EArticleView.SMALL,
+    page: 1,
+    hasMore: true,
     ids: [],
     entities: {},
   }),
@@ -32,11 +34,25 @@ const articlesPageSlice = createSlice({
       localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, payload)
     },
 
+    setPage(state, { payload }: PayloadAction<number>) {
+      state.page = payload
+    },
+
+    setLimit(state, { payload }: PayloadAction<number>) {
+      state.limit = payload
+    },
+
+    setHasMore(state, { payload }: PayloadAction<boolean>) {
+      state.hasMore = payload
+    },
+
     initState(state) {
-      console.log(localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY))
-      state.view = localStorage.getItem(
+      const view = localStorage.getItem(
         ARTICLES_VIEW_LOCALSTORAGE_KEY
       ) as EArticleView
+
+      state.view = view
+      state.limit = view === EArticleView.BIG ? 4 : 9
     },
   },
   extraReducers(builder) {
@@ -52,7 +68,9 @@ const articlesPageSlice = createSlice({
       .addCase(fetchArticlesList.fulfilled, (state, { payload }) => {
         state.isLoading = false
         state.error = undefined
-        articlesAdapter.setAll(state, payload)
+        state.hasMore = payload.length > 0
+
+        articlesAdapter.addMany(state, payload)
       })
   },
 })

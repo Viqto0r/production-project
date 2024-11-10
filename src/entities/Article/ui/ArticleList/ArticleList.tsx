@@ -27,17 +27,10 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
     <ArticleListItem key={article.id} article={article} view={view} />
   )
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        {renderSkeleton(view)}
-      </div>
-    )
-  }
-
   return (
     <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
       {articles.length ? articles.map(renderArticle) : null}
+      {isLoading && renderSkeleton(view)}
     </div>
   )
 })

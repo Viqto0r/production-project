@@ -9,7 +9,7 @@ const initialState: IArticleDetailsSchema = {
 }
 
 const articleDetailsSlice = createSlice({
-  name: 'profile',
+  name: 'articleDetails',
   initialState,
   reducers: {},
   extraReducers(builder) {

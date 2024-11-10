@@ -32,24 +32,24 @@ export const Navbar: FC<INavbarProps> = memo(({ className }) => {
 
   if (authData) {
     return (
-      <div className={classNames(cls.NavBar, {}, [className])}>
+      <header className={classNames(cls.NavBar, {}, [className])}>
         <div className={cls.links}>
           <Button theme={EButtonTheme.CLEAR_INVERTED} onClick={handleLogout}>
             {t('выйти')}
           </Button>
         </div>
-      </div>
+      </header>
     )
   }
 
   return (
-    <div className={classNames(cls.NavBar, {}, [className])}>
+    <header className={classNames(cls.NavBar, {}, [className])}>
       <div className={cls.links}>
         <Button theme={EButtonTheme.CLEAR_INVERTED} onClick={handleOpenModal}>
           {t('войти')}
         </Button>
       </div>
       {isOpen && <LoginModal isOpen={isOpen} onClose={handleCloseModal} />}
-    </div>
+    </header>
   )
 })

@@ -25,6 +25,7 @@ import { ETextTheme } from 'shared/ui/Text/ui/Text'
 import { useTranslation } from 'react-i18next'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useParams } from 'react-router-dom'
+import { Page } from 'shared/ui/Page/Page'
 
 const asyncReducers: TReducerList = {
   profile: profileReducer,
@@ -75,21 +76,23 @@ export default memo(function MainPage() {
 
   return (
     <DynamicModuleLoader reducers={asyncReducers}>
-      <ProfilePageHeader readonly={readonly} />
-      {validateErrors?.map((error) => (
-        <Text
-          text={validateErrorTranslates[error]}
-          key={error}
-          theme={ETextTheme.ERROR}
+      <Page>
+        <ProfilePageHeader readonly={readonly} />
+        {validateErrors?.map((error) => (
+          <Text
+            text={validateErrorTranslates[error]}
+            key={error}
+            theme={ETextTheme.ERROR}
+          />
+        ))}
+        <ProfileCard
+          data={data}
+          isLoading={isLoading}
+          error={error}
+          readonly={readonly}
+          onChangeValue={handleChangeValue}
         />
-      ))}
-      <ProfileCard
-        data={data}
-        isLoading={isLoading}
-        error={error}
-        readonly={readonly}
-        onChangeValue={handleChangeValue}
-      />
+      </Page>
     </DynamicModuleLoader>
   )
 })
