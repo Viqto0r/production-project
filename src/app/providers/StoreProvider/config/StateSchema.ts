@@ -13,6 +13,7 @@ import { type IUserSchema } from 'entities/User'
 import { type IAddCommentFormSchema } from 'features/AddCommentForm/model/types/addCommentForm'
 import { type ILoginSchema } from 'features/AuthByUsername'
 import { type IArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
+import { type IArticlePageSchema } from 'pages/ArticlesPage'
 import { type NavigateFunction } from 'react-router-dom'
 
 export interface IStateSchema {
@@ -22,6 +23,7 @@ export interface IStateSchema {
   // Асинхронные редьюсеры
   loginForm?: ILoginSchema
   profile?: IProfileSchema
+  articlesPage?: IArticlePageSchema
   articleDetails?: IArticleDetailsSchema
   articleDetailsComments?: IArticleDetailsCommentsSchema
   addCommentForm?: IAddCommentFormSchema

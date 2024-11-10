@@ -7,6 +7,6 @@ export const ArticlesPageAsync = lazy(
       setTimeout(() => {
         // @ts-expect-error
         resolve(import('./ArticlesPage'))
-      }, 2000)
+      }, 400)
     })
 )
