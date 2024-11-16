@@ -14,10 +14,12 @@ import { type IAddCommentFormSchema } from 'features/AddCommentForm/model/types/
 import { type ILoginSchema } from 'features/AuthByUsername'
 import { type IArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
 import { type IArticlePageSchema } from 'pages/ArticlesPage'
+import { type IScrollSaverSchema } from 'widgets/Page'
 
 export interface IStateSchema {
   counter: ICounterSchema
   user: IUserSchema
+  scrollSaver: IScrollSaverSchema
 
   // Асинхронные редьюсеры
   loginForm?: ILoginSchema

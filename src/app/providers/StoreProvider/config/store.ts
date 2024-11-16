@@ -4,6 +4,7 @@ import { type IStateSchema } from './StateSchema'
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
 import { createReducerManager } from './reducerManager'
+import { scrollSaverReducer } from 'widgets/Page'
 
 export const createReduxStore = (
   initialState?: IStateSchema,
@@ -13,6 +14,7 @@ export const createReduxStore = (
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    scrollSaver: scrollSaverReducer,
   }
 
   const reducerManager = createReducerManager(rootReducers)

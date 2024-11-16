@@ -4,12 +4,12 @@ import { createReduxStore } from '../config/store'
 import { type IStateSchema } from '../config/StateSchema'
 import { type ReducersMapObject } from '@reduxjs/toolkit'
 
-interface IStoreProveiderProps {
+interface IStoreProviderProps {
   initialState?: DeepPartial<IStateSchema>
   asyncReducers?: DeepPartial<ReducersMapObject<IStateSchema>>
 }
 
-export const StoreProvider: FC<IStoreProveiderProps> = ({
+export const StoreProvider: FC<IStoreProviderProps> = ({
   children,
   initialState,
   asyncReducers,
