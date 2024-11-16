@@ -14,7 +14,6 @@ import { type IAddCommentFormSchema } from 'features/AddCommentForm/model/types/
 import { type ILoginSchema } from 'features/AuthByUsername'
 import { type IArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
 import { type IArticlePageSchema } from 'pages/ArticlesPage'
-import { type NavigateFunction } from 'react-router-dom'
 
 export interface IStateSchema {
   counter: ICounterSchema
@@ -49,7 +48,6 @@ export interface IStoreWithReducerManager extends EnhancedStore<IStateSchema> {
 
 interface IThunkExtraArg {
   api: AxiosInstance
-  navigate?: NavigateFunction
 }
 
 export interface IThunkConfig<T> {

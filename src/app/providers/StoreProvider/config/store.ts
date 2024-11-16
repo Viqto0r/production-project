@@ -4,12 +4,10 @@ import { type IStateSchema } from './StateSchema'
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
 import { createReducerManager } from './reducerManager'
-import { type NavigateFunction } from 'react-router-dom'
 
 export const createReduxStore = (
   initialState?: IStateSchema,
-  asyncReducers?: ReducersMapObject<IStateSchema>,
-  navigate?: NavigateFunction
+  asyncReducers?: ReducersMapObject<IStateSchema>
 ) => {
   const rootReducers: ReducersMapObject = {
     ...asyncReducers,
@@ -21,7 +19,6 @@ export const createReduxStore = (
 
   const extraArg = {
     api: $api,
-    navigate,
   }
 
   const store = configureStore({
@@ -37,8 +34,8 @@ export const createReduxStore = (
       })
     },
   })
-  // @ts-expect-error
 
+  // @ts-expect-error
   store.reducerManager = reducerManager
 
   return store
