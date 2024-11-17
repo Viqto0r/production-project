@@ -17,7 +17,6 @@ interface IFetchArticlesListProps {
 
 export const fetchArticlesList = createAsyncThunk<
   IArticle[],
-  // eslint-disable-next-line
   IFetchArticlesListProps,
   IThunkConfig<string>
 >('articles/fetchArticlesList', async ({ isReplace }, thunkApi) => {

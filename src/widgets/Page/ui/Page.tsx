@@ -33,7 +33,7 @@ export const Page: FC<IPageProps> = memo((props) => {
   const scrollTop = useSelector((state: IStateSchema) =>
     getScrollByPath(state, pathname)
   )
-  console.log(onScrollEnd)
+
   useInfiniteScroll({
     callback: onScrollEnd,
     wrapperRef,

@@ -1,4 +1,3 @@
-import { type ReducersMapObject } from '@reduxjs/toolkit'
 import { type StoryFn } from '@storybook/react'
 import { StoreProvider } from 'app/providers/StoreProvider'
 import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
@@ -6,21 +5,19 @@ import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetai
 import { profileReducer } from 'entities/Profile/model/slice/profileSlice'
 import { addCommentFormReducer } from 'features/AddCommentForm/model/slices/addCommentFormSlice'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
-import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice'
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices'
+import { type TReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
-const defaultAsyncReducers: DeepPartial<ReducersMapObject<IStateSchema>> = {
+const defaultAsyncReducers: TReducerList = {
   loginForm: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
   addCommentForm: addCommentFormReducer,
 }
 
 export const storeDecorator =
-  (
-    initialState: DeepPartial<IStateSchema>,
-    asyncReducers?: DeepPartial<ReducersMapObject<IStateSchema>>
-  ) =>
+  (initialState: DeepPartial<IStateSchema>, asyncReducers?: TReducerList) =>
   (Story: StoryFn) => (
     <StoreProvider
       initialState={initialState as IStateSchema}

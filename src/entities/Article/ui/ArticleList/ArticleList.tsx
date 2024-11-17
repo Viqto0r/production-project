@@ -13,6 +13,7 @@ interface IArticleListProps {
   articles: IArticle[]
   isLoading?: boolean
   view?: EArticleView
+  target?: HTMLAnchorElement['target']
 }
 
 const renderSkeleton = (view: EArticleView) => {
@@ -24,11 +25,22 @@ const renderSkeleton = (view: EArticleView) => {
 }
 
 export const ArticleList: FC<IArticleListProps> = memo((props) => {
-  const { className, articles, isLoading, view = EArticleView.SMALL } = props
+  const {
+    className,
+    articles,
+    isLoading,
+    view = EArticleView.SMALL,
+    target,
+  } = props
   const { t } = useTranslation()
 
   const renderArticle = (article: IArticle) => (
-    <ArticleListItem key={article.id} article={article} view={view} />
+    <ArticleListItem
+      key={article.id}
+      article={article}
+      view={view}
+      target={target}
+    />
   )
 
   if (!isLoading && !articles.length) {

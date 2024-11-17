@@ -12,7 +12,7 @@ import { type IProfileSchema } from 'entities/Profile/model/types/profile'
 import { type IUserSchema } from 'entities/User'
 import { type IAddCommentFormSchema } from 'features/AddCommentForm/model/types/addCommentForm'
 import { type ILoginSchema } from 'features/AuthByUsername'
-import { type IArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
+import { type IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage'
 import { type IArticlePageSchema } from 'pages/ArticlesPage'
 import { type IScrollSaverSchema } from 'widgets/Page'
 
@@ -26,7 +26,7 @@ export interface IStateSchema {
   profile?: IProfileSchema
   articlesPage?: IArticlePageSchema
   articleDetails?: IArticleDetailsSchema
-  articleDetailsComments?: IArticleDetailsCommentsSchema
+  articleDetailsPage?: IArticleDetailsPageSchema
   addCommentForm?: IAddCommentFormSchema
 }
 

@@ -2,10 +2,7 @@ import { memo, type FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticleListItem.module.scss'
 import { EArticleView } from '../../model/types/article'
-import { Text } from 'shared/ui/Text'
 import { Card } from 'shared/ui/Card/Card'
-import { Button } from 'shared/ui/Button'
-import { EButtonTheme } from 'shared/ui/Button/ui/Button'
 import { Skeleton } from 'shared/ui/Skeleton/ui/ui/Skeleton'
 
 interface IArticleListItemSkeletonProps {
