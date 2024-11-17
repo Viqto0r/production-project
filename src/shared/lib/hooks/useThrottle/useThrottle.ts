@@ -1,7 +1,7 @@
 import { useCallback, useRef } from 'react'
 
 export const useThrottle = (
-  callback: (...args: any[]) => void,
+  callback: (...args: any[]) => any,
   delay: number
 ) => {
   const isThrottleRef = useRef(false)

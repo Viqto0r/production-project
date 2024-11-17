@@ -12,5 +12,17 @@
   "вы ввели неверный логин или пароль": "You entered an incorrect username or password",
   "выйти": "Logout",
   "профиль": "Profile",
-  "статьи": "Articles"
+  "статьи": "Articles",
+  "сортировать по": "Sort by",
+  "поиск": "Search",
+  "возрастанию": "Increasing",
+  "убыванию": "Descending",
+  "дате создания": "Creation date",
+  "названию": "Name",
+  "просмотрам": "Views",
+  "по": "By",
+  "ALL": "All",
+  "ECONOMICS": "Economy",
+  "IT": "IT",
+  "SCIENCE": "Science"
 }

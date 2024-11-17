@@ -4,6 +4,8 @@ import { initArticlesPage } from './initArticlesPage'
 jest.mock('../fetchArticlesList/fetchArticlesList')
 
 describe('fetchProfileData', () => {
+  const searchParams = new URLSearchParams()
+
   test('no inited', async () => {
     const thunk = new TestAsyncThunk(initArticlesPage, {
       articlesPage: {
@@ -11,7 +13,7 @@ describe('fetchProfileData', () => {
       },
     })
 
-    await thunk.callThunk()
+    await thunk.callThunk(searchParams)
 
     expect(thunk.dispatch).toBeCalledTimes(4)
   })
@@ -23,7 +25,7 @@ describe('fetchProfileData', () => {
       },
     })
 
-    await thunk.callThunk()
+    await thunk.callThunk(searchParams)
 
     expect(thunk.dispatch).toBeCalledTimes(2)
   })

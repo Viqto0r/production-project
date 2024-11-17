@@ -33,7 +33,7 @@ export const Page: FC<IPageProps> = memo((props) => {
   const scrollTop = useSelector((state: IStateSchema) =>
     getScrollByPath(state, pathname)
   )
-
+  console.log(onScrollEnd)
   useInfiniteScroll({
     callback: onScrollEnd,
     wrapperRef,
@@ -60,7 +60,7 @@ export const Page: FC<IPageProps> = memo((props) => {
       onScroll={onScroll}
     >
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd && <div ref={triggerRef} className={cls.trigger} />}
     </section>
   )
 })

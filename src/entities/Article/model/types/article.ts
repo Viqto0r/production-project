@@ -32,6 +32,7 @@ export type TArticleBlock =
   | IArticleTextBlock
 
 export enum EArticleType {
+  ALL = 'ALL',
   IT = 'IT',
   SCIENCE = 'SCIENCE',
   ECONOMICS = 'ECONOMICS',
@@ -40,6 +41,12 @@ export enum EArticleType {
 export enum EArticleView {
   BIG = 'BIG',
   SMALL = 'SMALL',
+}
+
+export enum EArticleSortField {
+  VIEWS = 'views',
+  TITLE = 'title',
+  CREATED = 'createdAt',
 }
 
 export interface IArticle {
