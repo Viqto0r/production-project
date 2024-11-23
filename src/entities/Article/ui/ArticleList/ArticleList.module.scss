@@ -5,8 +5,21 @@
 
 .BIG {
   flex-direction: column;
+  .card {
+    height: 700px;
+  }
 }
 
 .SMALL {
   flex-wrap: wrap;
+
+  .card {
+    display: inline-flex;
+    height: 330px;
+  }
+
+  .row {
+    display: flex;
+    gap: 30px;
+  }
 }
