@@ -10,3 +10,4 @@ export {
   ESortFieldNames,
 } from './ui/ArticleSortSelector/ArticleSortSelector'
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs'
+export { getArticleDetailsData } from './model/selectors/getArticleDetailsData'

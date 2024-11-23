@@ -7,6 +7,11 @@ import { EButtonTheme } from 'shared/ui/Button/ui/Button'
 import { LoginModal } from 'features/AuthByUsername/ui/LoginModal/LoginModal'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entities/User'
+import { Text } from 'shared/ui/Text'
+import { AppLink } from 'shared/ui/AppLink'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { EAppLinkTheme } from 'shared/ui/AppLink/ui/AppLink'
+import { ETextTheme } from 'shared/ui/Text/ui/Text'
 
 interface INavbarProps {
   className?: string
@@ -33,22 +38,34 @@ export const Navbar: FC<INavbarProps> = memo(({ className }) => {
   if (authData) {
     return (
       <header className={classNames(cls.NavBar, {}, [className])}>
-        <div className={cls.links}>
-          <Button theme={EButtonTheme.CLEAR_INVERTED} onClick={handleLogout}>
-            {t('выйти')}
-          </Button>
-        </div>
+        <Text
+          className={cls.appName}
+          title={t('мое приложение')}
+          theme={ETextTheme.INVERTED}
+        />
+        <AppLink to={RoutePath.article_create} theme={EAppLinkTheme.SECONDARY}>
+          {t('создать статью')}
+        </AppLink>
+        <Button
+          className={cls.links}
+          theme={EButtonTheme.CLEAR_INVERTED}
+          onClick={handleLogout}
+        >
+          {t('выйти')}
+        </Button>
       </header>
     )
   }
 
   return (
     <header className={classNames(cls.NavBar, {}, [className])}>
-      <div className={cls.links}>
-        <Button theme={EButtonTheme.CLEAR_INVERTED} onClick={handleOpenModal}>
-          {t('войти')}
-        </Button>
-      </div>
+      <Button
+        className={cls.links}
+        theme={EButtonTheme.CLEAR_INVERTED}
+        onClick={handleOpenModal}
+      >
+        {t('войти')}
+      </Button>
       {isOpen && <LoginModal isOpen={isOpen} onClose={handleCloseModal} />}
     </header>
   )
