@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env port=3000",
-    "build:prod": "webpack --env mode=production apiUrl=production-project-server-rkkez63va-viqto0rs-projects.vercel.app",
+    "build:prod": "webpack --env mode=production apiUrl=https://production-project-server-rkkez63va-viqto0rs-projects.vercel.app",
     "build:dev": "webpack --env mode=development",
     "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\"",
     "start:dev:server": "node ./json-server/index.js",
