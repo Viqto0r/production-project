@@ -8,6 +8,7 @@ import { EButtonSize } from 'shared/ui/Button/ui/Button'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
+import { VStack } from 'shared/ui/Stack'
 
 interface ISidebarProps {
   className?: string
@@ -39,11 +40,11 @@ export const Sidebar: FC<ISidebarProps> = memo(({ className }) => {
       >
         {collapsed ? '>' : '<'}
       </Button>
-      <div className={cls.links}>
+      <VStack className={cls.links} gap="8">
         {sidebarItemList.map((item) => {
           return <SidebarItem key={item.path} collapsed={collapsed} {...item} />
         })}
-      </div>
+      </VStack>
       <div className={cls.switchers}>
         <ThemeSwitcher />
         <LanguageSwitcher short={collapsed} />

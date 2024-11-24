@@ -1,6 +1,5 @@
 import { memo, useCallback, type FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './ProfilePageHeader.module.scss'
 import { Text } from 'shared/ui/Text'
 import { Button, EThemeButton } from 'shared/ui/Button'
 import { useTranslation } from 'react-i18next'
@@ -9,6 +8,7 @@ import { profileActions } from 'entities/Profile/model/slice/profileSlice'
 import { getProfileData, updateProfileData } from 'entities/Profile'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from 'entities/User'
+import { HStack } from 'shared/ui/Stack'
 
 interface IProfilePageHeaderProps {
   className?: string
@@ -36,10 +36,10 @@ export const ProfilePageHeader: FC<IProfilePageHeaderProps> = memo((props) => {
   }, [dispatch])
 
   return (
-    <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+    <HStack justify="between" className={classNames('', {}, [className])} max>
       <Text title={t('профиль')} />
       {canEdit && (
-        <div className={cls.buttons}>
+        <HStack gap="16">
           {readonly ? (
             <Button theme={EThemeButton.OUTLINE} onClick={onEdit}>
               {t('редактировать')}
@@ -48,19 +48,17 @@ export const ProfilePageHeader: FC<IProfilePageHeaderProps> = memo((props) => {
             <>
               <Button
                 theme={EThemeButton.OUTLINE_RED}
-                className={cls.cancelBtn}
                 onClick={handleResetProfile}
               >
                 {t('отменить')}
               </Button>
-
               <Button theme={EThemeButton.OUTLINE} onClick={onSave}>
                 {t('сохранить')}
               </Button>
             </>
           )}
-        </div>
+        </HStack>
       )}
-    </div>
+    </HStack>
   )
 })

@@ -26,6 +26,7 @@ import { useTranslation } from 'react-i18next'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useParams } from 'react-router-dom'
 import { Page } from 'widgets/Page'
+import { VStack } from 'shared/ui/Stack'
 
 const asyncReducers: TReducerList = {
   profile: profileReducer,
@@ -77,21 +78,23 @@ export default memo(function MainPage() {
   return (
     <DynamicModuleLoader reducers={asyncReducers}>
       <Page>
-        <ProfilePageHeader readonly={readonly} />
-        {validateErrors?.map((error) => (
-          <Text
-            text={validateErrorTranslates[error]}
-            key={error}
-            theme={ETextTheme.ERROR}
+        <VStack gap="16" max>
+          <ProfilePageHeader readonly={readonly} />
+          {validateErrors?.map((error) => (
+            <Text
+              text={validateErrorTranslates[error]}
+              key={error}
+              theme={ETextTheme.ERROR}
+            />
+          ))}
+          <ProfileCard
+            data={data}
+            isLoading={isLoading}
+            error={error}
+            readonly={readonly}
+            onChangeValue={handleChangeValue}
           />
-        ))}
-        <ProfileCard
-          data={data}
-          isLoading={isLoading}
-          error={error}
-          readonly={readonly}
-          onChangeValue={handleChangeValue}
-        />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   )

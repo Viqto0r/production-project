@@ -30,6 +30,7 @@ import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock'
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { HStack, VStack } from 'shared/ui/Stack'
 
 interface IArticleDetailsProps {
   className?: string
@@ -111,28 +112,24 @@ export const ArticleDetails: FC<IArticleDetailsProps> = memo((props) => {
   } else {
     content = (
       <>
-        <div className={cls.avatarWrapper}>
-          <Avatar
-            size={200}
-            alt="avatar"
-            src={article?.img}
-            className={cls.avatar}
+        <HStack justify="center" max>
+          <Avatar size={200} alt="avatar" src={article?.img} />
+        </HStack>
+        <VStack gap="4" max>
+          <Text
+            title={article?.title}
+            text={article?.subtitle}
+            size={ETextSize.L}
           />
-        </div>
-        <Text
-          className={cls.title}
-          title={article?.title}
-          text={article?.subtitle}
-          size={ETextSize.L}
-        />
-        <div className={cls.articleInfo}>
-          <Icon className={cls.icon} Svg={EyeIcon} />
-          <Text text={article?.views.toString()} />
-        </div>
-        <div className={cls.articleInfo}>
-          <Icon className={cls.icon} Svg={CalendarIcon} />
-          <Text text={article?.createdAt} />
-        </div>
+          <HStack gap="8">
+            <Icon Svg={EyeIcon} />
+            <Text text={article?.views.toString()} />
+          </HStack>
+          <HStack gap="8">
+            <Icon Svg={CalendarIcon} />
+            <Text text={article?.createdAt} />
+          </HStack>
+        </VStack>
         {article?.blocks.map(renderBlock)}
       </>
     )
@@ -140,9 +137,12 @@ export const ArticleDetails: FC<IArticleDetailsProps> = memo((props) => {
 
   return (
     <DynamicModuleLoader reducers={asyncReducers}>
-      <div className={classNames(cls.ArticleDetails, {}, [className])}>
+      <VStack
+        gap="16"
+        className={classNames(cls.ArticleDetails, {}, [className])}
+      >
         {content}
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   )
 })

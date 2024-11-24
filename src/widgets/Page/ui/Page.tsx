@@ -1,5 +1,4 @@
 import {
-  memo,
   type ReactNode,
   type FC,
   useRef,
@@ -26,7 +25,7 @@ interface IPageProps {
 
 export const PAGE_ID = 'PAGE_ID'
 
-export const Page: FC<IPageProps> = memo((props) => {
+export const Page: FC<IPageProps> = (props) => {
   const { className, children, onScrollEnd } = props
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
@@ -66,4 +65,4 @@ export const Page: FC<IPageProps> = memo((props) => {
       {onScrollEnd && <div ref={triggerRef} className={cls.trigger} />}
     </section>
   )
-})
+}

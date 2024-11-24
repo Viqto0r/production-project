@@ -15,6 +15,7 @@ import {
   DynamicModuleLoader,
   type TReducerList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { HStack } from 'shared/ui/Stack'
 
 export interface IAddCommentFormProps {
   className?: string
@@ -44,7 +45,11 @@ const AddCommentForm: FC<IAddCommentFormProps> = memo((props) => {
 
   return (
     <DynamicModuleLoader reducers={asyncReducers}>
-      <div className={classNames(cls.AddCommentForm, {}, [className])}>
+      <HStack
+        justify="between"
+        max
+        className={classNames(cls.AddCommentForm, {}, [className])}
+      >
         <Input
           className={cls.input}
           placeholder={t('введите текст комментария')}
@@ -52,7 +57,7 @@ const AddCommentForm: FC<IAddCommentFormProps> = memo((props) => {
           onChange={handleCommentTextChange}
         />
         <Button onClick={onSendHandler}>{t('отправить')}</Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   )
 })

@@ -1,4 +1,4 @@
-import { memo, type ReactNode, type FC, type HTMLAttributes } from 'react'
+import { type ReactNode, type FC, type HTMLAttributes } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Card.module.scss'
 
@@ -12,7 +12,7 @@ interface ICardProps extends HTMLAttributes<HTMLDivElement> {
   theme?: ECardTheme
 }
 
-export const Card: FC<ICardProps> = memo((props) => {
+export const Card: FC<ICardProps> = (props) => {
   const {
     className,
     children,
@@ -28,4 +28,4 @@ export const Card: FC<ICardProps> = memo((props) => {
       {children}
     </div>
   )
-})
+}

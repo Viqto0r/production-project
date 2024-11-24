@@ -3,7 +3,7 @@ import { Tabs } from './Tabs'
 import { action } from '@storybook/addon-actions'
 
 const meta = {
-  title: 'Entities/Tabs',
+  title: 'Shared/Tabs',
   component: Tabs,
   args: {},
 } satisfies Meta<typeof Tabs>
