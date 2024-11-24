@@ -55,7 +55,7 @@ export const Page: FC<IPageProps> = (props) => {
   }, 500)
 
   return (
-    <section
+    <main
       className={classNames(cls.Page, {}, [className])}
       ref={wrapperRef}
       onScroll={onScroll}
@@ -63,6 +63,6 @@ export const Page: FC<IPageProps> = (props) => {
     >
       {children}
       {onScrollEnd && <div ref={triggerRef} className={cls.trigger} />}
-    </section>
+    </main>
   )
 }

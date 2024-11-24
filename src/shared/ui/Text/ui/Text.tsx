@@ -15,6 +15,7 @@ export enum ETextAlign {
 }
 
 export enum ETextSize {
+  S = 'size_s',
   M = 'size_m',
   L = 'size_l',
 }
@@ -28,6 +29,14 @@ interface ITextProps {
   size?: ETextSize
 }
 
+type THeaderTag = 'h1' | 'h2' | 'h3'
+
+const mapSizeToHeaderTag: Record<ETextSize, THeaderTag> = {
+  [ETextSize.S]: 'h3',
+  [ETextSize.M]: 'h2',
+  [ETextSize.L]: 'h1',
+}
+
 export const Text: FC<ITextProps> = memo((props) => {
   const {
     title,
@@ -38,6 +47,8 @@ export const Text: FC<ITextProps> = memo((props) => {
     size = ETextSize.M,
   } = props
 
+  const HeaderTag = mapSizeToHeaderTag[size]
+
   return (
     <div
       className={classNames('Text', {}, [
@@ -47,7 +58,7 @@ export const Text: FC<ITextProps> = memo((props) => {
         cls[size],
       ])}
     >
-      {title && <p className={cls.title}>{title}</p>}
+      {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
       {text && <p className={cls.text}>{text}</p>}
     </div>
   )

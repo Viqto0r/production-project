@@ -1,4 +1,9 @@
-import { type ReactNode, type FC } from 'react'
+import {
+  type ReactNode,
+  type FC,
+  type DetailedHTMLProps,
+  type HTMLAttributes,
+} from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Flex.module.scss'
 
@@ -7,7 +12,11 @@ type TFlexAlign = 'start' | 'center' | 'end'
 type TFlexDirection = 'row' | 'column'
 type TFlexGap = '4' | '8' | '16' | '32'
 
-export interface IFlexProps {
+type TDivProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>
+export interface IFlexProps extends TDivProps {
   className?: string
   children: ReactNode
   justify?: TFlexJustify

@@ -52,3 +52,11 @@ export const ErrorDark: Story = {
 export const SizeL: Story = {
   args: { title: 'Title', text: 'Text', size: ETextSize.L },
 }
+
+export const SizeM: Story = {
+  args: { title: 'Title', text: 'Text', size: ETextSize.M },
+}
+
+export const SizeS: Story = {
+  args: { title: 'Title', text: 'Text', size: ETextSize.S },
+}

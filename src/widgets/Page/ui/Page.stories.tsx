@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Page } from './Page'
+import { storeDecorator } from 'shared/config/storybook/storeDecorator'
 
 const meta = {
   title: 'Widgets/Page',
@@ -12,5 +13,5 @@ export type Story = StoryObj<typeof meta>
 
 export const PageNormal: Story = {
   args: { children: <div>123</div> },
-  decorators: [],
+  decorators: [storeDecorator({ scrollSaver: { scroll: { top: 0 } } })],
 }
