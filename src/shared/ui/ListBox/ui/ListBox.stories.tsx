@@ -4,21 +4,60 @@ import { ListBox } from './ListBox'
 const meta = {
   title: 'Shared/ListBox',
   component: ListBox,
-  args: {},
+  args: {
+    onChange() {},
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ padding: 100 }}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof ListBox>
 
 export default meta
 export type Story = StoryObj<typeof meta>
 
-export const ListBoxNormal: Story = {
+export const ListBoxBottomLeft: Story = {
   args: {
     items: [
-      { content: '1', value: '1' },
-      { content: '2', value: '2' },
-      { content: '3', value: '3' },
-      { content: '4', value: '4' },
+      { content: 'вйцйвйцвйцв', value: 'вйцйвйцвйцв' },
+      { content: 'fwqfqwfqw', value: 'fwqfqwfqw' },
     ],
-    onChange() {},
     value: '1',
+    direction: 'bottom-left',
+  },
+}
+export const ListBoxBottomRight: Story = {
+  args: {
+    items: [
+      { content: 'вйцйвйцвйцв', value: 'вйцйвйцвйцв' },
+      { content: 'fwqfqwfqw', value: 'fwqfqwfqw' },
+    ],
+    value: '1',
+    direction: 'bottom-right',
+  },
+}
+
+export const ListBoxTopLeft: Story = {
+  args: {
+    items: [
+      { content: 'вйцйвйцвйцв', value: 'вйцйвйцвйцв' },
+      { content: 'fwqfqwfqw', value: 'fwqfqwfqw' },
+    ],
+    value: '1',
+    direction: 'top-left',
+  },
+}
+
+export const ListBoxTopRight: Story = {
+  args: {
+    items: [
+      { content: 'вйцйвйцвйцв', value: 'вйцйвйцвйцв' },
+      { content: 'fwqfqwfqw', value: 'fwqfqwfqw' },
+    ],
+    value: '1',
+    direction: 'top-right',
   },
 }

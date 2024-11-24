@@ -39,7 +39,7 @@ export const CountrySelect: FC<ICurrencySelectProps> = memo((props) => {
       label={t('укажите страну')}
       items={options}
       readOnly={readOnly}
-      direction="top"
+      direction="top-right"
     />
   )
 })

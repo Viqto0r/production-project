@@ -17,9 +17,24 @@
   border-radius: 12px;
   box-shadow: 4px 4px 8px var(--listbox-bg);
   width: max-content;
+  overflow: hidden;
 
-  &.top {
+  &.top-right {
     bottom: 100%;
+    left: 0;
+  }
+
+  &.top-left {
+    bottom: 100%;
+    right: 0;
+  }
+
+  &.bottom-right {
+    left: 0;
+  }
+
+  &.bottom-left {
+    right: 0;
   }
 }
 

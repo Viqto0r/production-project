@@ -1,4 +1,4 @@
-import { memo, useCallback, useState, type FC } from 'react'
+import { memo, useCallback, useMemo, useState, type FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Navbar.module.scss'
 import { Button } from 'shared/ui/Button'
@@ -12,6 +12,8 @@ import { AppLink } from 'shared/ui/AppLink'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { EAppLinkTheme } from 'shared/ui/AppLink/ui/AppLink'
 import { ETextTheme } from 'shared/ui/Text/ui/Text'
+import { Dropdown } from 'shared/ui/Dropdown'
+import { Avatar } from 'shared/ui/Avatar'
 
 interface INavbarProps {
   className?: string
@@ -35,6 +37,17 @@ export const Navbar: FC<INavbarProps> = memo(({ className }) => {
     dispatch(userActions.logout())
   }, [dispatch])
 
+  const dropdownItems = useMemo(
+    () => [
+      {
+        content: t('профиль'),
+        href: `${RoutePath.profile}${authData?.id}`,
+      },
+      { content: t('выйти'), onClick: handleLogout },
+    ],
+    [authData?.id, handleLogout, t]
+  )
+
   if (authData) {
     return (
       <header className={classNames(cls.NavBar, {}, [className])}>
@@ -46,13 +59,12 @@ export const Navbar: FC<INavbarProps> = memo(({ className }) => {
         <AppLink to={RoutePath.article_create} theme={EAppLinkTheme.SECONDARY}>
           {t('создать статью')}
         </AppLink>
-        <Button
-          className={cls.links}
-          theme={EButtonTheme.CLEAR_INVERTED}
-          onClick={handleLogout}
-        >
-          {t('выйти')}
-        </Button>
+        <Dropdown
+          className={cls.dropdown}
+          items={dropdownItems}
+          trigger={<Avatar size={30} src={authData.avatar} />}
+          direction="bottom-left"
+        />
       </header>
     )
   }

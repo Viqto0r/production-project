@@ -4,14 +4,13 @@ import { type FC, Fragment, type ReactNode } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button } from '../../Button'
 import { HStack } from '../../Stack'
+import { type TDropdownDirection } from 'shared/types/ui'
 
 export interface IListBoxItem {
   value: string
   content: ReactNode
   disabled?: boolean
 }
-
-type TDropdownDirection = 'top' | 'bottom'
 
 interface IListBoxProps {
   items?: IListBoxItem[]
@@ -32,7 +31,7 @@ export const ListBox: FC<IListBoxProps> = (props) => {
     defaultValue,
     onChange,
     readOnly,
-    direction = 'bottom',
+    direction = 'bottom-right',
     label,
   } = props
 
