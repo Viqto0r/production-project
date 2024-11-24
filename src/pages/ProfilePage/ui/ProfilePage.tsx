@@ -66,11 +66,9 @@ export default memo(function MainPage() {
   )
 
   const handleChangeValue = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-      const { target } = e
-      const { name: key, value } = target
-
-      dispatch(profileActions.updateProfileData({ [key]: value }))
+    (value: string, name: string | undefined) => {
+      if (!name) return
+      dispatch(profileActions.updateProfileData({ [name]: value }))
     },
     [dispatch]
   )

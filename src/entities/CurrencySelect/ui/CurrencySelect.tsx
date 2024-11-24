@@ -1,38 +1,45 @@
-import { type ChangeEvent, memo, type FC } from 'react'
-import { Select } from 'shared/ui/Select'
-import {
-  type ISelectProps,
-  type ISelectOption,
-} from 'shared/ui/Select/ui/Select'
+import { memo, type FC, useCallback } from 'react'
 import { ECurrency } from '../model/types/currency'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
+import { type IListBoxItem, ListBox } from 'shared/ui/ListBox'
 
-interface ICurrencySelectProps extends ISelectProps {
+interface ICurrencySelectProps {
   className?: string
   value?: ECurrency
-  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
+  onChange?: (value: string, name: string | undefined) => void
+  name?: string
+  readOnly?: boolean
 }
 
-const options: ISelectOption[] = [
+const options: IListBoxItem[] = [
   { content: ECurrency.RUB, value: ECurrency.RUB },
   { content: ECurrency.USD, value: ECurrency.USD },
   { content: ECurrency.EUR, value: ECurrency.EUR },
 ]
 
 export const CurrencySelect: FC<ICurrencySelectProps> = memo((props) => {
-  const { className, onChange, value, ...otherProps } = props
+  const { className, onChange, value, name, readOnly } = props
 
   const { t } = useTranslation('profile')
 
+  const handleChange = useCallback(
+    (value: string) => {
+      onChange?.(value, name)
+    },
+    [name, onChange]
+  )
+
   return (
-    <Select
+    <ListBox
       className={classNames('', {}, [className])}
+      onChange={handleChange}
       value={value}
-      options={options}
-      onChange={onChange}
+      items={options}
+      defaultValue={t('укажите валюту')}
       label={t('укажите валюту')}
-      {...otherProps}
+      readOnly={readOnly}
+      direction="top"
     />
   )
 })

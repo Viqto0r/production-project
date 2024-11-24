@@ -1,6 +1,6 @@
 import { classNames, type TMods } from 'shared/lib/classNames/classNames'
 import cls from './ProfileCard.module.scss'
-import { type FC } from 'react'
+import { useCallback, type FC } from 'react'
 import { Text } from 'shared/ui/Text'
 import { useTranslation } from 'react-i18next'
 import { Input } from 'shared/ui/Input'
@@ -19,9 +19,7 @@ interface IProfileCardProps {
   isLoading?: boolean
   error?: string
   readonly?: boolean
-  onChangeValue: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => void
+  onChangeValue: (value: string, name: string | undefined) => void
 }
 
 export const ProfileCard: FC<IProfileCardProps> = (props) => {
@@ -30,6 +28,14 @@ export const ProfileCard: FC<IProfileCardProps> = (props) => {
   const { t } = useTranslation('profile')
 
   const mods: TMods = { [cls.editing]: !readonly }
+
+  const handleChangeInputValue = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { value, name } = e.target
+      onChangeValue(value, name)
+    },
+    [onChangeValue]
+  )
 
   if (isLoading) {
     return (
@@ -75,7 +81,7 @@ export const ProfileCard: FC<IProfileCardProps> = (props) => {
         value={data?.firstName || ''}
         placeholder={t('ваше имя')}
         readOnly={readonly}
-        onChange={onChangeValue}
+        onChange={handleChangeInputValue}
         maxLength={15}
         name="firstName"
       />
@@ -84,7 +90,7 @@ export const ProfileCard: FC<IProfileCardProps> = (props) => {
         placeholder={t('ваша фамилия')}
         readOnly={readonly}
         maxLength={15}
-        onChange={onChangeValue}
+        onChange={handleChangeInputValue}
         name="lastName"
       />
       <Input
@@ -92,7 +98,7 @@ export const ProfileCard: FC<IProfileCardProps> = (props) => {
         placeholder={t('ваш возраст')}
         readOnly={readonly}
         maxLength={3}
-        onChange={onChangeValue}
+        onChange={handleChangeInputValue}
         name="age"
         validate={numberValidator}
       />
@@ -101,14 +107,14 @@ export const ProfileCard: FC<IProfileCardProps> = (props) => {
         placeholder={t('ваш город')}
         readOnly={readonly}
         maxLength={15}
-        onChange={onChangeValue}
+        onChange={handleChangeInputValue}
         name="city"
       />
       <Input
         value={data?.avatar || ''}
         placeholder={t('введите ссылку на аватар')}
         readOnly={readonly}
-        onChange={onChangeValue}
+        onChange={handleChangeInputValue}
         name="avatar"
       />
       <CurrencySelect

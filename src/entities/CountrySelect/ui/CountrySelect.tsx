@@ -1,39 +1,45 @@
-import { type ChangeEvent, memo, type FC } from 'react'
-import { Select } from 'shared/ui/Select'
-import {
-  type ISelectProps,
-  type ISelectOption,
-} from 'shared/ui/Select/ui/Select'
-
+import { memo, type FC, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { ECountry } from '../model/types/country'
+import { ListBox, type IListBoxItem } from 'shared/ui/ListBox'
 
-interface ICurrencySelectProps extends ISelectProps {
+interface ICurrencySelectProps {
   className?: string
   value?: ECountry
-  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
+  onChange?: (value: string, name: string | undefined) => void
+  name?: string
+  readOnly?: boolean
 }
 
-const options: ISelectOption[] = [
+const options: IListBoxItem[] = [
   { content: ECountry.RUSSIA, value: ECountry.RUSSIA },
   { content: ECountry.USA, value: ECountry.USA },
   { content: ECountry.GERMANY, value: ECountry.GERMANY },
 ]
 
 export const CountrySelect: FC<ICurrencySelectProps> = memo((props) => {
-  const { className, onChange, value, ...otherProps } = props
+  const { className, onChange, value, name, readOnly } = props
 
   const { t } = useTranslation('profile')
 
+  const handleChange = useCallback(
+    (value: string) => {
+      onChange?.(value, name)
+    },
+    [name, onChange]
+  )
+
   return (
-    <Select
+    <ListBox
       className={classNames('', {}, [className])}
+      onChange={handleChange}
       value={value}
-      options={options}
-      onChange={onChange}
+      defaultValue={t('укажите страну')}
       label={t('укажите страну')}
-      {...otherProps}
+      items={options}
+      readOnly={readOnly}
+      direction="top"
     />
   )
 })

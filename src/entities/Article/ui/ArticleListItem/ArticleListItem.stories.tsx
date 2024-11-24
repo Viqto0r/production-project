@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ArticleListItem } from './ArticleListItem'
-import { articleMock } from '../ArticleDetails/ArticleDetails.stories'
 import { EArticleView } from '../../model/types/article'
+import { articleMock } from '../ArticleDetails/articleMock'
 
 const meta = {
   title: 'Entities/Article/ArticleListItem',
