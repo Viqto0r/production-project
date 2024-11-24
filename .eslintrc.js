@@ -29,7 +29,13 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'i18next',
+    'react-hooks',
+    'viqtor-plugin',
+  ],
   rules: {
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
@@ -53,6 +59,7 @@ module.exports = {
     'react/prop-types': 'off',
     'multiline-ternary': 'off',
     '@typescript-eslint/no-dynamic-delete': 'off',
+    'viqtor-plugin/path-checker': 'error',
   },
   settings: {
     react: {

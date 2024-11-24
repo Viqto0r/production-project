@@ -1,7 +1,7 @@
 import { memo, type FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './CommentCard.module.scss'
-import { type IComment } from 'entities/Comment/model/types/comment'
+import { type IComment } from '../../model/types/comment'
 import { Avatar } from 'shared/ui/Avatar'
 import { Text } from 'shared/ui/Text'
 import { Skeleton } from 'shared/ui/Skeleton/ui/ui/Skeleton'

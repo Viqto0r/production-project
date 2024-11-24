@@ -1,7 +1,7 @@
 import { memo, useCallback, type FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticleViewSelector.module.scss'
-import { EArticleView } from 'entities/Article/model/types/article'
+import { EArticleView } from '../../model/types/article'
 import ListIcon from 'shared/assets/icons/bi_list.svg'
 import TIledIcon from 'shared/assets/icons/fe_tiled.svg'
 import { Button } from 'shared/ui/Button'

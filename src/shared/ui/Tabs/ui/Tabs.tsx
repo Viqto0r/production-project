@@ -1,7 +1,7 @@
 import { memo, type ReactNode, useCallback, type FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Tabs.module.scss'
-import { Card, ECardTheme } from 'shared/ui/Card/Card'
+import { Card, ECardTheme } from '../../Card/Card'
 
 export interface ITabItem {
   value: string

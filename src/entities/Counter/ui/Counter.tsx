@@ -1,6 +1,6 @@
 import { useCallback, type FC } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { counterActions, getCounterValue } from 'entities/Counter'
+import { counterActions, getCounterValue } from '../../Counter'
 import { Button } from 'shared/ui/Button'
 
 export const Counter: FC = () => {

@@ -5,7 +5,7 @@ import {
   EArticleBlockType,
   EArticleType,
   type IArticle,
-} from 'entities/Article/model/types/article'
+} from '../../model/types/article'
 
 const meta = {
   title: 'Entities/ArticleDetails',
