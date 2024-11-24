@@ -24,6 +24,20 @@ module.exports = {
         sourceType: 'script',
       },
     },
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+    {
+      files: ['scripts/createSlice/'],
+      rules: {
+        'no-warning-comments': 'off',
+        'no-unused-vars': 'off',
+        'no-console': 'off',
+      },
+    },
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -66,12 +80,4 @@ module.exports = {
       version: 'detect',
     },
   },
-  overrides: [
-    {
-      files: ['**/src/**/*.test.{ts,tsx}'],
-      rules: {
-        'i18next/no-literal-string': 'off',
-      },
-    },
-  ],
 }
