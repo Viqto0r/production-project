@@ -1,6 +1,5 @@
 import { memo, useCallback, useMemo, type FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './EditableProfileCard.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Text } from 'shared/ui/Text'
 import { ETextTheme } from 'shared/ui/Text/ui/Text'
@@ -75,11 +74,7 @@ export const EditableProfileCard: FC<IEditableProfileCardProps> = memo(
 
     return (
       <DynamicModuleLoader reducers={asyncReducers}>
-        <VStack
-          gap="8"
-          max
-          className={classNames(cls.EditableProfileCard, {}, [className])}
-        >
+        <VStack gap="8" max className={classNames('', {}, [className])}>
           <EditableProfileCardHeader />
           {validateErrors?.map((error) => (
             <Text
