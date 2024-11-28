@@ -4,7 +4,7 @@ import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import ArticlesPage from './ArticlesPage'
 
 const meta = {
-  title: 'Pages/ArticlesPage',
+  title: 'Pages/ArticlesPage/ArticlesPage',
   component: ArticlesPage,
   args: {},
 } satisfies Meta<typeof ArticlesPage>

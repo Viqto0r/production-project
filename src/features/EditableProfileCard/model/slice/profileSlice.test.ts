@@ -1,8 +1,11 @@
 import { ECurrency } from 'entities/CurrencySelect'
-import { EValidateProfileErrors, type IProfileSchema } from '../types/profile'
 import { profileActions, profileReducer } from './profileSlice'
 import { ECountry } from 'entities/CountrySelect'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData'
+import {
+  EValidateProfileErrors,
+  type IProfileSchema,
+} from '../types/editableProfileCardSchema'
 
 const data = {
   age: 22,

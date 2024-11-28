@@ -5,6 +5,7 @@ import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
 import { createReducerManager } from './reducerManager'
 import { scrollSaverReducer } from 'widgets/Page'
+import { rtkApi } from 'shared/api/rtkApi'
 
 export const createReduxStore = (
   initialState?: IStateSchema,
@@ -15,6 +16,7 @@ export const createReduxStore = (
     counter: counterReducer,
     user: userReducer,
     scrollSaver: scrollSaverReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   }
 
   const reducerManager = createReducerManager(rootReducers)
@@ -33,7 +35,7 @@ export const createReduxStore = (
         thunk: {
           extraArgument: extraArg,
         },
-      })
+      }).concat(rtkApi.middleware)
     },
   })
 

@@ -2,7 +2,7 @@ import { ECountry } from 'entities/CountrySelect'
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
 import { ECurrency } from 'entities/CurrencySelect'
 import { updateProfileData } from './updateProfileData'
-import { EValidateProfileErrors } from '../../types/profile'
+import { EValidateProfileErrors } from '../../types/editableProfileCardSchema'
 
 describe('fetchProfileData', () => {
   const initialValue = {

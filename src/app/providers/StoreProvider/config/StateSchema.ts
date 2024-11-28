@@ -8,18 +8,20 @@ import {
 import { type AxiosInstance } from 'axios'
 import { type IArticleDetailsSchema } from 'entities/Article'
 import { type ICounterSchema } from 'entities/Counter'
-import { type IProfileSchema } from 'entities/Profile/model/types/profile'
 import { type IUserSchema } from 'entities/User'
 import { type IAddCommentFormSchema } from 'features/AddCommentForm/model/types/addCommentForm'
 import { type ILoginSchema } from 'features/AuthByUsername'
+import { type IProfileSchema } from 'features/EditableProfileCard'
 import { type IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage'
 import { type IArticlePageSchema } from 'pages/ArticlesPage'
+import { type rtkApi } from 'shared/api/rtkApi'
 import { type IScrollSaverSchema } from 'widgets/Page'
 
 export interface IStateSchema {
   counter: ICounterSchema
   user: IUserSchema
   scrollSaver: IScrollSaverSchema
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // Асинхронные редьюсеры
   loginForm?: ILoginSchema

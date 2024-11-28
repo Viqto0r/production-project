@@ -1,4 +1,4 @@
-import { EValidateProfileErrors } from '../../types/profile'
+import { EValidateProfileErrors } from '../../types/editableProfileCardSchema'
 import { getProfileValidateErrors } from './getProfileValidateErrors'
 import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
 

@@ -31,7 +31,7 @@ const createUI = async (layer, slice) => {
     )
 
     await fs.writeFile(
-      path.join(sliceFolder, `${capitalizedSliceName}.modules.scss`),
+      path.join(sliceFolder, `${capitalizedSliceName}.module.scss`),
       stylesTemplate(capitalizedSliceName)
     )
   } catch {

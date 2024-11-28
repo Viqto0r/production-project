@@ -27,5 +27,6 @@
   "SCIENCE": "Science",
   "статьи не найдены": "No articles found",
   "мое приложение": "My application",
-  "создать статью": "Create an article"
+  "создать статью": "Create an article",
+  "ошибка при загрузке статей": "Error loading articles"
 }

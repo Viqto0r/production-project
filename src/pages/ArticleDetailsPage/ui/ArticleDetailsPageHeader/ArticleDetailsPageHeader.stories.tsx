@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader'
 
 const meta = {
-  title: 'Entities/ArticleDetailsPageHeader',
+  title: 'Pages/ArticleDetailsPage/ArticleDetailsPageHeader',
   component: ArticleDetailsPageHeader,
   args: {},
 } satisfies Meta<typeof ArticleDetailsPageHeader>
