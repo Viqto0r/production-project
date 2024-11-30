@@ -27,7 +27,7 @@ const createModel = async (layer, slice) => {
   try {
     await fs.writeFile(
       path.join(sliceFolderPath, `${slice}Slice.ts`),
-      reduxSliceTemplate(capitalizedSliceName)
+      reduxSliceTemplate(slice)
     )
     await fs.writeFile(
       path.join(typesFolderPath, `${slice}Schema.ts`),

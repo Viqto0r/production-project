@@ -36,10 +36,6 @@ const options = {
   asyncReducers: { profile: profileReducer },
 }
 
-const mockAxios = jest.fn(
-  async (formData) => await $api.put('/profile/1', formData)
-)
-
 describe('features/EditableProfileCard', () => {
   test('Режим readonly должен переключиться', async () => {
     componentRender(<EditableProfileCard id="1" />, options)

@@ -1,13 +1,13 @@
+const { capitalize } = require('../capitalize')
+
 const reduxSliceTemplate = (slice) => {
-  const sliceLC = slice.toLowerCase()
-
   return `import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { type I${slice}Schema } from '../types/${sliceLC}Schema'
+import { type I${capitalize(slice)}Schema } from '../types/${slice}Schema'
 
-const initialState: I${slice}Schema = {}
+const initialState: I${capitalize(slice)}Schema = {}
 
-const ${sliceLC}Slice = createSlice({
-  name: '${sliceLC}',
+const ${slice}Slice = createSlice({
+  name: '${slice}',
   initialState,
   reducers: {
     set(state, { payload }: PayloadAction<unknown>) {}
@@ -28,7 +28,7 @@ const ${sliceLC}Slice = createSlice({
   // },
 })
 
-export const { actions: ${sliceLC}Actions, reducer: ${sliceLC}Reducer } = ${sliceLC}Slice
+export const { actions: ${slice}Actions, reducer: ${slice}Reducer } = ${slice}Slice
 `
 }
 

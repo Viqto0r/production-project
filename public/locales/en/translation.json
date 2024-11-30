@@ -28,5 +28,7 @@
   "статьи не найдены": "No articles found",
   "мое приложение": "My application",
   "создать статью": "Create an article",
-  "ошибка при загрузке статей": "Error loading articles"
+  "ошибка при загрузке статей": "Error loading articles",
+  "админка": "Admin panel",
+  "у вас нет доступа к этой странице": "You do not have access to this page"
 }
