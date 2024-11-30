@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Input } from './Input'
-import { themeDecorator } from 'shared/config/storybook/themeDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 
 const meta = {
@@ -26,5 +26,5 @@ export const InputDark: Story = {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => {},
     placeholder: 'placeholder',
   },
-  decorators: [themeDecorator(ETheme.DARK)],
+  decorators: [ThemeDecorator(ETheme.DARK)],
 }

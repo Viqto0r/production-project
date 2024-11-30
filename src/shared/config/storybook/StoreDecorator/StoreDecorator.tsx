@@ -16,13 +16,14 @@ const defaultAsyncReducers: TReducerList = {
   addCommentForm: addCommentFormReducer,
 }
 
-export const storeDecorator =
+export const StoreDecorator =
   (initialState: DeepPartial<IStateSchema>, asyncReducers?: TReducerList) =>
-  (Story: StoryFn) => (
-    <StoreProvider
-      initialState={initialState as IStateSchema}
-      asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
-    >
-      <Story />
-    </StoreProvider>
-  )
+  (Story: StoryFn) =>
+    (
+      <StoreProvider
+        initialState={initialState as IStateSchema}
+        asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+      >
+        <Story />
+      </StoreProvider>
+    )

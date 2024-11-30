@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { themeDecorator } from 'shared/config/storybook/themeDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import ArticleDetailsPage from './ArticleDetailsPage'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import { articleMock } from 'entities/Article/ui/ArticleDetails/articleMock'
 
 const meta = {
   title: 'Pages/ArticleDetailsPage/ArticleDetailsPage',
@@ -14,9 +16,23 @@ export type Story = StoryObj<typeof meta>
 
 export const ArticleDetailsPageLight: Story = {
   args: {},
+  decorators: [
+    StoreDecorator({
+      articleDetails: {
+        data: articleMock,
+      },
+    }),
+  ],
 }
 
 export const ArticleDetailsPageDark: Story = {
   args: {},
-  decorators: [themeDecorator(ETheme.DARK)],
+  decorators: [
+    ThemeDecorator(ETheme.DARK),
+    StoreDecorator({
+      articleDetails: {
+        data: articleMock,
+      },
+    }),
+  ],
 }

@@ -1,4 +1,4 @@
-import { type FC, useMemo, useState } from 'react'
+import { type FC, type PropsWithChildren, useMemo, useState } from 'react'
 import {
   ETheme,
   LOCAL_STORAGE_THEME_KEY,
@@ -8,7 +8,7 @@ import {
 const defaultTheme =
   (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ETheme) || ETheme.LIGHT
 
-interface IThemeProviderProps {
+interface IThemeProviderProps extends PropsWithChildren {
   initialTheme?: ETheme
 }
 

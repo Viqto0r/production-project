@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { themeDecorator } from 'shared/config/storybook/themeDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import { Loader } from './Loader'
 
@@ -17,5 +17,5 @@ export const LoaderLight: Story = {
 
 export const LoaderDark: Story = {
   args: {},
-  decorators: [themeDecorator(ETheme.DARK)],
+  decorators: [ThemeDecorator(ETheme.DARK)],
 }

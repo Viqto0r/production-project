@@ -4,14 +4,14 @@ import {
   type IStateSchemaKeys,
   type IStoreWithReducerManager,
 } from 'app/providers/StoreProvider/config/StateSchema'
-import { useEffect, type FC } from 'react'
+import { type PropsWithChildren, useEffect, type FC } from 'react'
 import { useDispatch, useStore } from 'react-redux'
 
 export type TReducerList = {
   [key in IStateSchemaKeys]?: Reducer<NonNullable<IStateSchema[key]>>
 }
 
-interface IDynamicModuleLoaderProps {
+interface IDynamicModuleLoaderProps extends PropsWithChildren {
   reducers: TReducerList
   removeAfterUnmount?: boolean
 }

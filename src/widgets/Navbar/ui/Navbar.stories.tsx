@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { themeDecorator } from 'shared/config/storybook/themeDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import { Navbar } from './Navbar'
-import { storeDecorator } from 'shared/config/storybook/storeDecorator'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
 
 const meta = {
-  title: 'Widget/Navbar',
+  title: 'Widgets/Navbar',
   component: Navbar,
   args: {},
 } satisfies Meta<typeof Navbar>
@@ -23,20 +23,20 @@ const initialState: DeepPartial<IStateSchema> = {
 
 export const NavbarLight: Story = {
   args: {},
-  decorators: [storeDecorator({})],
+  decorators: [StoreDecorator({})],
 }
 
 export const NavbarDark: Story = {
   args: {},
-  decorators: [themeDecorator(ETheme.DARK), storeDecorator({})],
+  decorators: [ThemeDecorator(ETheme.DARK), StoreDecorator({})],
 }
 
 export const AuthNavbarLight: Story = {
   args: {},
-  decorators: [storeDecorator(initialState)],
+  decorators: [StoreDecorator(initialState)],
 }
 
 export const AuthNavbarDark: Story = {
   args: {},
-  decorators: [themeDecorator(ETheme.DARK), storeDecorator(initialState)],
+  decorators: [ThemeDecorator(ETheme.DARK), StoreDecorator(initialState)],
 }

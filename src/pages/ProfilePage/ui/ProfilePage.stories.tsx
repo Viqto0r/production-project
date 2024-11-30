@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { themeDecorator } from 'shared/config/storybook/themeDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import ProfilePage from './ProfilePage'
-import { storeDecorator } from 'shared/config/storybook/storeDecorator'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import avatar from 'shared/assets/tests/Avatar.png'
 import { ECountry } from 'entities/CountrySelect'
 import { ECurrency } from 'entities/CurrencySelect'
@@ -31,10 +31,10 @@ const profile = {
 
 export const ProfilePageLight: Story = {
   args: {},
-  decorators: [storeDecorator({ profile })],
+  decorators: [StoreDecorator({ profile })],
 }
 
 export const ProfilePageDark: Story = {
   args: {},
-  decorators: [themeDecorator(ETheme.DARK), storeDecorator({ profile })],
+  decorators: [ThemeDecorator(ETheme.DARK), StoreDecorator({ profile })],
 }

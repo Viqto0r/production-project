@@ -1,10 +1,10 @@
-import { type FC } from 'react'
+import { type PropsWithChildren, type FC } from 'react'
 import { Provider } from 'react-redux'
 import { createReduxStore } from '../config/store'
 import { type IStateSchema } from '../config/StateSchema'
 import { type ReducersMapObject } from '@reduxjs/toolkit'
 
-interface IStoreProviderProps {
+interface IStoreProviderProps extends PropsWithChildren {
   initialState?: DeepPartial<IStateSchema>
   asyncReducers?: DeepPartial<ReducersMapObject<IStateSchema>>
 }

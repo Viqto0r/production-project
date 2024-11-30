@@ -108,6 +108,7 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
       }) => {
         return (
           <div
+            // @ts-expect-error
             ref={registerChild}
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
           >

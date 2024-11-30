@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { themeDecorator } from 'shared/config/storybook/themeDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import { Modal } from './Modal'
 
 const meta = {
-  title: 'Widget/Modal',
+  title: 'Shared/Modal',
   component: Modal,
   args: {},
 } satisfies Meta<typeof Modal>
@@ -33,5 +33,5 @@ export const ModalDark: Story = {
     isOpen: true,
     onClose: () => {},
   },
-  decorators: [themeDecorator(ETheme.DARK)],
+  decorators: [ThemeDecorator(ETheme.DARK)],
 }

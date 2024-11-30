@@ -24,7 +24,7 @@ import { VStack } from 'shared/ui/Stack'
 
 interface IEditableProfileCardProps {
   className?: string
-  id: string
+  id?: string
 }
 
 const asyncReducers: TReducerList = {

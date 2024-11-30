@@ -7,10 +7,11 @@ import {
   useRef,
   useState,
   type FC,
+  type PropsWithChildren,
 } from 'react'
 import { Portal } from 'widgets/Portal/Portal'
 
-interface IModalProps {
+interface IModalProps extends PropsWithChildren {
   className?: string
   isOpen: boolean
   onClose: () => void

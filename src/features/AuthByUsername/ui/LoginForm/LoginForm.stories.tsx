@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { themeDecorator } from 'shared/config/storybook/themeDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import LoginForm from './LoginForm'
-import { storeDecorator } from 'shared/config/storybook/storeDecorator'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
 
 const meta = {
@@ -39,36 +39,36 @@ const initialStateWithLoading: DeepPartial<IStateSchema> = {
 
 export const LoginFormLight: Story = {
   args: { onSuccess() {} },
-  decorators: [storeDecorator(initialState)],
+  decorators: [StoreDecorator(initialState)],
 }
 
 export const LoginFormWithErrorLight: Story = {
   args: { onSuccess() {} },
-  decorators: [storeDecorator(initialStateWithError)],
+  decorators: [StoreDecorator(initialStateWithError)],
 }
 
 export const LoginFormDark: Story = {
   args: { onSuccess() {} },
-  decorators: [themeDecorator(ETheme.DARK), storeDecorator(initialState)],
+  decorators: [ThemeDecorator(ETheme.DARK), StoreDecorator(initialState)],
 }
 
 export const LoginFormWithErrorDark: Story = {
   args: { onSuccess() {} },
   decorators: [
-    themeDecorator(ETheme.DARK),
-    storeDecorator(initialStateWithError),
+    ThemeDecorator(ETheme.DARK),
+    StoreDecorator(initialStateWithError),
   ],
 }
 
 export const LoginFormWithLoadingLight: Story = {
   args: { onSuccess() {} },
-  decorators: [storeDecorator(initialStateWithLoading)],
+  decorators: [StoreDecorator(initialStateWithLoading)],
 }
 
 export const LoginFormWithLoadingDark: Story = {
   args: { onSuccess() {} },
   decorators: [
-    themeDecorator(ETheme.DARK),
-    storeDecorator(initialStateWithLoading),
+    ThemeDecorator(ETheme.DARK),
+    StoreDecorator(initialStateWithLoading),
   ],
 }

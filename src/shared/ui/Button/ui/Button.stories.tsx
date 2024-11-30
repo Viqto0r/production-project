@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { Button, EButtonSize, EButtonTheme } from './Button'
-import { themeDecorator } from 'shared/config/storybook/themeDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 
 const meta = {
@@ -99,14 +99,14 @@ export const DisabledButtonDark: Story = {
     children: 'Кнопка',
     disabled: true,
   },
-  decorators: [themeDecorator(ETheme.DARK)],
+  decorators: [ThemeDecorator(ETheme.DARK)],
 }
 
 export const PrimaryButtonDark: Story = {
   args: {
     children: 'Кнопка',
   },
-  decorators: [themeDecorator(ETheme.DARK)],
+  decorators: [ThemeDecorator(ETheme.DARK)],
 }
 
 export const ClearButtonDark: Story = {
@@ -114,7 +114,7 @@ export const ClearButtonDark: Story = {
     theme: EButtonTheme.CLEAR,
     children: 'Кнопка',
   },
-  decorators: [themeDecorator(ETheme.DARK)],
+  decorators: [ThemeDecorator(ETheme.DARK)],
 }
 
 export const ClearInvertedButtonDark: Story = {
@@ -122,7 +122,7 @@ export const ClearInvertedButtonDark: Story = {
     theme: EButtonTheme.CLEAR_INVERTED,
     children: 'Кнопка',
   },
-  decorators: [themeDecorator(ETheme.DARK)],
+  decorators: [ThemeDecorator(ETheme.DARK)],
 }
 
 export const OutlineButtonDark: Story = {
@@ -130,7 +130,7 @@ export const OutlineButtonDark: Story = {
     theme: EButtonTheme.OUTLINE,
     children: 'Кнопка',
   },
-  decorators: [themeDecorator(ETheme.DARK)],
+  decorators: [ThemeDecorator(ETheme.DARK)],
 }
 
 export const BackgroundButtonDark: Story = {
@@ -138,7 +138,7 @@ export const BackgroundButtonDark: Story = {
     theme: EButtonTheme.BACKGROUND_INVERTED,
     children: 'Кнопка',
   },
-  decorators: [themeDecorator(ETheme.DARK)],
+  decorators: [ThemeDecorator(ETheme.DARK)],
 }
 
 export const InvertedBackgroundButtonDark: Story = {
@@ -146,7 +146,7 @@ export const InvertedBackgroundButtonDark: Story = {
     theme: EButtonTheme.BACKGROUND_INVERTED,
     children: 'Кнопка',
   },
-  decorators: [themeDecorator(ETheme.DARK)],
+  decorators: [ThemeDecorator(ETheme.DARK)],
 }
 
 export const SquareMSizeButton: Story = {

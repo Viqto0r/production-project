@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import AddCommentForm from './AddCommentForm'
-import { storeDecorator } from 'shared/config/storybook/storeDecorator'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 
 const meta = {
   title: 'Features/AddCommentForm',
@@ -14,7 +14,7 @@ export type Story = StoryObj<typeof meta>
 export const AddCommentFormNormal: Story = {
   args: { onSendComment: () => {} },
   decorators: [
-    storeDecorator({
+    StoreDecorator({
       addCommentForm: {
         error: '',
         text: 'Text',

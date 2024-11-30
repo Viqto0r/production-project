@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ArticleDetails } from './ArticleDetails'
-import { storeDecorator } from 'shared/config/storybook/storeDecorator'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { articleMock } from './articleMock'
 
 const meta = {
@@ -15,7 +15,7 @@ export type Story = StoryObj<typeof meta>
 export const ArticleDetailsNormal: Story = {
   args: { id: '1' },
   decorators: [
-    storeDecorator({
+    StoreDecorator({
       articleDetails: {
         data: articleMock,
       },
@@ -26,7 +26,7 @@ export const ArticleDetailsNormal: Story = {
 export const ArticleDetailsError: Story = {
   args: { id: '1' },
   decorators: [
-    storeDecorator({
+    StoreDecorator({
       articleDetails: {
         error: 'error',
       },
@@ -37,7 +37,7 @@ export const ArticleDetailsError: Story = {
 export const ArticleDetailsLoading: Story = {
   args: { id: '1' },
   decorators: [
-    storeDecorator({
+    StoreDecorator({
       articleDetails: {
         isLoading: true,
       },
