@@ -22,14 +22,14 @@ export const ArticleRecommendationsList: FC<IArticleRecommendationsListProps> =
       isError,
     } = useGetArticleRecommendationsQuery(3)
 
-    if (isLoading || isError) {
+    if (isLoading || isError || !articles) {
       return null
     }
 
     return (
       <VStack gap="8" className={classNames('', {}, [className])}>
         <Text size={ETextSize.L} title={t('рекомендуем')} />
-        <ArticleList articles={articles} target="_blank" />
+        <ArticleList articles={articles} target="_blank" virtualized={false} />
       </VStack>
     )
   })

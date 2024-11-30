@@ -84,6 +84,7 @@ export const ProfileCard: FC<IProfileCardProps> = (props) => {
         onChange={handleChangeInputValue}
         maxLength={15}
         name="firstName"
+        data-testid="ProfileCard.firstName"
       />
       <Input
         value={data?.lastName || ''}
@@ -92,6 +93,7 @@ export const ProfileCard: FC<IProfileCardProps> = (props) => {
         maxLength={15}
         onChange={handleChangeInputValue}
         name="lastName"
+        data-testid="ProfileCard.lastName"
       />
       <Input
         value={(data?.age || '').toString()}

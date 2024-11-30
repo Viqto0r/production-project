@@ -16,6 +16,7 @@ interface IArticleListProps {
   isLoading?: boolean
   view?: EArticleView
   target?: HTMLAnchorElement['target']
+  virtualized?: boolean
 }
 
 const renderSkeleton = (view: EArticleView) => {
@@ -50,6 +51,7 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
     isLoading,
     view = EArticleView.SMALL,
     target,
+    virtualized = true,
   } = props
   const { t } = useTranslation()
   const isBig = view === EArticleView.BIG
@@ -109,17 +111,29 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
             ref={registerChild}
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
           >
-            <List
-              autoHeight
-              width={width ? width - 80 : 700}
-              height={height ?? 700}
-              rowHeight={isBig ? 700 : 330}
-              rowCount={rowCount}
-              rowRenderer={rowRenderer}
-              scrollTop={scrollTop}
-              onScroll={onChildScroll}
-              isScrolling={isScrolling}
-            />
+            {virtualized ? (
+              <List
+                autoHeight
+                width={width ? width - 80 : 700}
+                height={height ?? 700}
+                rowHeight={isBig ? 700 : 330}
+                rowCount={rowCount}
+                rowRenderer={rowRenderer}
+                scrollTop={scrollTop}
+                onScroll={onChildScroll}
+                isScrolling={isScrolling}
+              />
+            ) : (
+              articles.map((article) => (
+                <ArticleListItem
+                  article={article}
+                  key={article.id}
+                  view={view}
+                  target={target}
+                />
+              ))
+            )}
+
             {isLoading && renderSkeleton(view)}
           </div>
         )

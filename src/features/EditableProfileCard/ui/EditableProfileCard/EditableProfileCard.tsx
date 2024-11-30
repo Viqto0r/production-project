@@ -81,6 +81,7 @@ export const EditableProfileCard: FC<IEditableProfileCardProps> = memo(
               text={validateErrorTranslates[error]}
               key={error}
               theme={ETextTheme.ERROR}
+              data-testid="EditableProfileCard.Error"
             />
           ))}
           <ProfileCard
