@@ -20,15 +20,17 @@ export const CommentCard: FC<ICommentCardProps> = memo((props) => {
 
   if (isLoading) {
     return (
-      <div
+      <VStack
+        gap="8"
         className={classNames(cls.CommentCard, {}, [className, cls.loading])}
+        max
       >
         <div className={cls.header}>
           <Skeleton width={30} height={30} border="50%" />
           <Skeleton width={100} height={16} className={cls.username} />
         </div>
         <Skeleton width="100%" height={50} className={cls.text} />
-      </div>
+      </VStack>
     )
   }
 
