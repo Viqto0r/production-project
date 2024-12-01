@@ -10,7 +10,10 @@ import cls from './Drawer.module.scss'
 import { useTheme } from '@/app/providers/ThemeProvider'
 import { Portal } from '@/widgets/Portal/Portal'
 import { Overlay } from '../../Overlay'
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider'
+import {
+  AnimationProvider,
+  useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider'
 
 interface IDrawerProps extends PropsWithChildren {
   className?: string
@@ -103,7 +106,7 @@ const DrawerContent: FC<IDrawerProps> = memo((props) => {
   )
 })
 
-export const Drawer: FC<IDrawerProps> = memo((props) => {
+const DrawerAsync: FC<IDrawerProps> = (props) => {
   const { isLoaded } = useAnimationLibs()
 
   if (!isLoaded) {
@@ -111,4 +114,10 @@ export const Drawer: FC<IDrawerProps> = memo((props) => {
   }
 
   return <DrawerContent {...props} />
-})
+}
+
+export const Drawer: FC<IDrawerProps> = (props) => (
+  <AnimationProvider>
+    <DrawerAsync {...props} />
+  </AnimationProvider>
+)

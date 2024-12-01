@@ -8,7 +8,6 @@ import { NotificationList } from '@/entities/Notification'
 import { Button, EButtonTheme } from '@/shared/ui/Button/ui/Button'
 import { Drawer } from '@/shared/ui/Drawer'
 import { BrowserView, MobileView } from 'react-device-detect'
-import { AnimationProvider } from '@/shared/lib/components/AnimationProvider'
 
 interface INotificationButtonProps {
   className?: string
@@ -47,11 +46,9 @@ export const NotificationButton: FC<INotificationButtonProps> = memo(
         </BrowserView>
         <MobileView>
           {trigger}
-          <AnimationProvider>
-            <Drawer isOpen={isOpen} onClose={handleClose}>
-              <NotificationList />
-            </Drawer>
-          </AnimationProvider>
+          <Drawer isOpen={isOpen} onClose={handleClose}>
+            <NotificationList />
+          </Drawer>
         </MobileView>
       </div>
     )
