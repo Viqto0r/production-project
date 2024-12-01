@@ -1,11 +1,11 @@
 import { type ReducersMapObject } from '@reduxjs/toolkit'
 import { render } from '@testing-library/react'
-import { StoreProvider } from 'app/providers/StoreProvider'
-import { type IStateSchema } from 'app/providers/StoreProvider'
+import { StoreProvider } from '@/app/providers/StoreProvider'
+import { type IStateSchema } from '@/app/providers/StoreProvider'
 import { type ReactNode } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { MemoryRouter } from 'react-router-dom'
-import i18nForTest from 'shared/config/i18n/i18nForTests'
+import i18nForTest from '@/shared/config/i18n/i18nForTests'
 
 interface IOptions {
   routes?: string

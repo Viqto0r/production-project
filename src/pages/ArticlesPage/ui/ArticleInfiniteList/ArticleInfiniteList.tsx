@@ -1,17 +1,17 @@
 import { memo, type FC } from 'react'
-import { ArticleList } from 'entities/Article'
+import { ArticleList } from '@/entities/Article'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { useSelector } from 'react-redux'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { getArticles } from '../../model/slice/articlesPageSlice'
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from '../../model/selectors/articlesPageSelector'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useSearchParams } from 'react-router-dom'
-import { Text } from 'shared/ui/Text'
+import { Text } from '@/shared/ui/Text'
 import { useTranslation } from 'react-i18next'
 
 interface IArticleInfiniteListProps {
@@ -32,7 +32,9 @@ export const ArticleInfiniteList: FC<IArticleInfiniteListProps> = memo(
     const view = useSelector(getArticlesPageView)
 
     useInitialEffect(() => {
-      dispatch(initArticlesPage(searchParams))
+      queueMicrotask(async () => {
+        await dispatch(initArticlesPage(searchParams))
+      })
     })
 
     if (error) {

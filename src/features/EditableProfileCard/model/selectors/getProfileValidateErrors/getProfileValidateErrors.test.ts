@@ -1,6 +1,6 @@
 import { EValidateProfileErrors } from '../../consts/consts'
 import { getProfileValidateErrors } from './getProfileValidateErrors'
-import { type IStateSchema } from 'app/providers/StoreProvider'
+import { type IStateSchema } from '@/app/providers/StoreProvider'
 
 const validateErrors = [
   EValidateProfileErrors.INCORRECT_USER_DATA,

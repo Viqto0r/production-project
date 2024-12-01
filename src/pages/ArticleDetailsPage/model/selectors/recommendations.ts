@@ -1,4 +1,4 @@
-import { type IStateSchema } from 'app/providers/StoreProvider'
+import { type IStateSchema } from '@/app/providers/StoreProvider'
 
 export const getArticleRecommendationsIsLoading = (state: IStateSchema) =>
   state.articleDetailsPage?.recommendations?.isLoading

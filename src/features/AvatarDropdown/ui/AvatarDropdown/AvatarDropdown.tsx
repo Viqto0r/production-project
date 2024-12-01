@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -7,10 +7,10 @@ import {
   isUserAdmin,
   isUserManager,
   userActions,
-} from 'entities/User'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
-import { Dropdown } from 'shared/ui/Popups'
-import { Avatar } from 'shared/ui/Avatar'
+} from '@/entities/User'
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { Dropdown } from '@/shared/ui/Popups'
+import { Avatar } from '@/shared/ui/Avatar'
 
 interface IAvatarDropdownProps {
   className?: string

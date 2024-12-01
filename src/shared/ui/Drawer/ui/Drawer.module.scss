@@ -12,7 +12,6 @@
 .open {
   pointer-events: auto;
   opacity: 1;
-  z-index: var(--modal-zIndex);
 
   .content {
     transform: translateY(0%);
@@ -20,7 +19,7 @@
 }
 
 .sheet {
-  z-index: var(--modal-zIndex);
+  z-index: var(--modal-z-index);
   position: fixed;
   left: 2vw;
   height: calc(100vh + 100px);

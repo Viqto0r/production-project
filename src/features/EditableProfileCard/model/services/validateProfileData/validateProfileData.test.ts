@@ -1,6 +1,6 @@
-import { ECountry } from 'entities/CountrySelect'
+import { ECountry } from '@/entities/CountrySelect'
 import { validateProfileData } from './validateProfileData'
-import { ECurrency } from 'entities/CurrencySelect'
+import { ECurrency } from '@/entities/CurrencySelect'
 import { EValidateProfileErrors } from '../../consts/consts'
 
 describe('validateProfileData', () => {

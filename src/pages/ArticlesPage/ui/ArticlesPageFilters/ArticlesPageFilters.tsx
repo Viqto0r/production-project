@@ -1,5 +1,5 @@
 import { type ChangeEvent, memo, useCallback, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticlesPageFilters.module.scss'
 import {
   ArticleSortSelector,
@@ -9,8 +9,8 @@ import {
   type EArticleSortField,
   type EArticleView,
   ArticleTypeTabs,
-} from 'entities/Article'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+} from '@/entities/Article'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
 import {
   getArticlesPageOrder,
@@ -21,11 +21,11 @@ import {
 } from '../../model/selectors/articlesPageSelector'
 import { articlesPageActions } from '../../model/slice/articlesPageSlice'
 import { useTranslation } from 'react-i18next'
-import { Card } from 'shared/ui/Card/Card'
-import { Input } from 'shared/ui/Input'
-import { type ESortOrderType } from 'shared/types'
+import { Card } from '@/shared/ui/Card/Card'
+import { Input } from '@/shared/ui/Input'
+import { type ESortOrderType } from '@/shared/types'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce'
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
 
 interface IArticlesPageFiltersProps {
   className?: string

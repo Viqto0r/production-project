@@ -1,7 +1,7 @@
 import { getProfileData } from './getProfileData'
-import { type IStateSchema } from 'app/providers/StoreProvider'
-import { ECountry } from 'entities/CountrySelect'
-import { ECurrency } from 'entities/CurrencySelect'
+import { type IStateSchema } from '@/app/providers/StoreProvider'
+import { ECountry } from '@/entities/CountrySelect'
+import { ECurrency } from '@/entities/CurrencySelect'
 
 const profile = {
   data: {

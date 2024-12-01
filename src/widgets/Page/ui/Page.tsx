@@ -5,17 +5,17 @@ import {
   type MutableRefObject,
   type UIEvent,
 } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Page.module.scss'
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { scrollSaverActions } from '../model/slices/scrollSaverSlice'
 import { useLocation } from 'react-router-dom'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useSelector } from 'react-redux'
 import { getScrollByPath } from '../model/selectors/scrollSaverSelectors'
-import { type IStateSchema } from 'app/providers/StoreProvider'
-import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle'
+import { type IStateSchema } from '@/app/providers/StoreProvider'
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle'
 
 interface IPageProps {
   className?: string

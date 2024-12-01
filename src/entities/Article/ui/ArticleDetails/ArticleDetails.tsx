@@ -1,12 +1,12 @@
 import { memo, useCallback, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleDetails.module.scss'
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
 import {
   DynamicModuleLoader,
   type TReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById'
 import { useSelector } from 'react-redux'
 import {
@@ -14,21 +14,21 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../model/selectors/getArticleDetailsData'
-import { Text } from 'shared/ui/Text'
-import { ETextAlign, ETextSize, ETextTheme } from 'shared/ui/Text/ui/Text'
+import { Text } from '@/shared/ui/Text'
+import { ETextAlign, ETextSize, ETextTheme } from '@/shared/ui/Text/ui/Text'
 import { useTranslation } from 'react-i18next'
-import { Skeleton } from 'shared/ui/Skeleton/ui/ui/Skeleton'
-import { Avatar } from 'shared/ui/Avatar'
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
-import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg'
-import { Icon } from 'shared/ui/Icon'
+import { Skeleton } from '@/shared/ui/Skeleton/ui/ui/Skeleton'
+import { Avatar } from '@/shared/ui/Avatar'
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
+import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg'
+import { Icon } from '@/shared/ui/Icon'
 import { type TArticleBlock } from '../../model/types/article'
 import { EArticleBlockType } from '../../model/consts/consts'
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock'
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { HStack, VStack } from 'shared/ui/Stack'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { HStack, VStack } from '@/shared/ui/Stack'
 
 interface IArticleDetailsProps {
   className?: string

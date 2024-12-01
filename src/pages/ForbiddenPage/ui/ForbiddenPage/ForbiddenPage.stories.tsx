@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { ETheme } from '@/app/providers/ThemeProvider/lib/ThemeContext'
 import ForbiddenPage from './ForbiddenPage'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 const meta = {
   title: 'Pages/ForbiddenPage',

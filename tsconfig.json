@@ -12,7 +12,7 @@
     "baseUrl": ".",
     "strict": true,
     "paths": {
-      "*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
     "isolatedModules": true
   },
@@ -26,6 +26,7 @@
     "./config/**/*.tsx",
     "./src/**/*.ts",
     "./src/**/*.tsx",
-    "./webpack.config.ts"
+    "./webpack.config.ts",
+    "./scripts"
   ]
 }

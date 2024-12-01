@@ -1,5 +1,5 @@
 import { getProfileReadonly } from './getProfileReadonly'
-import { type IStateSchema } from 'app/providers/StoreProvider'
+import { type IStateSchema } from '@/app/providers/StoreProvider'
 
 const readonly = true
 

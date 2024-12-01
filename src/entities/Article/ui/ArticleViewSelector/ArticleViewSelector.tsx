@@ -1,12 +1,12 @@
 import { memo, useCallback, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleViewSelector.module.scss'
 import { EArticleView } from '../../model/consts/consts'
-import ListIcon from 'shared/assets/icons/bi_list.svg'
-import TIledIcon from 'shared/assets/icons/fe_tiled.svg'
-import { Button } from 'shared/ui/Button'
-import { Icon } from 'shared/ui/Icon'
-import { EButtonTheme } from 'shared/ui/Button/ui/Button'
+import ListIcon from '@/shared/assets/icons/bi_list.svg'
+import TIledIcon from '@/shared/assets/icons/fe_tiled.svg'
+import { Button } from '@/shared/ui/Button'
+import { Icon } from '@/shared/ui/Icon'
+import { EButtonTheme } from '@/shared/ui/Button/ui/Button'
 
 interface IArticleViewSelectorProps {
   className?: string

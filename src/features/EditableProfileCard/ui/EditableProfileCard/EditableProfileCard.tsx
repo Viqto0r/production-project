@@ -1,11 +1,11 @@
 import { memo, useCallback, useMemo, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
-import { Text } from 'shared/ui/Text'
-import { ETextTheme } from 'shared/ui/Text/ui/Text'
+import { Text } from '@/shared/ui/Text'
+import { ETextTheme } from '@/shared/ui/Text/ui/Text'
 import { useSelector } from 'react-redux'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
 import { getFormData } from '../../model/selectors/getFormData/getFormData'
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
@@ -13,13 +13,13 @@ import { getProfileError } from '../../model/selectors/getProfileError/getProfil
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData'
 import { profileActions, profileReducer } from '../../model/slice/profileSlice'
-import { ProfileCard } from 'entities/Profile'
+import { ProfileCard } from '@/entities/Profile'
 import {
   DynamicModuleLoader,
   type TReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
-import { VStack } from 'shared/ui/Stack'
+import { VStack } from '@/shared/ui/Stack'
 import { EValidateProfileErrors } from '../../model/consts/consts'
 
 interface IEditableProfileCardProps {

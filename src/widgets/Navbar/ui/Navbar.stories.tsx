@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { ETheme } from 'app/providers/ThemeProvider/lib/ThemeContext'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { ETheme } from '@/app/providers/ThemeProvider/lib/ThemeContext'
 import { Navbar } from './Navbar'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
-import { type IStateSchema } from 'app/providers/StoreProvider'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { type IStateSchema } from '@/app/providers/StoreProvider'
 
 const meta = {
   title: 'Widgets/Navbar',

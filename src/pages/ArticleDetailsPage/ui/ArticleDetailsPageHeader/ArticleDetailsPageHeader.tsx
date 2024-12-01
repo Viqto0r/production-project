@@ -1,14 +1,14 @@
 import { memo, useCallback, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Button } from 'shared/ui/Button'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Button } from '@/shared/ui/Button'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
 import { useSelector } from 'react-redux'
-import { getArticleDetailsData } from 'entities/Article'
-import { HStack } from 'shared/ui/Stack'
-import { getUserAuthData } from 'entities/User'
-import { getProfileData } from 'features/EditableProfileCard/model/selectors/getProfileData/getProfileData'
+import { getArticleDetailsData } from '@/entities/Article'
+import { HStack } from '@/shared/ui/Stack'
+import { getUserAuthData } from '@/entities/User'
+import { getProfileData } from '@/features/EditableProfileCard/model/selectors/getProfileData/getProfileData'
 
 interface IArticleDetailsPageHeaderProps {
   className?: string

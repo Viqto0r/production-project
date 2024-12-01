@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { EditableProfileCard } from './EditableProfileCard'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
-import { ECountry } from 'entities/CountrySelect'
-import { ECurrency } from 'entities/CurrencySelect'
-import avatar from 'shared/assets/tests/Avatar.png'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { ECountry } from '@/entities/CountrySelect'
+import { ECurrency } from '@/entities/CurrencySelect'
+import avatar from '@/shared/assets/tests/Avatar.png'
 
 const meta = {
   title: 'Features/EditableProfileCard/EditableProfileCard',

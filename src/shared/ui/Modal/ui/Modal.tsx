@@ -1,9 +1,9 @@
-import { classNames, type TMods } from 'shared/lib/classNames/classNames'
+import { classNames, type TMods } from '@/shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
 import { type FC, type PropsWithChildren } from 'react'
-import { Portal } from 'widgets/Portal/Portal'
+import { Portal } from '@/widgets/Portal/Portal'
 import { Overlay } from '../../Overlay'
-import { useModal } from 'shared/lib/hooks/useModal/useModal'
+import { useModal } from '@/shared/lib/hooks/useModal/useModal'
 
 interface IModalProps extends PropsWithChildren {
   className?: string

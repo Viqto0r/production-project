@@ -4,7 +4,7 @@ import {
   type DetailedHTMLProps,
   type HTMLAttributes,
 } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Flex.module.scss'
 
 type TFlexJustify = 'start' | 'center' | 'end' | 'between'

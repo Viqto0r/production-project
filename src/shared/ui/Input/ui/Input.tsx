@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
 import {
   memo,
@@ -8,7 +8,7 @@ import {
   type FC,
   type InputHTMLAttributes,
 } from 'react'
-import { debounce } from 'shared/lib/debounce/debounce'
+import { debounce } from '@/shared/lib/debounce/debounce'
 
 type THTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,

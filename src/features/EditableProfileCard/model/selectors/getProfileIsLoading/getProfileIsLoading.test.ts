@@ -1,5 +1,5 @@
 import { getProfileIsLoading } from './getProfileIsLoading'
-import { type IStateSchema } from 'app/providers/StoreProvider'
+import { type IStateSchema } from '@/app/providers/StoreProvider'
 
 const isLoading = true
 

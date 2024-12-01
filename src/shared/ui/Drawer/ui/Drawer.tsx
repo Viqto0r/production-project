@@ -5,12 +5,12 @@ import {
   useCallback,
   useEffect,
 } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Drawer.module.scss'
-import { useTheme } from 'app/providers/ThemeProvider'
-import { Portal } from 'widgets/Portal/Portal'
+import { useTheme } from '@/app/providers/ThemeProvider'
+import { Portal } from '@/widgets/Portal/Portal'
 import { Overlay } from '../../Overlay'
-import { useAnimationLibs } from 'shared/lib/components/AnimationProvider'
+import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider'
 
 interface IDrawerProps extends PropsWithChildren {
   className?: string

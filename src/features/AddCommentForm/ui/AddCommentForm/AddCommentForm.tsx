@@ -1,12 +1,12 @@
 import { memo, useCallback, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './AddCommentForm.module.scss'
-import { Input } from 'shared/ui/Input'
+import { Input } from '@/shared/ui/Input'
 import { useTranslation } from 'react-i18next'
-import { Button } from 'shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 import { useSelector } from 'react-redux'
 import { getAddCommentFormText } from '../../model/selectors/getAddCommentFormSelectors'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {
   addCommentFormActions,
   addCommentFormReducer,
@@ -14,8 +14,8 @@ import {
 import {
   DynamicModuleLoader,
   type TReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { HStack } from 'shared/ui/Stack'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { HStack } from '@/shared/ui/Stack'
 
 export interface IAddCommentFormProps {
   className?: string
@@ -39,6 +39,7 @@ const AddCommentForm: FC<IAddCommentFormProps> = memo((props) => {
   )
 
   const onSendHandler = useCallback(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     onSendComment(text)
     dispatch(addCommentFormActions.setText(''))
   }, [dispatch, onSendComment, text])

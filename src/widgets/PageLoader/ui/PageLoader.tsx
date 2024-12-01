@@ -1,5 +1,5 @@
 import { memo, type FC } from 'react'
-import { Loader } from 'shared/ui/Loader'
+import { Loader } from '@/shared/ui/Loader'
 import cls from './PageLoader.module.scss'
 
 interface IPageLoaderProps {

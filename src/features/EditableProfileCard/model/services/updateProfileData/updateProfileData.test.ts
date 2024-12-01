@@ -1,6 +1,6 @@
-import { ECountry } from 'entities/CountrySelect'
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
-import { ECurrency } from 'entities/CurrencySelect'
+import { ECountry } from '@/entities/CountrySelect'
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
+import { ECurrency } from '@/entities/CurrencySelect'
 import { updateProfileData } from './updateProfileData'
 import { EValidateProfileErrors } from '../../consts/consts'
 

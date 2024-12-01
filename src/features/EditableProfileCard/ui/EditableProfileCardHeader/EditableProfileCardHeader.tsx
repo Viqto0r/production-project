@@ -1,16 +1,16 @@
 import { memo, useCallback, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Text } from 'shared/ui/Text'
-import { Button, EThemeButton } from 'shared/ui/Button'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Text } from '@/shared/ui/Text'
+import { Button, EThemeButton } from '@/shared/ui/Button'
 import { useTranslation } from 'react-i18next'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
-import { HStack } from 'shared/ui/Stack'
+import { HStack } from '@/shared/ui/Stack'
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData'
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
 import { profileActions } from '../../model/slice/profileSlice'
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData'
-import { getUserAuthData } from 'entities/User'
+import { getUserAuthData } from '@/entities/User'
 
 interface IEditableProfileCardHeaderProps {
   className?: string

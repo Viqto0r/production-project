@@ -1,5 +1,5 @@
-import { type ECurrency } from 'entities/CurrencySelect'
-import { type ECountry } from 'entities/CountrySelect'
+import { type ECurrency } from '@/entities/CurrencySelect'
+import { type ECountry } from '@/entities/CountrySelect'
 
 export interface IProfile {
   id?: string

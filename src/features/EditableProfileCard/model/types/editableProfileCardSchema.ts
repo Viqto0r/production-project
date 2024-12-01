@@ -1,4 +1,4 @@
-import { type IProfile } from 'entities/Profile'
+import { type IProfile } from '@/entities/Profile'
 import { type EValidateProfileErrors } from '../consts/consts'
 
 export interface IProfileSchema {

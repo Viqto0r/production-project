@@ -1,4 +1,4 @@
-import { type IStateSchema } from 'app/providers/StoreProvider'
+import { type IStateSchema } from '@/app/providers/StoreProvider'
 import { getCounterValue } from './getCounterValue'
 
 describe('getCounterValue', () => {

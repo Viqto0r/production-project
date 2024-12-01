@@ -1,7 +1,7 @@
 import { memo, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleEditPage.module.scss'
-import { Page } from 'widgets/Page'
+import { Page } from '@/widgets/Page'
 import { useParams } from 'react-router-dom'
 
 interface IArticleEditPageProps {

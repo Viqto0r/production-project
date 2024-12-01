@@ -1,19 +1,19 @@
 import { memo, Suspense, useCallback, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Text } from 'shared/ui/Text'
-import { ETextSize } from 'shared/ui/Text/ui/Text'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Text } from '@/shared/ui/Text'
+import { ETextSize } from '@/shared/ui/Text/ui/Text'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice'
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
-import { AddCommentForm } from 'features/AddCommentForm'
-import { CommentList } from 'entities/Comment'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { AddCommentForm } from '@/features/AddCommentForm'
+import { CommentList } from '@/entities/Comment'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
-import { VStack } from 'shared/ui/Stack'
-import { Loader } from 'shared/ui/Loader'
+import { VStack } from '@/shared/ui/Stack'
+import { Loader } from '@/shared/ui/Loader'
 
 interface IArticleDetailsCommentsProps {
   className?: string
@@ -23,7 +23,7 @@ interface IArticleDetailsCommentsProps {
 export const ArticleDetailsComments: FC<IArticleDetailsCommentsProps> = memo(
   (props) => {
     const { className, id } = props
-    const { t } = useTranslation()
+    const { t } = useTranslation('article-details')
 
     const comments = useSelector(getArticleComments.selectAll)
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading)

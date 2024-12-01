@@ -1,13 +1,13 @@
 import { memo, useCallback, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticlesPage.module.scss'
 import {
   DynamicModuleLoader,
   type TReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { articlesPageReducer } from '../../model/slice/articlesPageSlice'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { Page } from 'widgets/Page'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { Page } from '@/widgets/Page'
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'

@@ -1,9 +1,9 @@
 import { memo, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleListItem.module.scss'
 import { EArticleView } from '../../model/consts/consts'
-import { Card } from 'shared/ui/Card/Card'
-import { Skeleton } from 'shared/ui/Skeleton/ui/ui/Skeleton'
+import { Card } from '@/shared/ui/Card/Card'
+import { Skeleton } from '@/shared/ui/Skeleton/ui/ui/Skeleton'
 
 interface IArticleListItemSkeletonProps {
   className?: string
