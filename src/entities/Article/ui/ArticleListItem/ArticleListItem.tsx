@@ -5,8 +5,7 @@ import {
   type IArticleTextBlock,
   type IArticle,
 } from '../../model/types/article'
-import { EArticleView } from 'entities/Article/model/consts/consts'
-import { EArticleBlockType } from 'entities/Article/model/consts/consts'
+import { EArticleView, EArticleBlockType } from '../../model/consts/consts'
 import { Text } from 'shared/ui/Text'
 import { Icon } from 'shared/ui/Icon'
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'

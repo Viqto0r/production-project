@@ -5,9 +5,10 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { useSelector } from 'react-redux'
-import { canEditArticleSelector } from 'pages/ArticlesPage'
 import { getArticleDetailsData } from 'entities/Article'
 import { HStack } from 'shared/ui/Stack'
+import { getUserAuthData } from 'entities/User'
+import { getProfileData } from 'features/EditableProfileCard/model/selectors/getProfileData/getProfileData'
 
 interface IArticleDetailsPageHeaderProps {
   className?: string
@@ -18,7 +19,9 @@ export const ArticleDetailsPageHeader: FC<IArticleDetailsPageHeaderProps> =
     const { className } = props
     const { t } = useTranslation('article-details')
     const navigate = useNavigate()
-    const canEdit = useSelector(canEditArticleSelector)
+    const authData = useSelector(getUserAuthData)
+    const profileData = useSelector(getProfileData)
+    const canEdit = authData?.id === profileData?.id
     const article = useSelector(getArticleDetailsData)
 
     const onBackToList = useCallback(() => {
