@@ -10,6 +10,7 @@ import {
   type PropsWithChildren,
 } from 'react'
 import { Portal } from 'widgets/Portal/Portal'
+import { Overlay } from '../../Overlay'
 
 interface IModalProps extends PropsWithChildren {
   className?: string
@@ -58,10 +59,6 @@ export const Modal: FC<IModalProps> = ({
     }
   }, [isOpen, handleKeyDown])
 
-  const handleContentClick = (e: React.MouseEvent) => {
-    e.stopPropagation()
-  }
-
   if (lazy && !isMounted) {
     return null
   }
@@ -75,11 +72,8 @@ export const Modal: FC<IModalProps> = ({
           [className]
         )}
       >
-        <div className={cls.overlay} onClick={handleOnClose}>
-          <div className={cls.content} onClick={handleContentClick}>
-            {children}
-          </div>
-        </div>
+        <Overlay onClick={handleOnClose} className={cls.overlay} />
+        <div className={cls.content}>{children}</div>
       </div>
     </Portal>
   )

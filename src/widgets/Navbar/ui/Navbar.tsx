@@ -21,16 +21,16 @@ interface INavbarProps {
 }
 
 export const Navbar: FC<INavbarProps> = memo(({ className }) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpenAuthModal, setIsOpenAuthModal] = useState(false)
   const { t } = useTranslation()
   const authData = useSelector(getUserAuthData)
 
   const handleOpenModal = useCallback(() => {
-    setIsOpen(true)
+    setIsOpenAuthModal(true)
   }, [])
 
   const handleCloseModal = useCallback(() => {
-    setIsOpen(false)
+    setIsOpenAuthModal(false)
   }, [])
 
   if (authData) {
@@ -61,7 +61,9 @@ export const Navbar: FC<INavbarProps> = memo(({ className }) => {
       >
         {t('войти')}
       </Button>
-      {isOpen && <LoginModal isOpen={isOpen} onClose={handleCloseModal} />}
+      {isOpenAuthModal && (
+        <LoginModal isOpen={isOpenAuthModal} onClose={handleCloseModal} />
+      )}
     </header>
   )
 })

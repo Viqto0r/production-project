@@ -10,10 +10,15 @@ body {
   color: var(--primary-color);
 }
 
-.app {
+.app,
+.app_modal,
+.app_drawer {
   min-height: 100vh;
-  background: var(--bg-color);
   color: var(--primary-color);
+}
+
+.app {
+  background: var(--bg-color);
 }
 
 .page-content {
