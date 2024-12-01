@@ -2,7 +2,7 @@ import { memo, type FC, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { ECountry } from '../model/types/country'
-import { ListBox, type IListBoxItem } from 'shared/ui/ListBox'
+import { ListBox, type IListBoxItem } from 'shared/ui/Popups'
 
 interface ICurrencySelectProps {
   className?: string

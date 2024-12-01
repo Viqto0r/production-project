@@ -1,0 +1,11 @@
+.Popover {
+}
+
+.panel {
+  background-color: var(--card-bg);
+  position: absolute;
+  border-radius: 8px;
+  z-index: 10000;
+  overflow: hidden;
+  padding: 15px;
+}

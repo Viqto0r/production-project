@@ -1,3 +1,5 @@
+const { capitalize } = require('../capitalize')
+
 const storyTemplate = (
   layer,
   slice
@@ -5,7 +7,7 @@ const storyTemplate = (
 import { ${slice} } from './${slice}'
 
 const meta = {
-  title: '${layer}/${slice}',
+  title: '${capitalize(layer)}/${slice}',
   component: ${slice},
   args: {},
 } satisfies Meta<typeof ${slice}>
