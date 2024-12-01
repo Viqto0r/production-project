@@ -1,7 +1,7 @@
 import { memo, type FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './ArticleListItem.module.scss'
-import { EArticleView } from 'entities/Article/model/consts/consts'
+import { EArticleView } from '../../model/consts/consts'
 import { Card } from 'shared/ui/Card/Card'
 import { Skeleton } from 'shared/ui/Skeleton/ui/ui/Skeleton'
 

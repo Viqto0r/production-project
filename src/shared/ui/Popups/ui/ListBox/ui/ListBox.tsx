@@ -42,10 +42,7 @@ export const ListBox: FC<IListBoxProps> = (props) => {
       <HListbox
         disabled={readOnly}
         as="div"
-        className={classNames(popupCls.Listbox, {}, [
-          className,
-          popupCls.popup,
-        ])}
+        className={classNames('', {}, [className, popupCls.popup])}
         value={value}
         onChange={onChange}
         defaultValue={defaultValue}

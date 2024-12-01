@@ -1,6 +1,5 @@
 import { memo, useCallback, useMemo, type FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './AvatarDropdown.module.scss'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -57,7 +56,7 @@ export const AvatarDropdown: FC<IAvatarDropdownProps> = memo((props) => {
 
   return (
     <Dropdown
-      className={classNames(cls.AvatarDropdown, {}, [className])}
+      className={classNames('', {}, [className])}
       items={dropdownItems}
       trigger={<Avatar size={30} src={authData.avatar} />}
       direction="bottom-left"

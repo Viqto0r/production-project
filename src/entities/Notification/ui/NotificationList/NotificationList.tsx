@@ -1,6 +1,5 @@
 import { memo, type FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-import cls from './NotificationList.module.scss'
 import { useGetNotificationsQuery } from '../../api/notificationApi'
 import { NotificationItem } from '../NotificationItem/NotificationItem'
 import { VStack } from 'shared/ui/Stack'
@@ -18,11 +17,7 @@ export const NotificationList: FC<INotificationListProps> = memo((props) => {
 
   if (isLoading) {
     return (
-      <VStack
-        gap="16"
-        max
-        className={classNames(cls.NotificationList, {}, [className])}
-      >
+      <VStack gap="16" max className={classNames('', {}, [className])}>
         <Skeleton width="100%" border="8px" height="85px"></Skeleton>
         <Skeleton width="100%" border="8px" height="85px"></Skeleton>
         <Skeleton width="100%" border="8px" height="85px"></Skeleton>
@@ -31,11 +26,7 @@ export const NotificationList: FC<INotificationListProps> = memo((props) => {
   }
 
   return (
-    <VStack
-      gap="16"
-      max
-      className={classNames(cls.NotificationList, {}, [className])}
-    >
+    <VStack gap="16" max className={classNames('', {}, [className])}>
       {notifications?.map((item) => (
         <NotificationItem key={item.id} item={item} />
       ))}
