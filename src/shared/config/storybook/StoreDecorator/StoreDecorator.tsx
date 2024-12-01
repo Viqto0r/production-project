@@ -1,6 +1,6 @@
 import { type StoryFn } from '@storybook/react'
 import { StoreProvider } from 'app/providers/StoreProvider'
-import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
+import { type IStateSchema } from 'app/providers/StoreProvider'
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice'
 import { addCommentFormReducer } from 'features/AddCommentForm/model/slices/addCommentFormSlice'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'

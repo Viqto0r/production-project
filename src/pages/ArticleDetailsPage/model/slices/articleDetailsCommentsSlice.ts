@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit'
-import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
+import { type IStateSchema } from 'app/providers/StoreProvider'
 import { type IComment } from 'entities/Comment'
 import { type IArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema'
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId'

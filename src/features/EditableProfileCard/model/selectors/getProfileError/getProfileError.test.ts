@@ -1,5 +1,5 @@
 import { getProfileError } from './getProfileError'
-import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
+import { type IStateSchema } from 'app/providers/StoreProvider'
 
 const error = 'error'
 

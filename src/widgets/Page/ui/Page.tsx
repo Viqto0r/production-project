@@ -14,7 +14,7 @@ import { useLocation } from 'react-router-dom'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useSelector } from 'react-redux'
 import { getScrollByPath } from '../model/selectors/scrollSaverSelectors'
-import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
+import { type IStateSchema } from 'app/providers/StoreProvider'
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle'
 
 interface IPageProps {

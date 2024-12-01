@@ -1,5 +1,5 @@
 import { getFormData } from './getFormData'
-import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
+import { type IStateSchema } from 'app/providers/StoreProvider'
 import { ECountry } from 'entities/CountrySelect'
 import { ECurrency } from 'entities/CurrencySelect'
 

@@ -1,4 +1,4 @@
-import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
+import { type IStateSchema } from 'app/providers/StoreProvider'
 import { EArticleSortField, EArticleType, EArticleView } from 'entities/Article'
 import { ESortOrderType } from 'shared/types'
 

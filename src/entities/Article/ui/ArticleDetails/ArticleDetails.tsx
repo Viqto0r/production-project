@@ -22,10 +22,8 @@ import { Avatar } from 'shared/ui/Avatar'
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg'
 import { Icon } from 'shared/ui/Icon'
-import {
-  EArticleBlockType,
-  type TArticleBlock,
-} from '../../model/types/article'
+import { type TArticleBlock } from '../../model/types/article'
+import { EArticleBlockType } from 'entities/Article/model/consts/consts'
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock'
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'

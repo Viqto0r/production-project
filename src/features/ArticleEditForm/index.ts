@@ -1,1 +1,3 @@
-// Форма создания статьи
+export interface IArticleEditFormSchema {
+  id: string
+}

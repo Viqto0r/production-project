@@ -1,8 +1,6 @@
-import {
-  EArticleBlockType,
-  EArticleType,
-  type IArticle,
-} from '../../model/types/article'
+import { type IArticle } from '../../model/types/article'
+import { EArticleType } from 'entities/Article/model/consts/consts'
+import { EArticleBlockType } from 'entities/Article/model/consts/consts'
 
 export const articleMock: IArticle = {
   id: '1',

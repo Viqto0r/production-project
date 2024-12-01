@@ -1,4 +1,4 @@
-import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
+import { type IStateSchema } from 'app/providers/StoreProvider'
 import { getArticleDetailsData } from 'entities/Article'
 import { getUserAuthData } from 'entities/User'
 

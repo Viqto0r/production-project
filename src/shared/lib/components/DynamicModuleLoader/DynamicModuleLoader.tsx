@@ -3,7 +3,7 @@ import {
   type IStateSchema,
   type IStateSchemaKeys,
   type IStoreWithReducerManager,
-} from 'app/providers/StoreProvider/config/StateSchema'
+} from 'app/providers/StoreProvider'
 import { type PropsWithChildren, useEffect, type FC } from 'react'
 import { useDispatch, useStore } from 'react-redux'
 

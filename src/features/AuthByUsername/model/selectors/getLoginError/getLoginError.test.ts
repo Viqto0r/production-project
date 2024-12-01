@@ -1,5 +1,5 @@
+import { type IStateSchema } from 'app/providers/StoreProvider'
 import { getLoginError } from './getLoginError'
-import { type IStateSchema } from 'app/providers/StoreProvider/config/StateSchema'
 
 describe('getLoginError', () => {
   test('with error', () => {
