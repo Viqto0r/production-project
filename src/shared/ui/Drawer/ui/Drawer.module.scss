@@ -40,12 +40,20 @@
   border-radius: 12px;
 }
 
-.opened {
+.open {
   pointer-events: auto;
   opacity: 1;
   z-index: var(--modal-zIndex);
 
   .content {
     transform: translateY(0%);
+  }
+}
+
+.isClosing {
+  background-color: transparent !important;
+
+  .content {
+    transform: translateY(100%);
   }
 }

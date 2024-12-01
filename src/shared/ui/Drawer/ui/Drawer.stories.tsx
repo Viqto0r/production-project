@@ -4,7 +4,7 @@ import { Drawer } from './Drawer'
 const meta = {
   title: 'Shared/Drawer',
   component: Drawer,
-  args: {},
+  args: { onClose: () => {} },
 } satisfies Meta<typeof Drawer>
 
 export default meta
