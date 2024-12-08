@@ -6,9 +6,10 @@
   .starIcon {
     fill: none;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  @media (pointer-events: hover) {
+  @media (hover: hover) {
     .starIcon:hover,
     .starIcon:hover ~ .starIcon {
       fill: var(--secondary-color);

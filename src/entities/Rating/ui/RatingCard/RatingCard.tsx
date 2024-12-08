@@ -1,6 +1,4 @@
-import { memo, useCallback, useState, type FC } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import cls from './RatingCard.module.scss'
+import { memo, useCallback, useEffect, useState, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Card } from '@/shared/ui/Card/Card'
 import { HStack, VStack } from '@/shared/ui/Stack'
@@ -20,16 +18,28 @@ interface IRatingCardProps {
   hasFeedback?: boolean
   onCancel?: (starsCount: number) => void
   onAccept?: (starsCount: number, feedback?: string) => void
+  rate?: number
 }
 
 export const RatingCard: FC<IRatingCardProps> = memo((props) => {
-  const { className, onAccept, onCancel, title, hasFeedback, feedbackTitle } =
-    props
+  const {
+    className,
+    onAccept,
+    onCancel,
+    title,
+    hasFeedback,
+    feedbackTitle,
+    rate = 0,
+  } = props
   const { t } = useTranslation()
 
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedStars, setSelectedStars] = useState(0)
+  const [selectedStars, setSelectedStars] = useState(rate)
   const [feedback, setFeedback] = useState('')
+
+  useEffect(() => {
+    setSelectedStars(rate)
+  }, [rate])
 
   const onSelectStar = useCallback(
     (starsNumber: number) => {
@@ -38,7 +48,7 @@ export const RatingCard: FC<IRatingCardProps> = memo((props) => {
       if (hasFeedback && starsNumber !== 0 && selectedStars !== starsNumber) {
         setIsModalOpen(true)
       } else {
-        onAccept?.(selectedStars)
+        onAccept?.(starsNumber)
       }
     },
     [hasFeedback, onAccept, selectedStars]
@@ -75,9 +85,9 @@ export const RatingCard: FC<IRatingCardProps> = memo((props) => {
   )
 
   return (
-    <Card className={classNames(cls.RatingCard, {}, [className])}>
+    <Card className={className} fullWidth>
       <VStack align="center" gap="8">
-        <Text title={title} />
+        <Text title={selectedStars ? t('спасибо за оценку') : title} />
         <StarRating
           size={40}
           onSelect={onSelectStar}

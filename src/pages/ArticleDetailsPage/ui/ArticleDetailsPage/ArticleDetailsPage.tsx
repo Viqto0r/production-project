@@ -13,6 +13,7 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import { VStack } from '@/shared/ui/Stack'
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList'
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'
+import { ArticleRating } from '@/features/ArticleRating'
 
 interface IArticleDetailsPageProps {
   className?: string
@@ -26,12 +27,17 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = memo((props) => {
   const { className } = props
   const { id: articleId } = useParams<{ id: string }>()
 
+  if (!articleId) {
+    return null
+  }
+
   return (
     <DynamicModuleLoader reducers={asyncReducers}>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <VStack max gap="16">
           <ArticleDetailsPageHeader />
           <ArticleDetails id={articleId} />
+          <ArticleRating articleId={articleId} />
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={articleId} />
         </VStack>

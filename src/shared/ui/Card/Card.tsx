@@ -10,6 +10,7 @@ interface ICardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string
   children: ReactNode
   theme?: ECardTheme
+  fullWidth?: boolean
 }
 
 export const Card: FC<ICardProps> = (props) => {
@@ -17,12 +18,16 @@ export const Card: FC<ICardProps> = (props) => {
     className,
     children,
     theme = ECardTheme.NORMAL,
+    fullWidth,
     ...otherProps
   } = props
 
   return (
     <div
-      className={classNames(cls.Card, {}, [className, cls[theme]])}
+      className={classNames(cls.Card, { [cls['full-width']]: fullWidth }, [
+        className,
+        cls[theme],
+      ])}
       {...otherProps}
     >
       {children}
