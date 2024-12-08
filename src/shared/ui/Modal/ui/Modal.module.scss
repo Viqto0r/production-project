@@ -1,16 +1,17 @@
 .Modal {
+  display: none;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   pointer-events: none;
-  display: flex;
   justify-content: center;
   align-items: center;
   z-index: var(--modal-z-index);
 
   &.open {
+    display: flex;
     pointer-events: auto;
   }
 
@@ -37,6 +38,10 @@
   & .content {
     transform: scale(1);
     opacity: 1;
+  }
+
+  & .overlay {
+    display: block;
   }
 }
 

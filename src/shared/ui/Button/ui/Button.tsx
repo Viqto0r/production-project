@@ -12,9 +12,9 @@ export enum EButtonTheme {
 }
 
 export enum EButtonSize {
-  M_SIZE = 'm-size',
-  L_SIZE = 'l-size',
-  XL_SIZE = 'xl-size',
+  M = 'm-size',
+  L = 'l-size',
+  XL = 'xl-size',
 }
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -22,18 +22,24 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: EButtonTheme
   size?: EButtonSize
   square?: boolean
+  fullWidth?: boolean
 }
 
 export const Button: FC<IButtonProps> = ({
   children,
   theme = EButtonTheme.OUTLINE,
-  size = EButtonSize.M_SIZE,
+  size = EButtonSize.M,
   square,
   className,
   disabled,
+  fullWidth,
   ...otherProps
 }) => {
-  const mods: TMods = { [cls.square]: square, [cls.disabled]: disabled }
+  const mods: TMods = {
+    [cls.square]: square,
+    [cls.disabled]: disabled,
+    [cls['full-width']]: fullWidth,
+  }
 
   return (
     <button

@@ -34,7 +34,7 @@ export const Sidebar: FC<ISidebarProps> = memo(({ className }) => {
         data-testid="sidebar-toggle"
         onClick={toggleCollapse}
         className={cls.collapsedBtn}
-        size={EButtonSize.L_SIZE}
+        size={EButtonSize.L}
         theme={EThemeButton.BACKGROUND_INVERTED}
         square
       >

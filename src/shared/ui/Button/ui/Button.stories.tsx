@@ -64,7 +64,7 @@ export const InvertedBackgroundButtonLight: Story = {
 export const MSizeButtonLight: Story = {
   args: {
     theme: EButtonTheme.OUTLINE,
-    size: EButtonSize.M_SIZE,
+    size: EButtonSize.M,
     children: 'Кнопка',
   },
 }
@@ -72,7 +72,7 @@ export const MSizeButtonLight: Story = {
 export const LSizeButtonLight: Story = {
   args: {
     theme: EButtonTheme.OUTLINE,
-    size: EButtonSize.L_SIZE,
+    size: EButtonSize.L,
     children: 'Кнопка',
   },
 }
@@ -80,7 +80,7 @@ export const LSizeButtonLight: Story = {
 export const XLSizeButtonLight: Story = {
   args: {
     theme: EButtonTheme.OUTLINE,
-    size: EButtonSize.XL_SIZE,
+    size: EButtonSize.XL,
     children: 'Кнопка',
   },
 }
@@ -152,7 +152,7 @@ export const InvertedBackgroundButtonDark: Story = {
 export const SquareMSizeButton: Story = {
   args: {
     theme: EButtonTheme.BACKGROUND,
-    size: EButtonSize.M_SIZE,
+    size: EButtonSize.M,
     children: '>',
   },
 }
@@ -160,7 +160,7 @@ export const SquareMSizeButton: Story = {
 export const SquareLSizeButton: Story = {
   args: {
     theme: EButtonTheme.BACKGROUND,
-    size: EButtonSize.L_SIZE,
+    size: EButtonSize.L,
     children: '>',
     square: true,
   },
@@ -169,7 +169,7 @@ export const SquareLSizeButton: Story = {
 export const SquareXLSizeButton: Story = {
   args: {
     theme: EButtonTheme.BACKGROUND,
-    size: EButtonSize.XL_SIZE,
+    size: EButtonSize.XL,
     children: '>',
     square: true,
   },

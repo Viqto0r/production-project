@@ -1,0 +1,21 @@
+.StarRating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
+
+  .starIcon {
+    fill: none;
+    cursor: pointer;
+  }
+
+  @media (pointer-events: hover) {
+    .starIcon:hover,
+    .starIcon:hover ~ .starIcon {
+      fill: var(--secondary-color);
+    }
+  }
+
+  .starIcon.selected {
+    fill: var(--primary-color) !important;
+  }
+}
