@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { StarRating } from './StarRating'
 
 const meta = {
-  title: 'Entities/StarRating',
+  title: 'Shared/StarRating',
   component: StarRating,
   args: {},
 } satisfies Meta<typeof StarRating>

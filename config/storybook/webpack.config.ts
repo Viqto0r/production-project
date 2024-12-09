@@ -40,6 +40,13 @@ export default ({ config }: { config: webpack.Configuration }) => {
         __PROJECT__: JSON.stringify('storybook'),
       })
     )
+    console.log(path.resolve(__dirname, '../src'))
+    if (config?.resolve?.alias) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@': path.resolve(__dirname, '../../src'),
+      }
+    }
   }
 
   return config

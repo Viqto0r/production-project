@@ -12,6 +12,7 @@ import { Avatar } from '@/shared/ui/Avatar'
 import { CurrencySelect } from '@/entities/CurrencySelect'
 import { CountrySelect } from '@/entities/CountrySelect'
 import { HStack, VStack } from '@/shared/ui/Stack'
+import { ProfileRating } from '@/features/ProfileRating'
 
 interface IProfileCardProps {
   className?: string
@@ -131,6 +132,7 @@ export const ProfileCard: FC<IProfileCardProps> = (props) => {
         name="country"
         readOnly={readonly}
       />
+      {data?.id && <ProfileRating profileId={data?.id} />}
     </VStack>
   )
 }
