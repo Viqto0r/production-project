@@ -32,20 +32,20 @@ export default ({ config }: { config: webpack.Configuration }) => {
       { test: /\.svg$/i, issuer: /\.[jt]sx?$/, use: ['@svgr/webpack'] },
       buildCssLoader(true)
     )
+  }
 
-    config?.plugins?.push(
-      new DefinePlugin({
-        __IS_DEV__: JSON.stringify(true),
-        __API__: JSON.stringify('http://localhost:8000/'),
-        __PROJECT__: JSON.stringify('storybook'),
-      })
-    )
-    console.log(path.resolve(__dirname, '../src'))
-    if (config?.resolve?.alias) {
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        '@': path.resolve(__dirname, '../../src'),
-      }
+  config?.plugins?.push(
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(true),
+      __API__: JSON.stringify('http://localhost:8000/'),
+      __PROJECT__: JSON.stringify('storybook'),
+    })
+  )
+
+  if (config?.resolve?.alias) {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': paths.src,
     }
   }
 
