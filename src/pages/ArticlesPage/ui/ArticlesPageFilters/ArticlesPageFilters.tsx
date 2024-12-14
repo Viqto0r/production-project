@@ -21,7 +21,7 @@ import {
 } from '../../model/selectors/articlesPageSelector'
 import { articlesPageActions } from '../../model/slice/articlesPageSlice'
 import { useTranslation } from 'react-i18next'
-import { Card } from '@/shared/ui/Card/Card'
+import { Card } from '@/shared/ui/Card/'
 import { Input } from '@/shared/ui/Input'
 import { type ESortOrderType } from '@/shared/types'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'

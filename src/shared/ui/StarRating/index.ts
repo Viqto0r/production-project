@@ -1,1 +1,1 @@
-export { StarRating } from './UI/StarRating'
+export { StarRating } from './ui/StarRating'
