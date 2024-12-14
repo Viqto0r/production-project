@@ -1,13 +1,11 @@
 import { type StoryFn } from '@storybook/react'
 import { StoreProvider } from '@/app/providers/StoreProvider'
 import { type IStateSchema } from '@/app/providers/StoreProvider'
-/* eslint-disable */
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice'
-import { addCommentFormReducer } from '@/features/AddCommentForm/model/slices/addCommentFormSlice'
-import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice'
-import { profileReducer } from '@/features/EditableProfileCard/model/slice/profileSlice'
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices'
-/* eslint-enable */
+import { articleDetailsReducer } from '@/entities/Article/testing'
+import { addCommentFormReducer } from '@/features/AddCommentForm/testing'
+import { loginReducer } from '@/features/AuthByUsername/testing'
+import { profileReducer } from '@/features/EditableProfileCard/testing'
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing'
 
 import { type TReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 

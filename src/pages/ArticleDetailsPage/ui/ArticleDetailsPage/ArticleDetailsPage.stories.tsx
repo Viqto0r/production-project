@@ -3,8 +3,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { ETheme } from '@/app/providers/ThemeProvider/lib/ThemeContext'
 import ArticleDetailsPage from './ArticleDetailsPage'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
-// eslint-disable-next-line
-import { articleMock } from '@/entities/Article/ui/ArticleDetails/articleMock'
+import { articleMock } from '@/entities/Article/testing'
 
 const meta = {
   title: 'Pages/ArticleDetailsPage/ArticleDetailsPage',

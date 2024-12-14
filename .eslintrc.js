@@ -66,7 +66,17 @@ module.exports = {
     'multiline-ternary': 'off',
     '@typescript-eslint/no-dynamic-delete': 'off',
     'viqtor-plugin/path-checker': ['error', { alias: '@' }],
-    'viqtor-plugin/public-api-imports': ['error', { alias: '@' }],
+    'viqtor-plugin/public-api-imports': [
+      'error',
+      {
+        alias: '@',
+        testingFilesPatterns: [
+          '**/*.test.*',
+          '**/*.stories.*',
+          '**/StoreDecorator.tsx',
+        ],
+      },
+    ],
     '@typescript-eslint/consistent-type-imports': 'off',
   },
   settings: {
