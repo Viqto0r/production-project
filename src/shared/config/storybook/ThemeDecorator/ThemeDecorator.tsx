@@ -1,6 +1,8 @@
-import { type ETheme } from '@/app/providers/ThemeProvider/lib/ThemeContext'
+import { type ETheme } from '@/shared/const/theme'
 import { type StoryFn } from '@storybook/react'
+// eslint-disable-next-line
 import '@/app/styles/index.scss'
+// eslint-disable-next-line
 import { ThemeProvider } from '@/app/providers/ThemeProvider'
 
 export const ThemeDecorator = (theme: ETheme) => (Story: StoryFn) =>

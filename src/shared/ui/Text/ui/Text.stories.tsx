@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { ETheme } from '@/app/providers/ThemeProvider/lib/ThemeContext'
+import { ETheme } from '@/shared/const/theme'
 import { ETextSize, ETextTheme, Text } from './Text'
 
 const meta = {

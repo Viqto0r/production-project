@@ -1,5 +1,7 @@
 import { useContext, useEffect } from 'react'
-import { ETheme, LOCAL_STORAGE_THEME_KEY, ThemeContext } from './ThemeContext'
+import { ThemeContext } from '../../context/ThemeContext'
+import { LOCAL_STORAGE_THEME_KEY } from '../../../const/localstorage'
+import { ETheme } from '../../../const/theme'
 
 interface IUseThemeResult {
   theme: ETheme

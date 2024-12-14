@@ -77,6 +77,10 @@ module.exports = {
         ],
       },
     ],
+    'viqtor-plugin/layer-imports': [
+      'error',
+      { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/testing'] },
+    ],
     '@typescript-eslint/consistent-type-imports': 'off',
   },
   settings: {

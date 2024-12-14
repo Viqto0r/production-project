@@ -12,6 +12,7 @@ import { Avatar } from '@/shared/ui/Avatar'
 import { CurrencySelect } from '@/entities/CurrencySelect'
 import { CountrySelect } from '@/entities/CountrySelect'
 import { HStack, VStack } from '@/shared/ui/Stack'
+// eslint-disable-next-line
 import { ProfileRating } from '@/features/ProfileRating'
 
 interface IProfileCardProps {
