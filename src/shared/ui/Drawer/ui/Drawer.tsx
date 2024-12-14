@@ -8,7 +8,7 @@ import {
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Drawer.module.scss'
 import { useTheme } from '@/app/providers/ThemeProvider'
-import { Portal } from '@/widgets/Portal/Portal'
+import { Portal } from '@/widgets/Portal'
 import { Overlay } from '../../Overlay'
 import {
   AnimationProvider,

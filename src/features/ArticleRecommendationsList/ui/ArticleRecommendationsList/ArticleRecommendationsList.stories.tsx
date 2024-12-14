@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ArticleRecommendationsList } from './ArticleRecommendationsList'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+// eslint-disable-next-line
 import { articleMock } from '@/entities/Article/ui/ArticleDetails/articleMock'
 
 const meta = {

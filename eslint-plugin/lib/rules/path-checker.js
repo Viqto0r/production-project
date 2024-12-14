@@ -1,6 +1,7 @@
 'use strict'
 
 const path = require('path')
+const { isRelativePath } = require('../helpers')
 
 module.exports = {
   meta: {
@@ -57,9 +58,6 @@ const layers = {
   shared: 'shared',
   widgets: 'widgets',
 }
-
-const isRelativePath = (path) =>
-  path === '.' || path.startsWith('./') || path.startsWith('../') // \.\.?\/?
 
 const shouldBeRelative = (from, to) => {
   if (isRelativePath(to)) {

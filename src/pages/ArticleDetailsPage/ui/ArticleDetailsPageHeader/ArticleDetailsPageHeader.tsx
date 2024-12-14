@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 import { getArticleDetailsData } from '@/entities/Article'
 import { HStack } from '@/shared/ui/Stack'
 import { getUserAuthData } from '@/entities/User'
-import { getProfileData } from '@/features/EditableProfileCard/model/selectors/getProfileData/getProfileData'
+import { getProfileData } from '@/features/EditableProfileCard'
 
 interface IArticleDetailsPageHeaderProps {
   className?: string
