@@ -25,7 +25,9 @@ export const Dropdown: FC<IDropdownProps> = (props) => {
 
   return (
     <Menu as="div" className={classNames('', {}, [className, popupCls.popup])}>
-      <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
+      <Menu.Button as="div" className={popupCls.trigger}>
+        {trigger}
+      </Menu.Button>
 
       <Menu.Items
         className={classNames(cls.menu, {}, [className, popupCls[direction]])}

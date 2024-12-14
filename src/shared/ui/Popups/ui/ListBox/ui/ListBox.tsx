@@ -47,7 +47,11 @@ export const ListBox: FC<IListBoxProps> = (props) => {
         onChange={onChange}
         defaultValue={defaultValue}
       >
-        <HListbox.Button className={popupCls.trigger} disabled={readOnly}>
+        <HListbox.Button
+          as="fieldset"
+          className={popupCls.trigger}
+          disabled={readOnly}
+        >
           <Button disabled={readOnly}>{value ?? defaultValue}</Button>
         </HListbox.Button>
         <HListbox.Options
