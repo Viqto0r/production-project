@@ -6,7 +6,7 @@ import { Avatar } from '@/shared/ui/Avatar'
 import { Text } from '@/shared/ui/Text'
 import { Skeleton } from '@/shared/ui/Skeleton/ui/ui/Skeleton'
 import { AppLink } from '@/shared/ui/AppLink'
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { RoutePath } from '@/shared/const/router'
 import { VStack } from '@/shared/ui/Stack'
 
 interface ICommentCardProps {

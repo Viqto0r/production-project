@@ -15,7 +15,7 @@ import { Button } from '@/shared/ui/Button'
 import { useTranslation } from 'react-i18next'
 import { EButtonTheme } from '@/shared/ui/Button/ui/Button'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { RoutePath } from '@/shared/const/router'
 import { AppLink } from '@/shared/ui/AppLink'
 
 interface IArticleListItemProps {
