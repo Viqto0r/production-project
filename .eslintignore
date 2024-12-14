@@ -1,1 +1,4 @@
 scripts
+webpack.config.ts
+vite.config.ts
+config/jest/**/*

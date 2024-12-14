@@ -65,7 +65,7 @@ module.exports = {
     'react/prop-types': 'off',
     'multiline-ternary': 'off',
     '@typescript-eslint/no-dynamic-delete': 'off',
-    'viqtor-plugin/path-checker': 'error',
+    'viqtor-plugin/path-checker': ['error', { alias: '@' }],
     '@typescript-eslint/consistent-type-imports': 'off',
   },
   settings: {
