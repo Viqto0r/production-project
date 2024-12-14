@@ -41,6 +41,7 @@ module.exports = {
     'i18next',
     'react-hooks',
     'viqtor-plugin',
+    'unused-imports',
   ],
   rules: {
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
@@ -82,6 +83,7 @@ module.exports = {
       { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/testing'] },
     ],
     '@typescript-eslint/consistent-type-imports': 'off',
+    'unused-imports/no-unused-imports': 'error',
   },
   settings: {
     react: {
