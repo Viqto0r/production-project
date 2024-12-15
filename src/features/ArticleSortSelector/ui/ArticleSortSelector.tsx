@@ -4,7 +4,7 @@ import cls from './ArticleSortSelector.module.scss'
 import { Select } from '@/shared/ui/Select'
 import { useTranslation } from 'react-i18next'
 import { type ISelectOption } from '@/shared/ui/Select/ui/Select'
-import { ESortOrderType } from '@/shared/types'
+import { ESortOrderType } from '@/shared/types/sort'
 import { EArticleSortField } from '@/entities/Article'
 
 interface IArticleSortSelectorProps {

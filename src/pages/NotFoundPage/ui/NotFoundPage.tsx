@@ -5,5 +5,9 @@ import { Page } from '@/widgets/Page'
 
 export const NotFoundPage: FC = memo(() => {
   const { t } = useTranslation()
-  return <Page className={cls.NotFoundPage}>{t('страница не найдена')}</Page>
+  return (
+    <Page data-testid="NotFoundPage" className={cls.NotFoundPage}>
+      {t('страница не найдена')}
+    </Page>
+  )
 })

@@ -1,6 +1,10 @@
 import { type IStateSchema } from '@/app/providers/StoreProvider'
-import { EArticleSortField, EArticleType, EArticleView } from '@/entities/Article'
-import { ESortOrderType } from '@/shared/types'
+import {
+  EArticleSortField,
+  EArticleType,
+  EArticleView,
+} from '@/entities/Article'
+import { ESortOrderType } from '@/shared/types/sort'
 
 export const getArticlesPageIsLoading = (state: IStateSchema) =>
   state.articlesPage?.isLoading

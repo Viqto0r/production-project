@@ -5,5 +5,5 @@ import { Page } from '@/widgets/Page'
 export default memo(function MainPage() {
   const { t } = useTranslation()
 
-  return <Page>{t('главная страница')}</Page>
+  return <Page data-testid="MainPage">{t('главная страница')}</Page>
 })

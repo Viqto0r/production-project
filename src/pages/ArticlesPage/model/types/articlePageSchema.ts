@@ -5,7 +5,7 @@ import {
   type EArticleView,
   type IArticle,
 } from '@/entities/Article'
-import { type ESortOrderType } from '@/shared/types'
+import { type ESortOrderType } from '@/shared/types/sort'
 
 export interface IArticlePageSchema extends EntityState<IArticle> {
   isLoading?: boolean

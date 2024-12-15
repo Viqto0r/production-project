@@ -8,7 +8,7 @@ export default memo(function ProfilePage() {
   const { id: profileId } = useParams<{ id: string }>()
 
   return (
-    <Page>
+    <Page data-testid="ProfilePage">
       <VStack gap="16" max>
         <EditableProfileCard id={profileId} />
       </VStack>

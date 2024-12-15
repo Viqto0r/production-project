@@ -4,7 +4,7 @@ import { getArticlesPageIsInit } from '../../selectors/articlesPageSelector'
 import { articlesPageActions } from '../../slice/articlesPageSlice'
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
 import { type EArticleType, type EArticleSortField } from '@/entities/Article'
-import { type ESortOrderType } from '@/shared/types'
+import { type ESortOrderType } from '@/shared/types/sort'
 
 export const initArticlesPage = createAsyncThunk<
   // eslint-disable-next-line
