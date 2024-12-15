@@ -4,19 +4,24 @@ import AboutIcon from '@/shared/assets/icons/About.svg'
 import MainIcon from '@/shared/assets/icons/Main.svg'
 import { createSelector } from '@reduxjs/toolkit'
 import { getUserAuthData } from '@/entities/User'
-import { RoutePath } from '@/shared/const/router'
+import {
+  getRouteAbout,
+  getRouteArticles,
+  getRouteMain,
+  getRouteProfile,
+} from '@/shared/const/router'
 import { type TSidebarItems } from '../types/sidebar'
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   const sidebarItemList: TSidebarItems = [
     {
       Icon: MainIcon,
-      path: RoutePath.main,
+      path: getRouteMain(),
       text: 'главная страница',
     },
     {
       Icon: AboutIcon,
-      path: RoutePath.about,
+      path: getRouteAbout(),
       text: 'о сайте',
     },
   ]
@@ -25,13 +30,13 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     sidebarItemList.push(
       {
         Icon: ProfileIcon,
-        path: `${RoutePath.profile}${userData?.id}`,
+        path: getRouteProfile(userData.id),
         text: 'профиль',
         authOnly: true,
       },
       {
         Icon: ArticleIcon,
-        path: RoutePath.articles,
+        path: getRouteArticles(),
         text: 'статьи',
         authOnly: true,
       }

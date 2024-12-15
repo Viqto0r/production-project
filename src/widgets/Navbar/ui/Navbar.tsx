@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 import { getUserAuthData } from '@/entities/User'
 import { Text } from '@/shared/ui/Text'
 import { AppLink } from '@/shared/ui/AppLink'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteArticleCreate } from '@/shared/const/router'
 import { EAppLinkTheme } from '@/shared/ui/AppLink/ui/AppLink'
 import { ETextTheme } from '@/shared/ui/Text/ui/Text'
 import { HStack } from '@/shared/ui/Stack'
@@ -41,7 +41,7 @@ export const Navbar: FC<INavbarProps> = memo(({ className }) => {
           title={t('мое приложение')}
           theme={ETextTheme.INVERTED}
         />
-        <AppLink to={RoutePath.article_create} theme={EAppLinkTheme.SECONDARY}>
+        <AppLink to={getRouteArticleCreate()} theme={EAppLinkTheme.SECONDARY}>
           {t('создать статью')}
         </AppLink>
         <HStack gap="16" className={cls.actions}>

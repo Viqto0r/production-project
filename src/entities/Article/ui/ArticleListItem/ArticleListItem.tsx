@@ -15,7 +15,7 @@ import { Button } from '@/shared/ui/Button'
 import { useTranslation } from 'react-i18next'
 import { EButtonTheme } from '@/shared/ui/Button/ui/Button'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteArticleDetails } from '@/shared/const/router'
 import { AppLink } from '@/shared/ui/AppLink'
 
 interface IArticleListItemProps {
@@ -63,10 +63,7 @@ export const ArticleListItem: FC<IArticleListItemProps> = memo((props) => {
             <ArticleTextBlock block={textBlock} className={cls.textBlock} />
           )}
           <div className={cls.footer}>
-            <AppLink
-              to={`${RoutePath.article_details}${article.id}`}
-              target={target}
-            >
+            <AppLink to={getRouteArticleDetails(article.id)} target={target}>
               <Button theme={EButtonTheme.OUTLINE}>{t('читать далее')}</Button>
             </AppLink>
             {views}
@@ -79,7 +76,7 @@ export const ArticleListItem: FC<IArticleListItemProps> = memo((props) => {
   return (
     <AppLink
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-      to={`${RoutePath.article_details}${article.id}`}
+      to={getRouteArticleDetails(article.id)}
       target={target}
     >
       <Card>
