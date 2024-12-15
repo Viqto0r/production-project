@@ -1,20 +1,11 @@
-import { useCallback, type FC } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue'
-import { counterActions } from '../model/slice/counterSlice'
+import { type FC } from 'react'
+import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue'
+import { useCounterActions } from '../model/slice/counterSlice'
 import { Button } from '@/shared/ui/Button'
 
 export const Counter: FC = () => {
-  const value = useSelector(getCounterValue)
-  const dispatch = useDispatch()
-
-  const increment = useCallback(() => {
-    dispatch(counterActions.increment())
-  }, [dispatch])
-
-  const decrement = useCallback(() => {
-    dispatch(counterActions.decrement())
-  }, [dispatch])
+  const value = useCounterValue()
+  const { decrement, increment } = useCounterActions()
 
   return (
     <div data-testid="counter">

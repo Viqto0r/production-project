@@ -1,22 +1,23 @@
-import { counterActions, counterReducer } from './counterSlice'
+import { counterReducer, useCounterActions } from './counterSlice'
 
 describe('counterSlice', () => {
+  const { increment, decrement } = useCounterActions()
   test('increment', () => {
     const state = { value: 10 }
-    expect(counterReducer(state, counterActions.increment())).toEqual({
+    expect(counterReducer(state, increment())).toEqual({
       value: 11,
     })
   })
 
   test('decrement', () => {
     const state = { value: 10 }
-    expect(counterReducer(state, counterActions.decrement())).toEqual({
+    expect(counterReducer(state, decrement())).toEqual({
       value: 9,
     })
   })
 
   test('empty initialState', () => {
-    expect(counterReducer(undefined, counterActions.increment())).toEqual({
+    expect(counterReducer(undefined, increment())).toEqual({
       value: 1,
     })
   })
