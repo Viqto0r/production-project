@@ -18,5 +18,8 @@ const counterSlice = buildSlice({
   },
 })
 
-export const { useActions: useCounterActions } = counterSlice
-export const { reducer: counterReducer } = counterSlice
+export const {
+  useActions: useCounterActions,
+  reducer: counterReducer,
+  actions: counterActions,
+} = counterSlice
