@@ -25,7 +25,8 @@
     "storybook": "storybook dev -p 6006 --config-dir ./config/storybook/",
     "storybook:build": "storybook build --config-dir ./config/storybook/",
     "prepare": "husky install",
-    "generate:slice": "node ./scripts/createSlice"
+    "generate:slice": "node ./scripts/createSlice",
+    "postinstall": "rm -rf ./node_modules/.cache"
   },
   "keywords": [],
   "author": "",
