@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ArticleSortSelector } from './ArticleSortSelector'
 
 const meta = {
-  title: 'Entities/Article/ArticleSortSelector',
+  title: 'Features/Article/ArticleSortSelector',
   component: ArticleSortSelector,
   args: {},
 } satisfies Meta<typeof ArticleSortSelector>

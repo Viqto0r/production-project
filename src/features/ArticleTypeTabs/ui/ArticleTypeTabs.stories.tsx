@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ArticleTypeTabs } from './ArticleTypeTabs'
-import { EArticleType } from '../../model/consts/consts'
+import { EArticleType } from '@/entities/Article'
 
 const meta = {
-  title: 'Entities/Article/ArticleTypeTabs',
+  title: 'Features/Article/ArticleTypeTabs',
   component: ArticleTypeTabs,
   args: {},
 } satisfies Meta<typeof ArticleTypeTabs>

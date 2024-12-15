@@ -5,7 +5,7 @@ import { Select } from '@/shared/ui/Select'
 import { useTranslation } from 'react-i18next'
 import { type ISelectOption } from '@/shared/ui/Select/ui/Select'
 import { ESortOrderType } from '@/shared/types'
-import { EArticleSortField } from '../../model/consts/consts'
+import { EArticleSortField } from '@/entities/Article'
 
 interface IArticleSortSelectorProps {
   className?: string
