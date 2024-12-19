@@ -30,6 +30,7 @@ const ArticlesPage: FC<IArticlesPageProps> = memo((props) => {
   return (
     <DynamicModuleLoader reducers={asyncReducers} removeAfterUnmount={false}>
       <Page
+        data-testid="ArticlesPage"
         className={classNames(cls.ArticlesPage, {}, [className])}
         onScrollEnd={onLoadNextPart}
       >
