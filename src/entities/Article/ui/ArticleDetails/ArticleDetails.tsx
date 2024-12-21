@@ -113,7 +113,7 @@ export const ArticleDetails: FC<IArticleDetailsProps> = memo((props) => {
         <HStack justify="center" max>
           <Avatar size={200} alt="avatar" src={article?.img} />
         </HStack>
-        <VStack gap="4" max>
+        <VStack gap="4" max data-testid="ArticleDetailsPage.Info">
           <Text
             title={article?.title}
             text={article?.subtitle}

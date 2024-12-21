@@ -1,20 +1,18 @@
-import { selectByTestId } from 'cypress/helpers/selectByTestId'
-
 describe('empty spec', () => {
   describe('Пользователь НЕ авторизован', () => {
     it('Переход на главную страницу', () => {
       cy.visit('/')
-      selectByTestId('MainPage').should('exist')
+      cy.getByTestId('MainPage').should('exist')
     })
 
     it('Переход в профиль', () => {
       cy.visit('/profile/1')
-      selectByTestId('MainPage').should('exist')
+      cy.getByTestId('MainPage').should('exist')
     })
 
     it('Переход на несуществующий маршрут', () => {
       cy.visit('/dwqqwd')
-      selectByTestId('NotFoundPage').should('exist')
+      cy.getByTestId('NotFoundPage').should('exist')
     })
   })
 
@@ -25,12 +23,12 @@ describe('empty spec', () => {
 
     it('Переход в профиль', () => {
       cy.visit('/profile/1')
-      selectByTestId('ProfilePage').should('exist')
+      cy.getByTestId('ProfilePage').should('exist')
     })
 
     it('Переход в профиль', () => {
       cy.visit('/articles')
-      selectByTestId('ArticlesPage').should('exist')
+      cy.getByTestId('ArticlesPage').should('exist')
     })
   })
 })

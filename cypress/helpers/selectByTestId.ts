@@ -1,2 +1,1 @@
-export const selectByTestId = (testId: string) =>
-  cy.get(`[data-testid=${testId}]`)
+export const selectByTestId = (testId: string) => `[data-testid="${testId}"]`

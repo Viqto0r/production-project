@@ -36,6 +36,8 @@ export const StarRating: FC<IStarRatingProps> = memo((props) => {
             []
           )}
           onClick={handleClick(starNumber)}
+          data-testid={`StarRating.${starNumber}`}
+          data-selected={selectedStar >= starNumber}
         />
       ))}
     </div>

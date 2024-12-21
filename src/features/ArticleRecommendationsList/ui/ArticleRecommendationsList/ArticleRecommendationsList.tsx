@@ -27,7 +27,11 @@ export const ArticleRecommendationsList: FC<IArticleRecommendationsListProps> =
     }
 
     return (
-      <VStack gap="8" className={classNames('', {}, [className])}>
+      <VStack
+        gap="8"
+        className={classNames('', {}, [className])}
+        data-testid="ArticleRecommendationsList"
+      >
         <Text size={ETextSize.L} title={t('рекомендуем')} />
         <ArticleList articles={articles} target="_blank" />
       </VStack>
