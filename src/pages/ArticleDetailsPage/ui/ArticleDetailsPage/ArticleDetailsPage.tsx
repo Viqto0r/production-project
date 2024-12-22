@@ -14,8 +14,9 @@ import { VStack } from '@/shared/ui/Stack'
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList'
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'
 import { ArticleRating } from '@/features/ArticleRating'
-import { getFeatureFlags } from '@/shared/lib/features'
-import { Counter } from '@/entities/Counter'
+import { toggleFeatures } from '@/shared/lib/features'
+import { useTranslation } from 'react-i18next'
+import { Card } from '@/shared/ui/Card'
 
 interface IArticleDetailsPageProps {
   className?: string
@@ -28,12 +29,18 @@ const asyncReducers: TReducerList = {
 const ArticleDetailsPage: FC<IArticleDetailsPageProps> = memo((props) => {
   const { className } = props
   const { id: articleId } = useParams<{ id: string }>()
-  const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled')
-  const isCounterEnabled = getFeatureFlags('isCounterEnabled')
+
+  const { t } = useTranslation('article-details')
 
   if (!articleId) {
     return null
   }
+
+  const articleRatingCard = toggleFeatures({
+    name: 'isArticleRatingEnabled',
+    on: () => <ArticleRating articleId={articleId} />,
+    off: () => <Card>{t('оценка статей скоро появится')}</Card>,
+  })
 
   return (
     <DynamicModuleLoader reducers={asyncReducers}>
@@ -41,8 +48,7 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = memo((props) => {
         <VStack max gap="16">
           <ArticleDetailsPageHeader />
           <ArticleDetails id={articleId} />
-          {isArticleRatingEnabled && <ArticleRating articleId={articleId} />}
-          {isCounterEnabled && <Counter />}
+          {articleRatingCard}
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={articleId} />
         </VStack>

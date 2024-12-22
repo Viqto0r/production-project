@@ -9,4 +9,4 @@ export const setFeatureFlags = (newFeatureFlags?: IFeatureFlags) => {
   }
 }
 
-export const getFeatureFlags = (key: keyof IFeatureFlags) => featureFlags[key]
+export const getFeatureFlag = (key: keyof IFeatureFlags) => featureFlags[key]
