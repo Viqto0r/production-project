@@ -1,10 +1,13 @@
-import { type FC, type PropsWithChildren, useMemo, useState } from 'react'
+import {
+  type FC,
+  type PropsWithChildren,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import { ThemeContext } from '../../../../shared/lib/context/ThemeContext'
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage'
 import { ETheme } from '@/shared/const/theme'
-
-const defaultTheme =
-  (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ETheme) || ETheme.LIGHT
+import { useJsonSettings } from '@/entities/User'
 
 interface IThemeProviderProps extends PropsWithChildren {
   initialTheme?: ETheme
@@ -14,7 +17,17 @@ export const ThemeProvider: FC<IThemeProviderProps> = ({
   children,
   initialTheme,
 }) => {
-  const [theme, setTheme] = useState(initialTheme || defaultTheme)
+  const { theme: defaultTheme } = useJsonSettings()
+  const [isThemeInit, setIsThemeInit] = useState(false)
+  const [theme, setTheme] = useState(
+    initialTheme ?? defaultTheme ?? ETheme.LIGHT
+  )
+  useEffect(() => {
+    if (!isThemeInit && defaultTheme) {
+      setTheme(defaultTheme)
+      setIsThemeInit(true)
+    }
+  }, [defaultTheme, isThemeInit])
 
   const defaultProps = useMemo(
     () => ({

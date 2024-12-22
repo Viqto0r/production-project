@@ -1,11 +1,11 @@
 import { useContext, useEffect } from 'react'
 import { ThemeContext } from '../../context/ThemeContext'
-import { LOCAL_STORAGE_THEME_KEY } from '../../../const/localstorage'
 import { ETheme } from '../../../const/theme'
 
+type TSaveAction = (theme: ETheme) => void
 interface IUseThemeResult {
   theme: ETheme
-  toggleTheme: () => void
+  toggleTheme: (saveAction?: TSaveAction) => void
 }
 
 export const useTheme = (): IUseThemeResult => {
@@ -13,10 +13,9 @@ export const useTheme = (): IUseThemeResult => {
 
   useEffect(() => {
     document.body.className = theme
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [theme])
 
-  const toggleTheme = (): void => {
+  const toggleTheme = (saveAction?: TSaveAction): void => {
     let newTheme: ETheme
 
     switch (theme) {
@@ -35,8 +34,9 @@ export const useTheme = (): IUseThemeResult => {
     }
 
     setTheme?.(newTheme)
+    saveAction?.(newTheme)
+
     document.body.className = newTheme
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
   }
 
   return { theme, toggleTheme }

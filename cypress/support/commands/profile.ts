@@ -1,5 +1,5 @@
 import { selectByTestId } from '../../helpers/selectByTestId'
-import { IUser } from '../../../src/entities/User/model/consts/consts'
+import { IUser } from '@/entities/User'
 
 export const updateProfile = (firstName: string, lastName: string) => {
   cy.getByTestId('EditableProfileCardHeader.EditButton').click()

@@ -3,6 +3,7 @@ export enum EArticleBlockType {
   IMAGE = 'IMAGE',
   TEXT = 'TEXT',
 }
+
 export enum EArticleType {
   ALL = 'ALL',
   IT = 'IT',

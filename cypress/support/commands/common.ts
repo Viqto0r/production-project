@@ -1,5 +1,5 @@
 import { selectByTestId } from '../../helpers/selectByTestId'
-import { IUser } from '../../../src/entities/User/model/consts/consts'
+import { IUser } from '@/entities/User'
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage'
 
 export const login = (username = 'test-user', password = '123') => {
