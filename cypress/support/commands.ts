@@ -9,6 +9,7 @@ Cypress.Commands.addAll(profileCommands)
 Cypress.Commands.addAll(articleCommon)
 Cypress.Commands.addAll(commentsCommon)
 Cypress.Commands.addAll(ratingCommon)
+// Cypress.Commands.overwrite('mount', () => {}) Можно переопределить Mount, чтобы не писать каждый раз обёртку
 // Автоматизированное создание фикстур
 //  Cypress.Commands.overwrite('intercept', (req) => {
 //    const FIXTURE_MODE = process.env.FIXTURE_MODE
