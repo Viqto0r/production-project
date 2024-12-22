@@ -7,7 +7,7 @@ const avatarDropdownSlice = createSlice({
   name: 'avatarDropdown',
   initialState,
   reducers: {
-    set(state, { payload }: PayloadAction<unknown>) {}
+    set(state, { payload }: PayloadAction<unknown>) {},
   },
   // extraReducers(builder) {
   //  builder
@@ -25,4 +25,7 @@ const avatarDropdownSlice = createSlice({
   // },
 })
 
-export const { actions: avatarDropdownActions, reducer: avatarDropdownReducer } = avatarDropdownSlice
+export const {
+  actions: avatarDropdownActions,
+  reducer: avatarDropdownReducer,
+} = avatarDropdownSlice

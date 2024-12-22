@@ -8,6 +8,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:i18next/recommended',
     'plugin:storybook/recommended',
+    'prettier',
   ],
   globals: {
     __IS_DEV__: true,
@@ -84,6 +85,7 @@ module.exports = {
     ],
     '@typescript-eslint/consistent-type-imports': 'off',
     'unused-imports/no-unused-imports': 'error',
+    'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
   },
   settings: {
     react: {

@@ -13,22 +13,22 @@ export class ErrorBoundary extends React.Component<
   IErrorBoundaryProps,
   IErrorBoundaryState
 > {
-  constructor (props: IErrorBoundaryProps) {
+  constructor(props: IErrorBoundaryProps) {
     super(props)
     this.state = { hasError: false }
   }
 
-  static getDerivedStateFromError () {
+  static getDerivedStateFromError() {
     return { hasError: true }
   }
 
-  componentDidCatch (error: Error, errorInfo: ErrorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.log(error, errorInfo)
   }
 
-  render () {
+  render() {
     if (this.state.hasError) {
-      return <PageError/>
+      return <PageError />
     }
 
     return this.props.children
