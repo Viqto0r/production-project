@@ -4,7 +4,14 @@ describe('Пользователь заходит на страницу', () => 
       cy.visit('articles')
     })
   })
+
   it('и статьи успешно подгружаются', () => {
+    cy.getByTestId('ArticleList').should('exist')
+    cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3)
+  })
+
+  it('На стабах (фикстурах)', () => {
+    cy.intercept('GET', '**/articles?*', { fixture: 'articles.json' })
     cy.getByTestId('ArticleList').should('exist')
     cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3)
   })
@@ -23,5 +30,10 @@ describe('Пользователь заходит на страницу', () => 
     cy.getByTestId('ArticleList')
       .getByTestId('ArticleListItem')
       .should('contain.text', 'ECONOMICS')
+  })
+
+  it.skip('пример заскрипанного теста', () => {
+    // xit('пример заскрипанного теста', () => { Или так
+    cy.getByTestId('dqwdwq').should('exist')
   })
 })

@@ -17,7 +17,7 @@ describe('Пользователь заходит на страницу стат
     cy.getByTestId('ArticleDetailsPage.Info').should('exist')
   })
 
-  it('И видит список рекоммендаций', () => {
+  it('И видит список рекомендаций', () => {
     cy.getByTestId('ArticleRecommendationsList').should('exist')
   })
 
@@ -29,6 +29,16 @@ describe('Пользователь заходит на страницу стат
   })
 
   it('И ставит оценку', () => {
+    cy.getByTestId('ArticleDetailsPage.Info').should('exist')
+    cy.getByTestId('RatingCard').scrollIntoView()
+    cy.setRate(4, 'feedback')
+    cy.get('[data-selected=true]').should('have.length', 4)
+  })
+
+  it('И ставит оценку (пример со стабом на фикстурах)', () => {
+    cy.intercept('GET', '**/articles/*', {
+      fixture: 'article-details.json',
+    })
     cy.getByTestId('ArticleDetailsPage.Info').should('exist')
     cy.getByTestId('RatingCard').scrollIntoView()
     cy.setRate(4, 'feedback')

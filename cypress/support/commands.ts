@@ -9,5 +9,21 @@ Cypress.Commands.addAll(profileCommands)
 Cypress.Commands.addAll(articleCommon)
 Cypress.Commands.addAll(commentsCommon)
 Cypress.Commands.addAll(ratingCommon)
+// Автоматизированное создание фикстур
+//  Cypress.Commands.overwrite('intercept', (req) => {
+//    const FIXTURE_MODE = process.env.FIXTURE_MODE
+//    const fixtureName = req.METHOD + req.url + hash(req.body)
+
+//    if (FIXTURE_MODE === 'READ') {
+//      readFixture(fixtureName)
+//    }
+
+//    if (FIXTURE_MODE === 'WRITE') {
+//      createFixture(fixtureName)
+//    }
+
+//    if (FIXTURE_MODE === 'API') {
+//    }
+//  })
 
 export {}
