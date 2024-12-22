@@ -14,6 +14,8 @@ import { VStack } from '@/shared/ui/Stack'
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList'
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'
 import { ArticleRating } from '@/features/ArticleRating'
+import { getFeatureFlags } from '@/shared/lib/features'
+import { Counter } from '@/entities/Counter'
 
 interface IArticleDetailsPageProps {
   className?: string
@@ -26,6 +28,8 @@ const asyncReducers: TReducerList = {
 const ArticleDetailsPage: FC<IArticleDetailsPageProps> = memo((props) => {
   const { className } = props
   const { id: articleId } = useParams<{ id: string }>()
+  const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled')
+  const isCounterEnabled = getFeatureFlags('isCounterEnabled')
 
   if (!articleId) {
     return null
@@ -37,7 +41,8 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = memo((props) => {
         <VStack max gap="16">
           <ArticleDetailsPageHeader />
           <ArticleDetails id={articleId} />
-          <ArticleRating articleId={articleId} />
+          {isArticleRatingEnabled && <ArticleRating articleId={articleId} />}
+          {isCounterEnabled && <Counter />}
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={articleId} />
         </VStack>
