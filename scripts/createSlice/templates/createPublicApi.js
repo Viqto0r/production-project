@@ -5,7 +5,9 @@ const { firstLetterLowerCase } = require('../firstLetterLowerCase')
 const getPublicApiTemplate = (
   slice
 ) => `export { ${slice} } from './ui/${slice}/${slice}'
-export type { I${slice}Schema } from './model/types/${firstLetterLowerCase(slice)}Schema'
+export type { I${slice}Schema } from './model/types/${firstLetterLowerCase(
+  slice
+)}Schema'
 `
 
 const createPublicApi = async (layer, slice) => {

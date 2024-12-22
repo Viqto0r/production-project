@@ -7,7 +7,7 @@ const notificationButtonSlice = createSlice({
   name: 'notificationButton',
   initialState,
   reducers: {
-    set(state, { payload }: PayloadAction<unknown>) {}
+    set(state, { payload }: PayloadAction<unknown>) {},
   },
   // extraReducers(builder) {
   //  builder
@@ -25,4 +25,7 @@ const notificationButtonSlice = createSlice({
   // },
 })
 
-export const { actions: notificationButtonActions, reducer: notificationButtonReducer } = notificationButtonSlice
+export const {
+  actions: notificationButtonActions,
+  reducer: notificationButtonReducer,
+} = notificationButtonSlice
