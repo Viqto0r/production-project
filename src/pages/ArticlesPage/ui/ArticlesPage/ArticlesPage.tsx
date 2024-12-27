@@ -11,6 +11,7 @@ import { Page } from '@/widgets/Page'
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting'
 
 interface IArticlesPageProps {
   className?: string
@@ -36,6 +37,7 @@ const ArticlesPage: FC<IArticlesPageProps> = memo((props) => {
       >
         <ArticlesPageFilters />
         <ArticleInfiniteList className={cls.list} />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   )
