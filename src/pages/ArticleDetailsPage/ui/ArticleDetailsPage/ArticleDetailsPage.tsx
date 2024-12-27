@@ -14,7 +14,7 @@ import { VStack } from '@/shared/ui/Stack'
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList'
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'
 import { ArticleRating } from '@/features/ArticleRating'
-import { toggleFeatures } from '@/shared/lib/features'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useTranslation } from 'react-i18next'
 import { Card } from '@/shared/ui/Card'
 
@@ -36,19 +36,17 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = memo((props) => {
     return null
   }
 
-  const articleRatingCard = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleRating articleId={articleId} />,
-    off: () => <Card>{t('оценка статей скоро появится')}</Card>,
-  })
-
   return (
     <DynamicModuleLoader reducers={asyncReducers}>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <VStack max gap="16">
           <ArticleDetailsPageHeader />
           <ArticleDetails id={articleId} />
-          {articleRatingCard}
+          <ToggleFeatures
+            feature="isArticleRatingEnabled"
+            on={<ArticleRating articleId={articleId} />}
+            off={<Card>{t('оценка статей скоро появится')}</Card>}
+          />
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={articleId} />
         </VStack>
