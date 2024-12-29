@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { ETheme } from '@/shared/const/theme'
 import ArticleDetailsPage from './ArticleDetailsPage'
@@ -9,7 +9,7 @@ const meta = {
   title: 'Pages/ArticleDetailsPage/ArticleDetailsPage',
   component: ArticleDetailsPage,
   args: {},
-} satisfies Meta<typeof ArticleDetailsPage>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>

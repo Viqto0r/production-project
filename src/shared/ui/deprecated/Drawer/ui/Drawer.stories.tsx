@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { Drawer } from './Drawer'
 
 const meta = {
   title: 'Shared/Drawer',
   component: Drawer,
   args: { onClose: () => {} },
-} satisfies Meta<typeof Drawer>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>

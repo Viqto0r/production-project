@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { Overlay } from './Overlay'
 
 const meta = {
@@ -7,7 +7,7 @@ const meta = {
   args: {
     onClick: () => {},
   },
-} satisfies Meta<typeof Overlay>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>

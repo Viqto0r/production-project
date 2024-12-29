@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { Avatar } from './Avatar'
 import AvatarPng from './Avatar.png'
 
@@ -6,7 +6,7 @@ const meta = {
   title: 'Shared/Avatar',
   component: Avatar,
   args: {},
-} satisfies Meta<typeof Avatar>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>

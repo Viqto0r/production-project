@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { Card } from './Card'
 import { Text } from '../../Text'
 
@@ -6,7 +6,7 @@ const meta = {
   title: 'Shared/Card',
   component: Card,
   args: {},
-} satisfies Meta<typeof Card>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { Button, EButtonSize, EButtonTheme } from './Button'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
@@ -15,7 +15,7 @@ const meta = {
       control: { type: 'inline-radio' },
     },
   },
-} satisfies Meta<typeof Button>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>

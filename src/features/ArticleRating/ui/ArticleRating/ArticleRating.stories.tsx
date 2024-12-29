@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import ArticleRating from './ArticleRating'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
@@ -7,7 +7,7 @@ const meta = {
   component: ArticleRating,
   args: {},
   decorators: [StoreDecorator({})],
-} satisfies Meta<typeof ArticleRating>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>

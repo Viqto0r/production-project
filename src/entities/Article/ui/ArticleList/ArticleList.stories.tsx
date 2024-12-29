@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { ArticleList } from './ArticleList'
 import { EArticleView } from '../../model/consts/consts'
 import { articleMock } from '../ArticleDetails/articleMock'
@@ -7,7 +7,7 @@ const meta = {
   title: 'Entities/Article/ArticleList',
   component: ArticleList,
   args: {},
-} satisfies Meta<typeof ArticleList>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>

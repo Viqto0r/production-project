@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { ESelectTheme, Select } from './Select'
 
 const meta = {
   title: 'Shared/Select',
   component: Select,
   args: {},
-} satisfies Meta<typeof Select>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>

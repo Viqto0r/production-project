@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { Code } from './Code'
 
 const meta = {
   title: 'Shared/Code',
   component: Code,
   args: {},
-} satisfies Meta<typeof Code>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>
@@ -19,7 +19,7 @@ const meta = {
   title: 'Shared/Code',
   component: Code,
   args: {},
-} satisfies Meta<typeof Code>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { AppLink, EAppLinkTheme } from './AppLink'
 
@@ -6,7 +6,7 @@ const meta = {
   title: 'Shared/AppLink',
   component: AppLink,
   args: { onClick: fn() },
-} satisfies Meta<typeof AppLink>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>

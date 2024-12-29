@@ -119,7 +119,7 @@ const meta = {
       control: { type: 'inline-radio' },
     },
   },
-} satisfies Meta<typeof Button>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>

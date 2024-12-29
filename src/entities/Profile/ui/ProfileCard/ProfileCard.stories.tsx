@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { ProfileCard } from './ProfileCard'
 import { ECountry } from '@/entities/CountrySelect'
 import { ECurrency } from '@/entities/CurrencySelect'
@@ -8,7 +8,7 @@ const meta = {
   title: 'Entities/ProfileCard',
   component: ProfileCard,
   args: {},
-} satisfies Meta<typeof ProfileCard>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>

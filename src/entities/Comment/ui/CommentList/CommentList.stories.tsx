@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { CommentList } from './CommentList'
 
 const meta = {
   title: 'Entities/Comments/CommentList',
   component: CommentList,
   args: {},
-} satisfies Meta<typeof CommentList>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>

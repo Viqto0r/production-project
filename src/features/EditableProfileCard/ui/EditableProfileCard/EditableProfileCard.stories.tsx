@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 import { EditableProfileCard } from './EditableProfileCard'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ECountry } from '@/entities/CountrySelect'
@@ -9,7 +9,7 @@ const meta = {
   title: 'Features/EditableProfileCard/EditableProfileCard',
   component: EditableProfileCard,
   args: {},
-} satisfies Meta<typeof EditableProfileCard>
+}
 
 export default meta
 export type Story = StoryObj<typeof meta>
