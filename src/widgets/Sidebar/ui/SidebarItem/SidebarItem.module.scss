@@ -20,5 +20,27 @@
   .link {
     opacity: 0;
     width: 0;
+    transition: none;
+  }
+}
+
+.itemRedesigned {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 16px;
+
+  &.collapsed {
+    padding: 0;
+    justify-content: center;
+
+    .link {
+      margin-left: 0;
+    }
+  }
+
+  &.active {
+    background: linear-gradient(89.97deg, rgb(29 89 255 / 30%) 1.15%, rgb(94 211 243 / 0%) 99.97%);
+    border-left: 2px solid var(--accent-redesigned);
   }
 }

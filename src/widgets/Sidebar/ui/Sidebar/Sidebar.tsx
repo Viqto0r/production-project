@@ -10,7 +10,9 @@ import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 import { VStack } from '@/shared/ui/deprecated/Stack'
 import { ToggleFeatures } from '@/shared/lib/features'
-import { AppLogo } from '@/shared/ui/deprecated/AppLogo'
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo'
+import { Icon } from '@/shared/ui/redesigned/Icon'
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg'
 
 interface ISidebarProps {
   className?: string
@@ -37,7 +39,29 @@ export const Sidebar: FC<ISidebarProps> = memo(({ className }) => {
             [className]
           )}
         >
-          <AppLogo className={cls.appLogo} />
+          <AppLogo className={cls.appLogo} size={collapsed ? 30 : 50} />
+          <VStack role="navigation" className={cls.links} gap="8">
+            {sidebarItemList.map((item) => {
+              return (
+                <SidebarItem
+                  key={item.path}
+                  collapsed={collapsed}
+                  item={item}
+                />
+              )
+            })}
+          </VStack>
+          <Icon
+            data-testid="sidebar-toggle"
+            onClick={toggleCollapse}
+            className={cls.collapsedBtn}
+            Svg={ArrowIcon}
+            clickable
+          />
+          <div className={cls.switchers}>
+            <ThemeSwitcher />
+            <LanguageSwitcher short={collapsed} />
+          </div>
         </aside>
       }
       off={
@@ -60,7 +84,11 @@ export const Sidebar: FC<ISidebarProps> = memo(({ className }) => {
           <VStack role="navigation" className={cls.links} gap="8">
             {sidebarItemList.map((item) => {
               return (
-                <SidebarItem key={item.path} collapsed={collapsed} {...item} />
+                <SidebarItem
+                  key={item.path}
+                  collapsed={collapsed}
+                  item={item}
+                />
               )
             })}
           </VStack>
