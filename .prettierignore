@@ -4,4 +4,5 @@ coverage
 *.html
 *.scss
 *.css
+*.json
 node_modules
