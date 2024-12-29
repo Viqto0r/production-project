@@ -9,6 +9,8 @@ import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 import { VStack } from '@/shared/ui/Stack'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { AppLogo } from '@/shared/ui/AppLogo'
 
 interface ISidebarProps {
   className?: string
@@ -24,31 +26,50 @@ export const Sidebar: FC<ISidebarProps> = memo(({ className }) => {
   const sidebarItemList = useSelector(getSidebarItems)
 
   return (
-    <aside
-      data-testid="sidebar"
-      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-        className,
-      ])}
-    >
-      <Button
-        data-testid="sidebar-toggle"
-        onClick={toggleCollapse}
-        className={cls.collapsedBtn}
-        size={EButtonSize.L}
-        theme={EThemeButton.BACKGROUND_INVERTED}
-        square
-      >
-        {collapsed ? '>' : '<'}
-      </Button>
-      <VStack role="navigation" className={cls.links} gap="8">
-        {sidebarItemList.map((item) => {
-          return <SidebarItem key={item.path} collapsed={collapsed} {...item} />
-        })}
-      </VStack>
-      <div className={cls.switchers}>
-        <ThemeSwitcher />
-        <LanguageSwitcher short={collapsed} />
-      </div>
-    </aside>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <aside
+          data-testid="sidebar"
+          className={classNames(
+            cls.SidebarRedesigned,
+            { [cls.collapsed]: collapsed },
+            [className]
+          )}
+        >
+          <AppLogo className={cls.appLogo} />
+        </aside>
+      }
+      off={
+        <aside
+          data-testid="sidebar"
+          className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+            className,
+          ])}
+        >
+          <Button
+            data-testid="sidebar-toggle"
+            onClick={toggleCollapse}
+            className={cls.collapsedBtn}
+            size={EButtonSize.L}
+            theme={EThemeButton.BACKGROUND_INVERTED}
+            square
+          >
+            {collapsed ? '>' : '<'}
+          </Button>
+          <VStack role="navigation" className={cls.links} gap="8">
+            {sidebarItemList.map((item) => {
+              return (
+                <SidebarItem key={item.path} collapsed={collapsed} {...item} />
+              )
+            })}
+          </VStack>
+          <div className={cls.switchers}>
+            <ThemeSwitcher />
+            <LanguageSwitcher short={collapsed} />
+          </div>
+        </aside>
+      }
+    />
   )
 })

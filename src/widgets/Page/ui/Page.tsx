@@ -17,6 +17,7 @@ import { getScrollByPath } from '../model/selectors/scrollSaverSelectors'
 import { type IStateSchema } from '@/app/providers/StoreProvider'
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle'
 import { ITestProps } from '@/shared/types/tests'
+import { toggleFeatures } from '@/shared/lib/features'
 
 interface IPageProps extends ITestProps {
   className?: string
@@ -57,7 +58,15 @@ export const Page: FC<IPageProps> = (props) => {
 
   return (
     <main
-      className={classNames(cls.Page, {}, [className])}
+      className={classNames(
+        toggleFeatures({
+          name: 'isAppRedesigned',
+          on: () => cls.PageRedesign,
+          off: () => cls.Page,
+        }),
+        {},
+        [className]
+      )}
       ref={wrapperRef}
       onScroll={onScroll}
       id={PAGE_ID}

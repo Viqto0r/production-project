@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux'
 import { getUserIsInit, initAuthData } from '@/entities/User'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { PageLoader } from '@/widgets/PageLoader'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { MainLayout } from '@/shared/layouts/MainLayout'
 
 export const App: FC = () => {
   const dispatch = useAppDispatch()
@@ -22,14 +24,31 @@ export const App: FC = () => {
   }
 
   return (
-    <div className={classNames('app', {}, [])}>
-      <Suspense fallback="">
-        <Navbar />
-        <div className="page-content">
-          <Sidebar />
-          {isUserInit && <AppRouter />}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <div className={classNames('app_redesigned', {}, [])}>
+          <Suspense fallback="">
+            <MainLayout
+              header={<Navbar />}
+              content={<AppRouter />}
+              sidebar={<Sidebar />}
+              toolbar={<div>TOOLBAR</div>}
+            />
+          </Suspense>
         </div>
-      </Suspense>
-    </div>
+      }
+      off={
+        <div className={classNames('app', {}, [])}>
+          <Suspense fallback="">
+            <Navbar />
+            <div className="page-content">
+              <Sidebar />
+              <AppRouter />
+            </div>
+          </Suspense>
+        </div>
+      }
+    />
   )
 }

@@ -8,6 +8,11 @@ body {
   font: var(--font-m);
   background: var(--bg-color);
   color: var(--primary-color);
+  .app_redesigned {
+    color: var(--primary-color);
+    font: var(--font-m-redesigned);
+    background: var(--bg-redesigned);
+  }
 }
 
 .app,

@@ -15,6 +15,7 @@ import { ETextTheme } from '@/shared/ui/Text/ui/Text'
 import { HStack } from '@/shared/ui/Stack'
 import { NotificationButton } from '@/features/NotificationButton'
 import { AvatarDropdown } from '@/features/AvatarDropdown'
+import { ToggleFeatures } from '@/shared/lib/features'
 
 interface INavbarProps {
   className?: string
@@ -35,20 +36,36 @@ export const Navbar: FC<INavbarProps> = memo(({ className }) => {
 
   if (authData) {
     return (
-      <header className={classNames(cls.NavBar, {}, [className])}>
-        <Text
-          className={cls.appName}
-          title={t('мое приложение')}
-          theme={ETextTheme.INVERTED}
-        />
-        <AppLink to={getRouteArticleCreate()} theme={EAppLinkTheme.SECONDARY}>
-          {t('создать статью')}
-        </AppLink>
-        <HStack gap="16" className={cls.actions}>
-          <NotificationButton />
-          <AvatarDropdown />
-        </HStack>
-      </header>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <header className={classNames(cls.NavBarRedesigned, {}, [className])}>
+            <HStack gap="16" className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+        off={
+          <header className={classNames(cls.NavBar, {}, [className])}>
+            <Text
+              className={cls.appName}
+              title={t('мое приложение')}
+              theme={ETextTheme.INVERTED}
+            />
+            <AppLink
+              to={getRouteArticleCreate()}
+              theme={EAppLinkTheme.SECONDARY}
+            >
+              {t('создать статью')}
+            </AppLink>
+            <HStack gap="16" className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        }
+      />
     )
   }
 
