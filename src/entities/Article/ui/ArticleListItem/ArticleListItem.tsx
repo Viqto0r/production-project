@@ -17,8 +17,8 @@ import { EButtonTheme } from '@/shared/ui/deprecated/Button/ui/Button'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
 import { getRouteArticleDetails } from '@/shared/const/router'
 import { AppLink } from '@/shared/ui/deprecated/AppLink'
-import { AppImage } from '@/shared/ui/deprecated/AppImage/ui/AppImage'
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton/ui/ui/Skeleton'
+import { AppImage } from '@/shared/ui/redesigned/AppImage/ui/AppImage'
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
 
 interface IArticleListItemProps {
   className?: string

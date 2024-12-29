@@ -11,7 +11,7 @@ import { numberValidator } from '@/shared/lib/validators/numberValidator/numberV
 import { Avatar } from '@/shared/ui/deprecated/Avatar'
 import { CurrencySelect } from '@/entities/CurrencySelect'
 import { CountrySelect } from '@/entities/CountrySelect'
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack'
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 // eslint-disable-next-line
 import { ProfileRating } from '@/features/ProfileRating'
 

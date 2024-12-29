@@ -30,8 +30,8 @@ import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock'
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton/ui/ui/Skeleton'
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack'
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 import { Icon } from '@/shared/ui/deprecated/Icon'
 
 interface IArticleDetailsProps {

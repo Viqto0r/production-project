@@ -2,9 +2,9 @@ import { memo, useMemo, type FC } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Avatar.module.scss'
 import UserIcon from '../../../../assets/icons/UserAvatarFallback.svg'
-import { AppImage } from '../../AppImage'
+import { AppImage } from '../../../redesigned/AppImage'
 import { Icon } from '../../Icon'
-import { Skeleton } from '../../Skeleton/ui/ui/Skeleton'
+import { Skeleton } from '../../Skeleton'
 
 interface IAvatarProps {
   className?: string

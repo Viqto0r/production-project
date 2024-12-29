@@ -9,8 +9,11 @@ import {
   userActions,
 } from '@/entities/User'
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router'
-import { Dropdown } from '@/shared/ui/deprecated/Popups'
-import { Avatar } from '@/shared/ui/deprecated/Avatar'
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups'
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { Dropdown } from '@/shared/ui/redesigned/Popups'
+import { Avatar } from '@/shared/ui/redesigned/Avatar'
 
 interface IAvatarDropdownProps {
   className?: string
@@ -34,27 +37,47 @@ export const AvatarDropdown: FC<IAvatarDropdownProps> = memo((props) => {
   if (!authData) {
     return null
   }
+  const items = [
+    ...(isAdminPanelAvailable
+      ? [
+          {
+            content: t('админка'),
+            href: getRouteAdminPanel(),
+          },
+        ]
+      : []),
+    {
+      content: t('профиль'),
+      href: getRouteProfile(authData.id),
+    },
+    { content: t('выйти'), onClick: handleLogout },
+  ]
 
   return (
-    <Dropdown
-      className={classNames('', {}, [className])}
-      items={[
-        ...(isAdminPanelAvailable
-          ? [
-              {
-                content: t('админка'),
-                href: getRouteAdminPanel(),
-              },
-            ]
-          : []),
-        {
-          content: t('профиль'),
-          href: getRouteProfile(authData.id),
-        },
-        { content: t('выйти'), onClick: handleLogout },
-      ]}
-      trigger={<Avatar size={30} src={authData.avatar} fallbackInverted />}
-      direction="bottom-left"
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Dropdown
+          className={classNames('', {}, [className])}
+          items={items}
+          trigger={<Avatar size={40} src={authData.avatar} />}
+          direction="bottom-left"
+        />
+      }
+      off={
+        <DropdownDeprecated
+          className={classNames('', {}, [className])}
+          items={items}
+          trigger={
+            <AvatarDeprecated
+              size={30}
+              src={authData.avatar}
+              fallbackInverted
+            />
+          }
+          direction="bottom-left"
+        />
+      }
     />
   )
 })

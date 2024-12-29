@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Text } from '@/shared/ui/deprecated/Text'
 import { ETextSize } from '@/shared/ui/deprecated/Text/ui/Text'
 import { ArticleList } from '@/entities/Article'
-import { VStack } from '@/shared/ui/deprecated/Stack'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 import { useGetArticleRecommendationsQuery } from '../../api/articleRecommendationsApi'
 
 interface IArticleRecommendationsListProps {

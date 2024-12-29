@@ -3,7 +3,7 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleListItem.module.scss'
 import { EArticleView } from '../../model/consts/consts'
 import { Card } from '@/shared/ui/deprecated/Card'
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton/ui/ui/Skeleton'
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
 
 interface IArticleListItemSkeletonProps {
   className?: string

@@ -5,7 +5,7 @@ import { type FC, Fragment, type ReactNode } from 'react'
 import { classNames } from '../../../../../../lib/classNames/classNames'
 import { type TDropdownDirection } from '../../../../../../types/ui'
 import { Button } from '../../../../Button'
-import { HStack } from '../../../../Stack'
+import { HStack } from '../../../../../redesigned/Stack'
 
 export interface IListBoxItem {
   value: string

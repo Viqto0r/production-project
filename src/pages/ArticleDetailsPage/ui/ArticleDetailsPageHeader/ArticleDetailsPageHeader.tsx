@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router'
 import { useSelector } from 'react-redux'
 import { getArticleDetailsData } from '@/entities/Article'
-import { HStack } from '@/shared/ui/deprecated/Stack'
+import { HStack } from '@/shared/ui/redesigned/Stack'
 import { getUserAuthData } from '@/entities/User'
 import { getProfileData } from '@/features/EditableProfileCard'
 
