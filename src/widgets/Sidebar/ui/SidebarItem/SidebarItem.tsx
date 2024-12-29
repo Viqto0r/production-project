@@ -1,6 +1,6 @@
 import { memo, type FC } from 'react'
-import { AppLink } from '@/shared/ui/AppLink'
-import { EAppLinkTheme } from '@/shared/ui/AppLink/ui/AppLink'
+import { AppLink } from '@/shared/ui/deprecated/AppLink'
+import { EAppLinkTheme } from '@/shared/ui/deprecated/AppLink/ui/AppLink'
 import { useTranslation } from 'react-i18next'
 import cls from './SidebarItem.module.scss'
 import { classNames } from '@/shared/lib/classNames/classNames'

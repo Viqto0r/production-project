@@ -1,12 +1,12 @@
 import { memo, useCallback, useState, type FC } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './NotificationButton.module.scss'
-import { Icon } from '@/shared/ui/Icon'
+import { Icon } from '@/shared/ui/deprecated/Icon'
 import NotificationIcon from '@/shared/assets/icons/Notification.svg'
-import { Popover } from '@/shared/ui/Popups'
+import { Popover } from '@/shared/ui/deprecated/Popups'
 import { NotificationList } from '@/entities/Notification'
-import { Button, EButtonTheme } from '@/shared/ui/Button/ui/Button'
-import { Drawer } from '@/shared/ui/Drawer'
+import { Button, EButtonTheme } from '@/shared/ui/deprecated/Button/ui/Button'
+import { Drawer } from '@/shared/ui/deprecated/Drawer'
 import { BrowserView, MobileView } from 'react-device-detect'
 
 interface INotificationButtonProps {

@@ -1,8 +1,8 @@
 import { memo, useCallback, useMemo, type FC } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
-import { Text } from '@/shared/ui/Text'
-import { ETextTheme } from '@/shared/ui/Text/ui/Text'
+import { Text } from '@/shared/ui/deprecated/Text'
+import { ETextTheme } from '@/shared/ui/deprecated/Text/ui/Text'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
@@ -19,7 +19,7 @@ import {
   type TReducerList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
-import { VStack } from '@/shared/ui/Stack'
+import { VStack } from '@/shared/ui/deprecated/Stack'
 import { EValidateProfileErrors } from '../../model/consts/consts'
 
 interface IEditableProfileCardProps {

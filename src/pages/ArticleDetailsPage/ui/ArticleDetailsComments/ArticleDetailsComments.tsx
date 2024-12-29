@@ -1,7 +1,7 @@
 import { memo, Suspense, useCallback, type FC } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text } from '@/shared/ui/Text'
-import { ETextSize } from '@/shared/ui/Text/ui/Text'
+import { Text } from '@/shared/ui/deprecated/Text'
+import { ETextSize } from '@/shared/ui/deprecated/Text/ui/Text'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice'
@@ -12,8 +12,8 @@ import { AddCommentForm } from '@/features/AddCommentForm'
 import { CommentList } from '@/entities/Comment'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
-import { VStack } from '@/shared/ui/Stack'
-import { Loader } from '@/shared/ui/Loader'
+import { VStack } from '@/shared/ui/deprecated/Stack'
+import { Loader } from '@/shared/ui/deprecated/Loader'
 
 interface IArticleDetailsCommentsProps {
   className?: string

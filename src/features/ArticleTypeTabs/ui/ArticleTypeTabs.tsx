@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo, type FC } from 'react'
-import { type ITabItem, Tabs } from '@/shared/ui/Tabs/ui/Tabs'
+import { type ITabItem, Tabs } from '@/shared/ui/deprecated/Tabs/ui/Tabs'
 import { useTranslation } from 'react-i18next'
 import { EArticleType } from '@/entities/Article'
 

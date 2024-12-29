@@ -2,7 +2,7 @@ import { memo, type FC } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleTextBlock.module.scss'
 import { type IArticleTextBlock } from '../../model/types/article'
-import { Text } from '@/shared/ui/Text'
+import { Text } from '@/shared/ui/deprecated/Text'
 
 interface IArticleTextBlockProps {
   className?: string

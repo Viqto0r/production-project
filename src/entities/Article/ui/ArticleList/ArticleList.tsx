@@ -6,8 +6,8 @@ import { EArticleView } from '../../model/consts/consts'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
 import { useTranslation } from 'react-i18next'
-import { Text } from '@/shared/ui/Text'
-import { ETextSize } from '@/shared/ui/Text/ui/Text'
+import { Text } from '@/shared/ui/deprecated/Text'
+import { ETextSize } from '@/shared/ui/deprecated/Text/ui/Text'
 
 interface IArticleListProps {
   className?: string

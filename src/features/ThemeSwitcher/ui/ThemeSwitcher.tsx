@@ -1,10 +1,10 @@
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
 import ThemeIcon from '@/shared/assets/icons/theme-icon.svg'
-import { Button, EThemeButton } from '@/shared/ui/Button'
+import { Button, EThemeButton } from '@/shared/ui/deprecated/Button'
 import { memo, useCallback } from 'react'
 import { saveJsonSettings } from '@/entities/User'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { Icon } from '@/shared/ui/Icon'
+import { Icon } from '@/shared/ui/deprecated/Icon'
 
 export const ThemeSwitcher = memo(() => {
   const { toggleTheme } = useTheme()

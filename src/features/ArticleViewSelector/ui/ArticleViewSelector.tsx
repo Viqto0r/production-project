@@ -3,9 +3,9 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleViewSelector.module.scss'
 import ListIcon from '@/shared/assets/icons/bi_list.svg'
 import TIledIcon from '@/shared/assets/icons/fe_tiled.svg'
-import { Button } from '@/shared/ui/Button'
-import { Icon } from '@/shared/ui/Icon'
-import { EButtonTheme } from '@/shared/ui/Button/ui/Button'
+import { Button } from '@/shared/ui/deprecated/Button'
+import { Icon } from '@/shared/ui/deprecated/Icon'
+import { EButtonTheme } from '@/shared/ui/deprecated/Button/ui/Button'
 import { EArticleView } from '@/entities/Article'
 
 interface IArticleViewSelectorProps {

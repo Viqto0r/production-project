@@ -11,7 +11,7 @@ import {
 } from '../../model/selectors/articlesPageSelector'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useSearchParams } from 'react-router-dom'
-import { Text } from '@/shared/ui/Text'
+import { Text } from '@/shared/ui/deprecated/Text'
 import { useTranslation } from 'react-i18next'
 
 interface IArticleInfiniteListProps {

@@ -6,19 +6,19 @@ import {
   type IArticle,
 } from '../../model/types/article'
 import { EArticleView, EArticleBlockType } from '../../model/consts/consts'
-import { Text } from '@/shared/ui/Text'
-import { Icon } from '@/shared/ui/Icon'
+import { Text } from '@/shared/ui/deprecated/Text'
+import { Icon } from '@/shared/ui/deprecated/Icon'
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
-import { Card } from '@/shared/ui/Card'
-import { Avatar } from '@/shared/ui/Avatar'
-import { Button } from '@/shared/ui/Button'
+import { Card } from '@/shared/ui/deprecated/Card'
+import { Avatar } from '@/shared/ui/deprecated/Avatar'
+import { Button } from '@/shared/ui/deprecated/Button'
 import { useTranslation } from 'react-i18next'
-import { EButtonTheme } from '@/shared/ui/Button/ui/Button'
+import { EButtonTheme } from '@/shared/ui/deprecated/Button/ui/Button'
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock'
 import { getRouteArticleDetails } from '@/shared/const/router'
-import { AppLink } from '@/shared/ui/AppLink'
-import { AppImage } from '@/shared/ui/AppImage/ui/AppImage'
-import { Skeleton } from '@/shared/ui/Skeleton/ui/ui/Skeleton'
+import { AppLink } from '@/shared/ui/deprecated/AppLink'
+import { AppImage } from '@/shared/ui/deprecated/AppImage/ui/AppImage'
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton/ui/ui/Skeleton'
 
 interface IArticleListItemProps {
   className?: string

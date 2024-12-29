@@ -7,7 +7,7 @@ import {
 } from '../../api/articleRatingApi'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from '@/entities/User'
-import { Skeleton } from '@/shared/ui/Skeleton/ui/ui/Skeleton'
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton/ui/ui/Skeleton'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 
 export interface IArticleRatingProps {

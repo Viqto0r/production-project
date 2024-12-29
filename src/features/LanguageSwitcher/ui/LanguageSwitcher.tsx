@@ -1,6 +1,6 @@
 import { memo, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, EThemeButton } from '@/shared/ui/Button'
+import { Button, EThemeButton } from '@/shared/ui/deprecated/Button'
 import cls from './LanguageSwitcher.module.scss'
 
 interface LanguageSwitcherProps {
