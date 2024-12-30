@@ -1,28 +1,20 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { classNames, TMods } from '@/shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
-import {
-  memo,
-  useCallback,
-  useMemo,
-  useState,
-  type FC,
-  type InputHTMLAttributes,
-} from 'react'
-import { debounce } from '@/shared/lib/debounce/debounce'
+import { memo, ReactNode, type FC, type InputHTMLAttributes } from 'react'
 
 type THTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
   'onChange' | 'value' | 'readOnly'
 >
 
-const symbolLength = 8.8
-
 interface IInputProps extends THTMLInputProps {
   value: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   className?: string
-  readOnly?: boolean
+  readonly?: boolean
   validate?: (value: string) => boolean
+  addonLeft?: ReactNode
+  addonRight?: ReactNode
 }
 
 export const Input: FC<IInputProps> = memo(
@@ -31,82 +23,35 @@ export const Input: FC<IInputProps> = memo(
     value,
     className,
     placeholder,
-    readOnly,
+    readonly,
     validate,
-    maxLength = 300,
+    addonLeft,
+    addonRight,
     ...otherProps
   }) => {
-    const [select, setSelect] = useState(value.length)
-    const [caretFreeze, setCarretFreeze] = useState(false)
-
-    const debouncedCarretFreeze = useMemo(
-      () =>
-        debounce(() => {
-          setCarretFreeze(false)
-        }, 200),
-      []
-    )
-
-    const replaceCarret = useCallback(
-      (selectionStart: number) => {
-        const newRange = selectionStart * symbolLength
-        const maxRange = (maxLength - 1) * symbolLength
-
-        setSelect(newRange < maxRange ? newRange : maxRange)
-      },
-      [maxLength]
-    )
-
-    const handleSelect = (e: React.SyntheticEvent<HTMLInputElement, Event>) => {
-      if (e.target instanceof HTMLInputElement) {
-        replaceCarret(e.target.selectionStart || 0)
-      }
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (validate && !validate?.(value)) return
+      onChange?.(e)
     }
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const {
-        target: { selectionStart, value },
-      } = e
-      if (validate && !validate?.(value)) return
-
-      replaceCarret(selectionStart || 0)
-      setCarretFreeze(true)
-      onChange?.(e)
-      debouncedCarretFreeze()
+    const mods: TMods = {
+      [cls.readonly]: readonly,
+      [cls['with-addon-left']]: !!addonLeft,
+      [cls['with-addon-right']]: !!addonRight,
     }
 
     return (
-      <div className={classNames(cls.Input, {}, [className])}>
-        {placeholder && (
-          <span className={cls.placeholder}>
-            {placeholder}
-            {'>'}
-          </span>
-        )}
-        <div
-          className={classNames(cls.wrapper, { [cls.readonly]: readOnly }, [])}
-        >
-          <input
-            onChange={handleChange}
-            onSelect={handleSelect}
-            value={value}
-            readOnly={readOnly}
-            maxLength={maxLength}
-            {...otherProps}
-          />
-          {!readOnly && (
-            <span
-              className={classNames(
-                cls.caret,
-                { [cls.caretFreeze]: caretFreeze },
-                []
-              )}
-              style={{
-                left: `${select}px`,
-              }}
-            ></span>
-          )}
-        </div>
+      <div className={classNames(cls.InputWrapper, mods, [className])}>
+        <div className={cls.addonLeft}>{addonLeft}</div>
+        <input
+          className={cls.input}
+          onChange={handleChange}
+          value={value}
+          readOnly={readonly}
+          placeholder={placeholder}
+          {...otherProps}
+        />
+        <div className={cls.addonRight}>{addonRight}</div>
       </div>
     )
   }

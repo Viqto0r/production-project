@@ -1,4 +1,4 @@
-import { type ButtonHTMLAttributes, type FC } from 'react'
+import { ReactNode, type ButtonHTMLAttributes, type FC } from 'react'
 import { type TMods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
@@ -11,6 +11,8 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: TButtonSize
   square?: boolean
   fullWidth?: boolean
+  addonLeft?: ReactNode
+  addonRight?: ReactNode
 }
 
 export const Button: FC<IButtonProps> = ({
@@ -21,12 +23,15 @@ export const Button: FC<IButtonProps> = ({
   className,
   disabled,
   fullWidth,
+  addonLeft,
+  addonRight,
   ...otherProps
 }) => {
   const mods: TMods = {
     [cls.square]: square,
     [cls.disabled]: disabled,
     [cls['full-width']]: fullWidth,
+    [cls['with-addon']]: !!addonLeft || !!addonRight,
   }
 
   return (
@@ -38,7 +43,9 @@ export const Button: FC<IButtonProps> = ({
       ])}
       {...otherProps}
     >
+      {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
       {children}
+      {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
     </button>
   )
 }

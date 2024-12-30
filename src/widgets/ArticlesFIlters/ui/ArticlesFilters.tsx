@@ -9,6 +9,8 @@ import { Input } from '@/shared/ui/redesigned/Input'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 import { EArticleSortField, EArticleType } from '@/entities/Article'
 import { ESortOrderType } from '@/shared/types/sort'
+import SearchIcon from '@/shared/assets/icons/search.svg'
+import { Icon } from '@/shared/ui/redesigned/Icon'
 
 interface IArticlesFiltersProps {
   className?: string
@@ -48,6 +50,7 @@ export const ArticlesFilters: FC<IArticlesFiltersProps> = memo((props) => {
           value={search}
           onChange={onChangeSearch}
           data-testId="ArticlesPageFilters.ArticlesSearch"
+          addonLeft={<Icon Svg={SearchIcon} />}
         />
         <ArticleSortSelector
           order={order}
