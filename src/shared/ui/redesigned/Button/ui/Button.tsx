@@ -2,7 +2,7 @@ import { type ButtonHTMLAttributes, type FC } from 'react'
 import { type TMods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
-type TButtonVariant = 'clear' | 'outlined'
+type TButtonVariant = 'clear' | 'outlined' | 'filled'
 type TButtonSize = 'm' | 'l' | 'xl'
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

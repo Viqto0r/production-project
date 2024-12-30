@@ -4,7 +4,7 @@ import { ArticleSortSelector } from './ArticleSortSelector'
 const meta = {
   title: 'Features/Article/ArticleSortSelector',
   component: ArticleSortSelector,
-  args: {},
+  args: { onChangeOrder: () => {}, onChangeSort: () => {} },
 }
 
 export default meta

@@ -1,5 +1,6 @@
 .Icon {
   color: var(--icon-redesigned);
+  fill: var(--icon-redesigned)
 }
 
 .button {
@@ -12,5 +13,6 @@
 }
 
 .button:hover .Icon {
-  color: var(--icon-redesigned);
+  color: var(--accent-redesigned);
+  fill: var(--accent-redesigned);
 }

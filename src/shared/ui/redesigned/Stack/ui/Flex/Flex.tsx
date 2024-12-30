@@ -9,7 +9,7 @@ import cls from './Flex.module.scss'
 
 type TFlexJustify = 'start' | 'center' | 'end' | 'between'
 type TFlexAlign = 'start' | 'center' | 'end'
-type TFlexDirection = 'row' | 'column'
+export type TFlexDirection = 'row' | 'column'
 type TFlexGap = '4' | '8' | '16' | '32'
 
 type TDivProps = DetailedHTMLProps<

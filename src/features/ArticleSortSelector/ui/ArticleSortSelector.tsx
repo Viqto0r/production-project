@@ -6,10 +6,15 @@ import { useTranslation } from 'react-i18next'
 import { type ISelectOption } from '@/shared/ui/deprecated/Select/ui/Select'
 import { ESortOrderType } from '@/shared/types/sort'
 import { EArticleSortField } from '@/entities/Article'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { ListBox } from '@/shared/ui/redesigned/Popups'
+import { VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 interface IArticleSortSelectorProps {
   className?: string
-  onChangeSort?: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  onChangeSort: (value: string) => void
+  onChangeOrder: (value: string) => void
   sort?: EArticleSortField
   order?: ESortOrderType
 }
@@ -21,10 +26,10 @@ export enum ESortFieldNames {
 
 export const ArticleSortSelector: FC<IArticleSortSelectorProps> = memo(
   (props) => {
-    const { className, onChangeSort, order, sort } = props
+    const { className, onChangeSort, onChangeOrder, order, sort } = props
     const { t } = useTranslation()
 
-    const orderOptions = useMemo<ISelectOption[]>(
+    const orderOptions = useMemo<Array<ISelectOption<ESortOrderType>>>(
       () => [
         {
           content: t('возрастанию'),
@@ -38,7 +43,7 @@ export const ArticleSortSelector: FC<IArticleSortSelectorProps> = memo(
       [t]
     )
 
-    const sortOptions = useMemo<ISelectOption[]>(
+    const sortOptions = useMemo<Array<ISelectOption<EArticleSortField>>>(
       () => [
         {
           content: t('дате создания'),
@@ -57,22 +62,42 @@ export const ArticleSortSelector: FC<IArticleSortSelectorProps> = memo(
     )
 
     return (
-      <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-        <Select
-          label={t('сортировать по')}
-          options={sortOptions}
-          onChange={onChangeSort}
-          value={sort}
-          name={ESortFieldNames.SORT}
-        />
-        <Select
-          label={t('по')}
-          options={orderOptions}
-          onChange={onChangeSort}
-          value={order}
-          name={ESortFieldNames.ORDER}
-        />
-      </div>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
+            <VStack gap="8">
+              <Text text={t('сортировать по')} />
+              <ListBox<EArticleSortField>
+                items={sortOptions}
+                value={sort}
+                onChange={onChangeSort}
+              />
+              <ListBox<ESortOrderType>
+                items={orderOptions}
+                value={order}
+                onChange={onChangeOrder}
+              />
+            </VStack>
+          </div>
+        }
+        off={
+          <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
+            <Select<EArticleSortField>
+              label={t('сортировать по')}
+              options={sortOptions}
+              onChange={onChangeSort}
+              value={sort}
+            />
+            <Select<ESortOrderType>
+              label={t('по')}
+              options={orderOptions}
+              onChange={onChangeOrder}
+              value={order}
+            />
+          </div>
+        }
+      />
     )
   }
 )

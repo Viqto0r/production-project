@@ -28,6 +28,10 @@
   cursor: not-allowed;
 }
 
+.selected {
+  background: var(--light-bg-redesigned);
+}
+
 .top-right {
   bottom: 100%;
   left: 0;

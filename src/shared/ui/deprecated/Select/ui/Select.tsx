@@ -1,10 +1,4 @@
-import {
-  type ChangeEvent,
-  memo,
-  useMemo,
-  type FC,
-  type SelectHTMLAttributes,
-} from 'react'
+import { type ChangeEvent, useMemo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Select.module.scss'
 
@@ -13,18 +7,18 @@ export enum ESelectTheme {
   DARK = 'dark',
 }
 
-export interface ISelectOption {
-  value: string
+export interface ISelectOption<T> {
+  value: T
   content: string
 }
 
-export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+export interface ISelectProps<T extends string> {
   className?: string
   label?: string
-  options?: ISelectOption[]
-  value?: string
+  options?: Array<ISelectOption<T>>
+  value?: T
   theme?: ESelectTheme
-  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void
+  onChange?: (value: T) => void
   readOnly?: boolean
 }
 
@@ -32,7 +26,7 @@ export interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
  * Устарел, используем новые компоненты из папки redesigned
  * @deprecated
  */
-export const Select: FC<ISelectProps> = memo((props) => {
+export const Select = <T extends string>(props: ISelectProps<T>) => {
   const {
     className,
     label,
@@ -54,13 +48,17 @@ export const Select: FC<ISelectProps> = memo((props) => {
     [options]
   )
 
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    onChange?.(e.target.value as T)
+  }
+
   return (
     <div className={classNames(cls.Wrapper, {}, [className, cls[theme]])}>
       {label && <span className={cls.label}>{`${label}>`}</span>}
       <select
         className={cls.select}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
         disabled={readOnly}
         {...otherProps}
       >
@@ -68,4 +66,4 @@ export const Select: FC<ISelectProps> = memo((props) => {
       </select>
     </div>
   )
-})
+}

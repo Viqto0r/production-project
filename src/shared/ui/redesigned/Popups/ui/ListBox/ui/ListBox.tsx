@@ -1,30 +1,32 @@
 import { Listbox as HListbox } from '@headlessui/react'
 import cls from './ListBox.module.scss'
 import popupCls from '../../../styles/popup.module.scss'
-import { type FC, Fragment, type ReactNode } from 'react'
+import { Fragment, useMemo, type ReactNode } from 'react'
 import { classNames } from '../../../../../../lib/classNames/classNames'
 import { type TDropdownDirection } from '../../../../../../types/ui'
 import { Button } from '../../../../Button'
 import { HStack } from '../../../../../redesigned/Stack'
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg'
+import { Icon } from '../../../../Icon'
 
-export interface IListBoxItem {
-  value: string
+export interface IListBoxItem<T extends string> {
+  value: T
   content: ReactNode
   disabled?: boolean
 }
 
-interface IListBoxProps {
-  items?: IListBoxItem[]
+interface IListBoxProps<T extends string> {
+  items?: Array<IListBoxItem<T>>
   className?: string
-  value?: string
-  defaultValue?: string
-  onChange: (value: string) => void
+  value?: T
+  defaultValue?: T
+  onChange: (value: T) => void
   readOnly?: boolean
   direction?: TDropdownDirection
   label?: string
 }
 
-export const ListBox: FC<IListBoxProps> = (props) => {
+export const ListBox = <T extends string>(props: IListBoxProps<T>) => {
   const {
     items,
     className,
@@ -35,6 +37,11 @@ export const ListBox: FC<IListBoxProps> = (props) => {
     direction = 'bottom-right',
     label,
   } = props
+
+  const selectedItem = useMemo(
+    () => items?.find((item) => item.value === value)?.content,
+    [items, value]
+  )
 
   return (
     <HStack gap="4">
@@ -52,10 +59,15 @@ export const ListBox: FC<IListBoxProps> = (props) => {
           className={popupCls.trigger}
           disabled={readOnly}
         >
-          <Button disabled={readOnly}>{value ?? defaultValue}</Button>
+          <Button variant="filled" disabled={readOnly}>
+            {selectedItem ?? defaultValue}
+          </Button>
         </HListbox.Button>
         <HListbox.Options
-          className={classNames(cls.options, {}, [popupCls[direction]])}
+          className={classNames(cls.options, {}, [
+            popupCls[direction],
+            popupCls.menu,
+          ])}
         >
           {items?.map(({ value, content, disabled }) => (
             <HListbox.Option
@@ -66,16 +78,17 @@ export const ListBox: FC<IListBoxProps> = (props) => {
             >
               {({ selected, active, disabled }) => (
                 <li
-                  className={classNames(
-                    cls.item,
-                    {
-                      [popupCls.active]: active,
-                      [popupCls.disabled]: disabled,
-                    },
-                    [popupCls.menu]
-                  )}
+                  className={classNames(cls.item, {
+                    [popupCls.active]: active,
+                    [popupCls.disabled]: disabled,
+                    [popupCls.selected]: selected,
+                  })}
                 >
-                  <span className={cls.check}>{selected && '✔️'}</span>
+                  <span className={cls.check}>
+                    {selected && (
+                      <Icon Svg={ArrowIcon} width={32} height={32} />
+                    )}
+                  </span>
                   {content}
                 </li>
               )}

@@ -3,17 +3,19 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Card.module.scss'
 
 type TCardVariant = 'normal' | 'outlined' | 'light'
-type CardPaddings = '0' | '8' | '16' | '24'
+type TCardPaddings = '0' | '8' | '16' | '24'
+type TCardBorder = 'round' | 'normal'
 
 interface ICardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string
   children: ReactNode
   variant?: TCardVariant
   fullWidth?: boolean
-  padding?: CardPaddings
+  padding?: TCardPaddings
+  border?: TCardBorder
 }
 
-const mapPaddingToClass: Record<CardPaddings, string> = {
+const mapPaddingToClass: Record<TCardPaddings, string> = {
   0: 'gap_0',
   8: 'gap_8',
   16: 'gap_16',
@@ -27,6 +29,7 @@ export const Card: FC<ICardProps> = (props) => {
     variant = 'normal',
     fullWidth,
     padding = '8',
+    border = 'normal',
     ...otherProps
   } = props
 
@@ -34,10 +37,11 @@ export const Card: FC<ICardProps> = (props) => {
 
   return (
     <div
-      className={classNames(cls.Card, { [cls['full-width']]: fullWidth }, [
+      className={classNames('', { [cls['full-width']]: fullWidth }, [
         className,
         cls[variant],
         cls[paddingClass],
+        cls[border],
       ])}
       {...otherProps}
     >

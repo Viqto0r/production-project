@@ -11,10 +11,13 @@
 .item {
   padding: 10px 20px 10px 35px;
   display: flex;
+  align-items: center;
   cursor: pointer;
 
   .check {
     position: absolute;
-    left: 8px;
+    left: 2px;
+    display: flex;
+    align-items: center;
   }
 }

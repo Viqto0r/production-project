@@ -39,8 +39,12 @@ export const Page: FC<IPageProps> = (props) => {
 
   useInfiniteScroll({
     callback: onScrollEnd,
-    wrapperRef,
     triggerRef,
+    wrapperRef: toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => null,
+      off: () => wrapperRef,
+    }),
   })
 
   useInitialEffect(() => {
