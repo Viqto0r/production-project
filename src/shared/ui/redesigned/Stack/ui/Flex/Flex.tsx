@@ -9,6 +9,7 @@ import cls from './Flex.module.scss'
 
 type TFlexJustify = 'start' | 'center' | 'end' | 'between'
 type TFlexAlign = 'start' | 'center' | 'end'
+type TFlexWrap = 'nowrap' | 'wrap'
 export type TFlexDirection = 'row' | 'column'
 type TFlexGap = '4' | '8' | '16' | '24' | '32'
 
@@ -24,6 +25,7 @@ export interface IFlexProps extends TDivProps {
   direction?: TFlexDirection
   gap?: TFlexGap
   max?: boolean
+  wrap?: TFlexWrap
 }
 
 const justifyClasses: Record<TFlexJustify, string> = {
@@ -61,6 +63,7 @@ export const Flex: FC<IFlexProps> = (props) => {
     direction = 'row',
     gap,
     max,
+    wrap = 'nowrap',
     ...otherProps
   } = props
 
@@ -74,6 +77,7 @@ export const Flex: FC<IFlexProps> = (props) => {
     alignClasses[align],
     directionClasses[direction],
     gap && gapClasses[gap],
+    cls[wrap],
   ]
 
   return (

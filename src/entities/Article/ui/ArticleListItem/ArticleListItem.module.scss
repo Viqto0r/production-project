@@ -98,3 +98,14 @@
     margin-top: 16px;
   }
 }
+
+.ArticleListItemRedesigned {
+  &.BIG {
+    width: 100%;
+  }
+
+  &.SMALL {
+    width: 240px;
+    height: 350px;
+  }
+}

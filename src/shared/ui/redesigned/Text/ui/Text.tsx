@@ -13,6 +13,7 @@ interface ITextProps {
   variant?: TTextVariant
   align?: TTextAlign
   size?: TTextSize
+  bold?: boolean
   'data-testid'?: string
 }
 
@@ -32,6 +33,7 @@ export const Text: FC<ITextProps> = memo((props) => {
     className,
     align = 'left',
     size = 'm',
+    bold,
     'data-testid': dataTestId = 'Text',
   } = props
 
@@ -39,7 +41,7 @@ export const Text: FC<ITextProps> = memo((props) => {
 
   return (
     <div
-      className={classNames('Text', {}, [
+      className={classNames('Text', { [cls.bold]: bold }, [
         cls[variant],
         className,
         cls[align],

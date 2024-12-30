@@ -8,6 +8,8 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import { useTranslation } from 'react-i18next'
 import { Text } from '@/shared/ui/deprecated/Text'
 import { ETextSize } from '@/shared/ui/deprecated/Text/ui/Text'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { HStack } from '@/shared/ui/redesigned/Stack'
 
 interface IArticleListProps {
   className?: string
@@ -44,20 +46,44 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
   }
 
   return (
-    <div
-      className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-      data-testid="ArticleList"
-    >
-      {articles.map((article) => (
-        <ArticleListItem
-          article={article}
-          key={article.id}
-          view={view}
-          target={target}
-        />
-      ))}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <HStack
+          gap="16"
+          wrap="wrap"
+          className={classNames('', {})}
+          data-testid="ArticleList"
+        >
+          {articles.map((article) => (
+            <ArticleListItem
+              article={article}
+              key={article.id}
+              view={view}
+              target={target}
+            />
+          ))}
 
-      {isLoading && renderSkeleton(view)}
-    </div>
+          {isLoading && renderSkeleton(view)}
+        </HStack>
+      }
+      off={
+        <div
+          className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+          data-testid="ArticleList"
+        >
+          {articles.map((article) => (
+            <ArticleListItem
+              article={article}
+              key={article.id}
+              view={view}
+              target={target}
+            />
+          ))}
+
+          {isLoading && renderSkeleton(view)}
+        </div>
+      }
+    />
   )
 })
