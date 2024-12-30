@@ -1,11 +1,15 @@
 import { classNames, TMods } from '@/shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
 import { memo, ReactNode, type FC, type InputHTMLAttributes } from 'react'
+import { HStack } from '../../Stack'
+import { Text } from '../../Text'
 
 type THTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  'onChange' | 'value' | 'readOnly'
+  'onChange' | 'value' | 'readOnly' | 'size'
 >
+
+type TInputSize = 's' | 'm' | 'l'
 
 interface IInputProps extends THTMLInputProps {
   value: string
@@ -15,6 +19,8 @@ interface IInputProps extends THTMLInputProps {
   validate?: (value: string) => boolean
   addonLeft?: ReactNode
   addonRight?: ReactNode
+  label?: string
+  size?: TInputSize
 }
 
 export const Input: FC<IInputProps> = memo(
@@ -27,6 +33,8 @@ export const Input: FC<IInputProps> = memo(
     validate,
     addonLeft,
     addonRight,
+    label,
+    size = 'm',
     ...otherProps
   }) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,8 +48,10 @@ export const Input: FC<IInputProps> = memo(
       [cls['with-addon-right']]: !!addonRight,
     }
 
-    return (
-      <div className={classNames(cls.InputWrapper, mods, [className])}>
+    const input = (
+      <div
+        className={classNames(cls.InputWrapper, mods, [className, cls[size]])}
+      >
         <div className={cls.addonLeft}>{addonLeft}</div>
         <input
           className={cls.input}
@@ -54,5 +64,16 @@ export const Input: FC<IInputProps> = memo(
         <div className={cls.addonRight}>{addonRight}</div>
       </div>
     )
+
+    if (label) {
+      return (
+        <HStack max gap="8">
+          <Text text={`${label}:`} />
+          {input}
+        </HStack>
+      )
+    }
+
+    return input
   }
 )

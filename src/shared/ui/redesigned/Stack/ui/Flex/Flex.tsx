@@ -10,7 +10,7 @@ import cls from './Flex.module.scss'
 type TFlexJustify = 'start' | 'center' | 'end' | 'between'
 type TFlexAlign = 'start' | 'center' | 'end'
 export type TFlexDirection = 'row' | 'column'
-type TFlexGap = '4' | '8' | '16' | '32'
+type TFlexGap = '4' | '8' | '16' | '24' | '32'
 
 type TDivProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
@@ -48,6 +48,7 @@ const gapClasses: Record<TFlexGap, string> = {
   4: cls.gap4,
   8: cls.gap8,
   16: cls.gap16,
+  24: cls.gap24,
   32: cls.gap32,
 }
 

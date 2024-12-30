@@ -19,7 +19,7 @@ interface IListBoxProps<T extends string> {
   items?: Array<IListBoxItem<T>>
   className?: string
   value?: T
-  defaultValue?: T
+  defaultValue?: string
   onChange: (value: T) => void
   readOnly?: boolean
   direction?: TDropdownDirection
@@ -45,7 +45,7 @@ export const ListBox = <T extends string>(props: IListBoxProps<T>) => {
 
   return (
     <HStack gap="4">
-      {label && <span>{`${label}>`}</span>}
+      {label && <span>{`${label}:`}</span>}
       <HListbox
         disabled={readOnly}
         as="div"

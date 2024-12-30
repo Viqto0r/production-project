@@ -51,6 +51,7 @@ export const ArticlesFilters: FC<IArticlesFiltersProps> = memo((props) => {
           onChange={onChangeSearch}
           data-testId="ArticlesPageFilters.ArticlesSearch"
           addonLeft={<Icon Svg={SearchIcon} />}
+          size="s"
         />
         <ArticleSortSelector
           order={order}

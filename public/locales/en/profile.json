@@ -19,5 +19,13 @@
   "некорректный регион": "Invalid region",
   "серверная ошибка при сохранении": "Server error when saving",
   "профиль не найден": "Profile not found",
-  "оцените профиль": "Rate your profile"
+  "оцените профиль": "Rate your profile",
+  "возраст": "Age",
+  "город": "City",
+  "имя": "Name",
+  "ссылка на аватар": "Avatar link",
+  "фамилия": "Surname",
+  "имя пользователя": "Username",
+  "валюта": "Currency",
+  "страна": "Country"
 }
