@@ -1,5 +1,10 @@
-.appLogo {
+.AppLogoWrapper {
   position: relative;
+}
+
+.AppLogo {
+  position: relative;
+  z-index: 10;
 }
 
 .gradientBig {
