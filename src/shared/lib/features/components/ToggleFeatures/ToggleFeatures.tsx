@@ -1,6 +1,6 @@
 import { memo, ReactElement, type FC } from 'react'
 import { IFeatureFlags } from '@/shared/types/featuresFlags'
-import { getFeatureFlag } from '../setGetFeatures'
+import { getFeatureFlag } from '../../lib/setGetFeatures'
 
 interface IToggleFeaturesProps {
   feature: keyof IFeatureFlags

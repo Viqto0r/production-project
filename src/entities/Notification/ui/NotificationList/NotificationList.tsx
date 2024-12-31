@@ -3,7 +3,9 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { useGetNotificationsQuery } from '../../api/notificationApi'
 import { NotificationItem } from '../NotificationItem/NotificationItem'
 import { VStack } from '@/shared/ui/redesigned/Stack'
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton'
+import { toggleFeatures } from '@/shared/lib/features'
 
 interface INotificationListProps {
   className?: string
@@ -13,6 +15,12 @@ export const NotificationList: FC<INotificationListProps> = memo((props) => {
   const { className } = props
   const { data: notifications, isLoading } = useGetNotificationsQuery(null, {
     pollingInterval: 10000,
+  })
+
+  const Skeleton = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => SkeletonRedesigned,
+    off: () => SkeletonDeprecated,
   })
 
   if (isLoading) {

@@ -8,6 +8,7 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage'
 import { MainPage } from '@/pages/MainPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 import { ProfilePage } from '@/pages/ProfilePage'
+import { SettingsPage } from '@/pages/SettingsPage'
 import {
   EAppRoutes,
   getRouteAbout,
@@ -20,11 +21,16 @@ import {
   getRouteMain,
   getRouteNotFound,
   getRouteProfile,
+  getRouteSettings,
 } from '@/shared/const/router'
 import { IAppRouteProps } from '@/shared/types/router'
 
 export const routeConfig: Record<EAppRoutes, IAppRouteProps> = {
   [EAppRoutes.MAIN]: { path: getRouteMain(), element: <MainPage /> },
+  [EAppRoutes.SETTINGS]: {
+    path: getRouteSettings(),
+    element: <SettingsPage />,
+  },
   [EAppRoutes.ABOUT]: { path: getRouteAbout(), element: <AboutPage /> },
   [EAppRoutes.PROFILE]: {
     path: getRouteProfile(':id'),
