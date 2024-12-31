@@ -4,7 +4,7 @@ import { Card } from '@/shared/ui/deprecated/Card'
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/deprecated/Text'
 import { StarRating } from '@/shared/ui/deprecated/StarRating'
-import { Modal } from '@/shared/ui/deprecated/Modal'
+import { Modal } from '@/shared/ui/redesigned/Modal'
 import { Input } from '@/shared/ui/deprecated/Input'
 import { Button } from '@/shared/ui/deprecated/Button'
 import {
@@ -12,7 +12,7 @@ import {
   EButtonTheme,
 } from '@/shared/ui/deprecated/Button/ui/Button'
 import { BrowserView, MobileView } from 'react-device-detect'
-import { Drawer } from '@/shared/ui/deprecated/Drawer'
+import { Drawer } from '@/shared/ui/redesigned/Drawer'
 
 interface IRatingCardProps {
   className?: string

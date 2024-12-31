@@ -1,9 +1,10 @@
 import { classNames, type TMods } from '@/shared/lib/classNames/classNames'
 import cls from './Modal.module.scss'
 import { type FC, type PropsWithChildren } from 'react'
-import { Portal } from '../../../redesigned/Portal'
-import { Overlay } from '../../../redesigned/Overlay'
+import { Portal } from '../../Portal'
+import { Overlay } from '../../Overlay'
 import { useModal } from '@/shared/lib/hooks/useModal/useModal'
+import { toggleFeatures } from '@/shared/lib/features'
 
 interface IModalProps extends PropsWithChildren {
   className?: string
@@ -12,10 +13,6 @@ interface IModalProps extends PropsWithChildren {
   lazy?: boolean
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 export const Modal: FC<IModalProps> = ({
   children,
   className,
@@ -36,8 +33,17 @@ export const Modal: FC<IModalProps> = ({
   const mods: TMods = { [cls.open]: isOpen, [cls.isClosing]: isClosing }
 
   return (
-    <Portal>
-      <div className={classNames(cls.Modal, mods, [className])}>
+    <Portal element={document.getElementById('app') ?? document.body}>
+      <div
+        className={classNames(cls.Modal, mods, [
+          className,
+          toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => cls.modalNew,
+            off: () => cls.modalOld,
+          }),
+        ])}
+      >
         <Overlay onClick={close} className={cls.overlay} />
         <div className={cls.content}>{children}</div>
       </div>

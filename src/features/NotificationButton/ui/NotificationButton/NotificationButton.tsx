@@ -10,7 +10,7 @@ import {
   Button as ButtonDeprecated,
   EButtonTheme,
 } from '@/shared/ui/deprecated/Button/ui/Button'
-import { Drawer } from '@/shared/ui/deprecated/Drawer'
+import { Drawer } from '@/shared/ui/redesigned/Drawer'
 import { BrowserView, MobileView } from 'react-device-detect'
 import { ToggleFeatures } from '@/shared/lib/features'
 import { Icon } from '@/shared/ui/redesigned/Icon'

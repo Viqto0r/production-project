@@ -1,6 +1,5 @@
 import { type FC, Suspense, useEffect } from 'react'
 import { AppRouter } from './providers/router'
-import { classNames } from '@/shared/lib/classNames/classNames'
 import { Navbar } from '@/widgets/Navbar'
 import { Sidebar } from '@/widgets/Sidebar'
 import { useSelector } from 'react-redux'
@@ -27,7 +26,7 @@ export const App: FC = () => {
     <ToggleFeatures
       feature="isAppRedesigned"
       on={
-        <div className={classNames('app_redesigned', {}, [])}>
+        <div id="app" className="app_redesigned">
           <Suspense fallback="">
             <MainLayout
               header={<Navbar />}
@@ -39,7 +38,7 @@ export const App: FC = () => {
         </div>
       }
       off={
-        <div className={classNames('app', {}, [])}>
+        <div id="app" className="app">
           <Suspense fallback="">
             <Navbar />
             <div className="page-content">

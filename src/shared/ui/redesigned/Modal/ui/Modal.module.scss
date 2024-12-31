@@ -34,6 +34,18 @@
   z-index: var(--modal-z-index);
 }
 
+.modalNew {
+  .content {
+    background: var(--light-bg-redesigned);
+  }
+}
+
+.modalOld {
+  .content {
+    background: var(--bg-color);
+  }
+}
+
 .open {
   & .content {
     transform: scale(1);
