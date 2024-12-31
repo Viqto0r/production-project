@@ -1,5 +1,5 @@
 import { type ReactNode, type FC, type HTMLAttributes } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { classNames, TMods } from '@/shared/lib/classNames/classNames'
 import cls from './Card.module.scss'
 
 type TCardVariant = 'normal' | 'outlined' | 'light'
@@ -11,6 +11,7 @@ interface ICardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode
   variant?: TCardVariant
   fullWidth?: boolean
+  fullHeight?: boolean
   padding?: TCardPaddings
   border?: TCardBorder
 }
@@ -28,16 +29,21 @@ export const Card: FC<ICardProps> = (props) => {
     children,
     variant = 'normal',
     fullWidth,
+    fullHeight,
     padding = '8',
     border = 'normal',
     ...otherProps
   } = props
 
   const paddingClass = mapPaddingToClass[padding]
+  const mods: TMods = {
+    [cls['full-width']]: fullWidth,
+    [cls['full-height']]: fullHeight,
+  }
 
   return (
     <div
-      className={classNames('', { [cls['full-width']]: fullWidth }, [
+      className={classNames('', mods, [
         className,
         cls[variant],
         cls[paddingClass],

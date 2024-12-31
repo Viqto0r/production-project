@@ -17,6 +17,9 @@ import { ArticleRating } from '@/features/ArticleRating'
 import { ToggleFeatures } from '@/shared/lib/features'
 import { useTranslation } from 'react-i18next'
 import { Card } from '@/shared/ui/deprecated/Card'
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout'
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer'
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer'
 
 interface IArticleDetailsPageProps {
   className?: string
@@ -38,19 +41,37 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = memo((props) => {
 
   return (
     <DynamicModuleLoader reducers={asyncReducers}>
-      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <VStack max gap="16">
-          <ArticleDetailsPageHeader />
-          <ArticleDetails id={articleId} />
-          <ToggleFeatures
-            feature="isArticleRatingEnabled"
-            on={<ArticleRating articleId={articleId} />}
-            off={<Card>{t('оценка статей скоро появится')}</Card>}
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <StickyContentLayout
+            content={
+              <Page
+                className={classNames(cls.ArticleDetailsPage, {}, [className])}
+              >
+                <VStack max gap="16">
+                  <DetailsContainer />
+                  <ArticleRating articleId={articleId} />
+                  <ArticleRecommendationsList />
+                  <ArticleDetailsComments id={articleId} />
+                </VStack>
+              </Page>
+            }
+            right={<AdditionalInfoContainer />}
           />
-          <ArticleRecommendationsList />
-          <ArticleDetailsComments id={articleId} />
-        </VStack>
-      </Page>
+        }
+        off={
+          <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <VStack max gap="16">
+              <ArticleDetailsPageHeader />
+              <ArticleDetails id={articleId} />
+              <Card>{t('оценка статей скоро появится')}</Card>
+              <ArticleRecommendationsList />
+              <ArticleDetailsComments id={articleId} />
+            </VStack>
+          </Page>
+        }
+      />
     </DynamicModuleLoader>
   )
 })

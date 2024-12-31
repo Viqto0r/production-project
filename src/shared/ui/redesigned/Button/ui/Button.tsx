@@ -17,7 +17,7 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button: FC<IButtonProps> = ({
   children,
-  variant = 'outline',
+  variant = 'outlined',
   size = 'm',
   square,
   className,

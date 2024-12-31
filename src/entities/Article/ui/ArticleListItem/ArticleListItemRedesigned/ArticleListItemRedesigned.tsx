@@ -73,7 +73,7 @@ export const ArticleListItemRedesigned: FC<IArticleListItemProps> = memo(
             )}
             <HStack max justify="between">
               <AppLink to={getRouteArticleDetails(article.id)} target={target}>
-                <Button variant="outlined">{t('читать далее')}</Button>
+                <Button>{t('читать далее')}</Button>
               </AppLink>
               {views}
             </HStack>

@@ -22,7 +22,11 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = memo(({ short }) => {
   return (
     <ToggleFeatures
       feature="isAppRedesigned"
-      on={<Button variant="clear">{t(language)}</Button>}
+      on={
+        <Button variant="clear" onClick={toggle}>
+          {t(language)}
+        </Button>
+      }
       off={
         <ButtonDeprecated
           theme={EThemeButton.CLEAR}
