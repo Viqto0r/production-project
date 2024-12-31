@@ -28,6 +28,7 @@ export const ArticleListItemRedesigned: FC<IArticleListItemProps> = memo(
           size={32}
           src={article.user.avatar}
           alt={article.user.username}
+          className={cls.avatar}
         />
         <Text text={article.user.username} bold />
       </>
@@ -89,15 +90,15 @@ export const ArticleListItemRedesigned: FC<IArticleListItemProps> = memo(
         target={target}
         data-testid="ArticleListItem"
       >
-        <Card className={cls.card} border="round">
+        <Card className={cls.card} border="round" padding="0">
           <AppImage
             className={cls.img}
             src={article.img}
             alt={article.title}
-            fallback={<Skeleton width={200} height={200} />}
+            fallback={<Skeleton width="100%" height={200} />}
           />
           <VStack className={cls.info} gap="4">
-            <Text text={article.title} className={cls.title} />
+            <Text title={article.title} className={cls.title} />
             <VStack className={cls.footer} gap="4" max>
               <HStack justify="between" max>
                 <Text text={article.createdAt} className={cls.date} />
