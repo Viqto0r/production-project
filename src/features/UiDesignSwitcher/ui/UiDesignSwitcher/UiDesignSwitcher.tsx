@@ -8,6 +8,7 @@ import { getUserAuthData } from '@/entities/User'
 import { HStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate'
 
 interface IUiDesignSwitcherProps {
   className?: string
@@ -18,6 +19,7 @@ export const UiDesignSwitcher: FC<IUiDesignSwitcherProps> = memo((props) => {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
   const authData = useSelector(getUserAuthData)
+  const forceUpdate = useForceUpdate()
 
   const [isLoading, setIsLoading] = useState(false)
   const isAppRedesigned = getFeatureFlag('isAppRedesigned')
@@ -41,17 +43,19 @@ export const UiDesignSwitcher: FC<IUiDesignSwitcherProps> = memo((props) => {
       if (authData) {
         setIsLoading(true)
 
-        dispatch(
+        await dispatch(
           updateFeatureFlags({
             userId: authData.id,
             features: {
               isAppRedesigned: value === 'new',
             },
           })
-        )
+        ).unwrap()
+
+        forceUpdate()
       }
     },
-    [authData, dispatch]
+    [authData, dispatch, forceUpdate]
   )
 
   return (

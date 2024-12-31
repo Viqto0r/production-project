@@ -15,8 +15,10 @@ export const App: FC = () => {
   const isUserInit = useSelector(getUserIsInit)
 
   useEffect(() => {
-    dispatch(initAuthData())
-  }, [dispatch])
+    if (!isUserInit) {
+      dispatch(initAuthData())
+    }
+  }, [dispatch, isUserInit])
 
   if (!isUserInit) {
     return <PageLoader />

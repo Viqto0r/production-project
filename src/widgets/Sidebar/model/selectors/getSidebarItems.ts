@@ -6,7 +6,6 @@ import ArticleIcon from '@/shared/assets/icons/article.svg'
 import ProfileIcon from '@/shared/assets/icons/avatar.svg'
 import AboutIcon from '@/shared/assets/icons/Info.svg'
 import MainIcon from '@/shared/assets/icons/home.svg'
-import { createSelector } from '@reduxjs/toolkit'
 import { getUserAuthData } from '@/entities/User'
 import {
   getRouteAbout,
@@ -16,8 +15,11 @@ import {
 } from '@/shared/const/router'
 import { type TSidebarItems } from '../types/sidebar'
 import { toggleFeatures } from '@/shared/lib/features'
+import { useSelector } from 'react-redux'
 
-export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+export const useSidebarItems = () => {
+  const userData = useSelector(getUserAuthData)
+
   const sidebarItemList: TSidebarItems = [
     {
       Icon: toggleFeatures({
@@ -63,4 +65,4 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   }
 
   return sidebarItemList
-})
+}

@@ -4,7 +4,7 @@ import {
   updateFeatureFlagsMutation,
 } from '../api/featureFlagsApi'
 import { IThunkConfig } from '@/app/providers/StoreProvider'
-import { getAllFeatureFlags } from '../lib/setGetFeatures'
+import { getAllFeatureFlags, setFeatureFlags } from '../lib/setGetFeatures'
 
 export const updateFeatureFlags = createAsyncThunk<
   // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
@@ -15,19 +15,21 @@ export const updateFeatureFlags = createAsyncThunk<
   'user/updateFeatureFlags',
   async ({ userId, features: newFeatures }, thunkApi) => {
     const { rejectWithValue, dispatch } = thunkApi
-    console.log(newFeatures)
+
+    const features = {
+      ...getAllFeatureFlags(),
+      ...newFeatures,
+    }
+
     try {
       await dispatch(
         updateFeatureFlagsMutation({
           userId,
-          features: {
-            ...getAllFeatureFlags(),
-            ...newFeatures,
-          },
+          features,
         })
       )
 
-      window.location.reload()
+      setFeatureFlags(features)
     } catch (e) {
       console.log(e)
       return rejectWithValue('error')
