@@ -1,9 +1,11 @@
-.StarRating {
+.StarRating,
+.StarRatingRedesigned {
   display: flex;
   flex-direction: row-reverse;
   justify-content: start;
 
   .starIcon {
+    padding: 0 5px;
     fill: none;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
@@ -11,12 +13,29 @@
 
   @media (hover: hover) {
     .starIcon:hover,
+    .starIcon.selected:hover,
     .starIcon:hover ~ .starIcon {
       fill: var(--secondary-color);
     }
   }
 
   .starIcon.selected {
-    fill: var(--primary-color) !important;
+    fill: var(--primary-color);
+  }
+}
+
+.StarRatingRedesigned {
+  @media (hover: hover) {
+    button:hover *,
+    button *.selected:hover,
+    button:hover ~ button * {
+      fill: var(--accent-redesigned);
+      color: var(--accent-redesigned);
+    }
+  }
+
+  button *.selected {
+    fill: var(--icon-redesigned) !important;
+    color: var(--icon-redesigned);
   }
 }

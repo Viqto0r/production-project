@@ -32,7 +32,6 @@ export const App: FC = () => {
               header={<Navbar />}
               content={<AppRouter />}
               sidebar={<Sidebar />}
-              toolbar={<div>TOOLBAR</div>}
             />
           </Suspense>
         </div>

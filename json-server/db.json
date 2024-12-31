@@ -676,6 +676,12 @@
       "userId": "1",
       "text": "dwqdqwd",
       "id": "8R87MWu"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam hic ea dignissimos earum nostrum omnis expedita! Rem illum aut vitae molestias, ducimus asperiores non praesentium, debitis necessitatibus exercitationem commodi pariatur? Fugit qui illum commodi alias! Rerum assumenda dolore sunt numquam ad deleniti accusantium pariatur inventore doloribus natus. Veniam officia et officiis. Veniam, commodi. Optio labore molestias maiores illum velit omnis? Sed consequatur eius autem saepe aspernatur explicabo accusantium. At amet excepturi in provident reiciendis facilis molestiae necessitatibus exercitationem ducimus? Eos accusantium in nobis eveniet ipsam omnis voluptatem? Repellendus, recusandae cumque. Enim repudiandae mollitia sint vel autem laudantium architecto quidem consequatur blanditiis libero veniam magni officia illum, deserunt iste consectetur. Praesentium necessitatibus repudiandae corrupti adipisci hic asperiores aliquid dolor perferendis aut. Molestiae porro fugiat recusandae excepturi, nihil quod eligendi veniam dolore doloribus ullam dicta quidem ab aliquam, tenetur sapiente adipisci dolorem aperiam quas. Labore eligendi optio neque saepe facere, cum natus. Tempore ea in, maxime, dolore nisi asperiores ducimus vitae non, fuga ad quasi temporibus aut vero distinctio? Laborum, hic. Esse similique nobis quibusdam eos perspiciatis error aperiam illo quae dolor. Amet dicta reprehenderit culpa natus iure, delectus architecto aperiam ratione ipsum consectetur repellat officiis nihil omnis atque, reiciendis commodi fugit nostrum recusandae, impedit possimus. Ex nam reiciendis adipisci. Deserunt, ipsa. Nulla assumenda nihil voluptatem molestiae illo, quam qui et aliquid eius ad aspernatur labore perferendis sit nostrum quidem similique facilis impedit incidunt, voluptate corporis laborum unde non! Tempora, adipisci. Vel. Aliquid ipsam, minima necessitatibus sapiente quasi expedita nemo beatae eos repellendus officia dolorem, vitae nostrum distinctio earum? Ratione quia, voluptatibus, tempora labore a modi incidunt earum perspiciatis, excepturi molestias commodi. Necessitatibus eum eaque voluptate ad repudiandae sequi, expedita sit non voluptatem optio aspernatur magnam culpa. Dolores cum culpa saepe voluptatibus quae fugit provident illo, consectetur ut, obcaecati odit! Ratione, aliquid.",
+      "id": "Uq-dMYr"
     }
   ],
   "profile": [
@@ -809,7 +815,7 @@
     {
       "articleId": "7",
       "userId": "1",
-      "rate": 0,
+      "rate": 4,
       "id": "5j9aMbU"
     },
     {
@@ -832,6 +838,12 @@
       "rate": 4,
       "feedback": "aaa",
       "id": "qjpedOP"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "rate": 0,
+      "id": "NesReCO"
     }
   ],
   "profile-ratings": [

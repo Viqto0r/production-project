@@ -1,6 +1,6 @@
 import { memo, Suspense, useCallback, type FC } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text } from '@/shared/ui/deprecated/Text'
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text'
 import { ETextSize } from '@/shared/ui/deprecated/Text/ui/Text'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -14,6 +14,8 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Loader } from '@/shared/ui/deprecated/Loader'
+import { Text } from '@/shared/ui/redesigned/Text'
+import { ToggleFeatures } from '@/shared/lib/features'
 
 interface IArticleDetailsCommentsProps {
   className?: string
@@ -42,7 +44,12 @@ export const ArticleDetailsComments: FC<IArticleDetailsCommentsProps> = memo(
 
     return (
       <VStack gap="16" max className={classNames('', {}, [className])}>
-        <Text size={ETextSize.L} title={t('комментарии')} />
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<Text size="l" title={t('комментарии')} />}
+          off={<TextDeprecated size={ETextSize.L} title={t('комментарии')} />}
+        />
+
         <Suspense fallback={<Loader />}>
           <AddCommentForm onSendComment={handleSendComment} />
         </Suspense>

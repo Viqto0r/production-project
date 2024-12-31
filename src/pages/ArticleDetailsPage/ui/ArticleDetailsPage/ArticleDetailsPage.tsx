@@ -65,7 +65,11 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = memo((props) => {
             <VStack max gap="16">
               <ArticleDetailsPageHeader />
               <ArticleDetails id={articleId} />
-              <Card>{t('оценка статей скоро появится')}</Card>
+              <ToggleFeatures
+                feature="isArticleRatingEnabled"
+                on={<ArticleRating articleId={articleId} />}
+                off={<Card>{t('оценка статей скоро появится')}</Card>}
+              />
               <ArticleRecommendationsList />
               <ArticleDetailsComments id={articleId} />
             </VStack>

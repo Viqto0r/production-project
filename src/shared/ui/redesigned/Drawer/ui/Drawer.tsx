@@ -125,10 +125,6 @@ const DrawerAsync: FC<IDrawerProps> = (props) => {
   return <DrawerContent {...props} />
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 export const Drawer: FC<IDrawerProps> = (props) => (
   <AnimationProvider>
     <DrawerAsync {...props} />
