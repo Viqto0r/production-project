@@ -4,6 +4,7 @@ import cls from './Button.module.scss'
 
 type TButtonVariant = 'clear' | 'outlined' | 'filled'
 type TButtonSize = 'm' | 'l' | 'xl'
+type TButtonColor = 'normal' | 'accept' | 'decline'
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
@@ -13,6 +14,7 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean
   addonLeft?: ReactNode
   addonRight?: ReactNode
+  color?: TButtonColor
 }
 
 export const Button: FC<IButtonProps> = ({
@@ -25,6 +27,7 @@ export const Button: FC<IButtonProps> = ({
   fullWidth,
   addonLeft,
   addonRight,
+  color = 'normal',
   ...otherProps
 }) => {
   const mods: TMods = {
@@ -39,6 +42,7 @@ export const Button: FC<IButtonProps> = ({
       className={classNames(cls.Button, mods, [
         cls[variant],
         cls[size],
+        cls[color],
         className,
       ])}
       {...otherProps}

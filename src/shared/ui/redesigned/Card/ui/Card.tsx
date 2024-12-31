@@ -4,7 +4,7 @@ import cls from './Card.module.scss'
 
 type TCardVariant = 'normal' | 'outlined' | 'light'
 type TCardPaddings = '0' | '8' | '16' | '24'
-type TCardBorder = 'round' | 'normal'
+type TCardBorder = 'round' | 'normal' | 'medium-round'
 
 interface ICardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string

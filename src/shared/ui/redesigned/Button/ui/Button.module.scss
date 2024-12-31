@@ -31,12 +31,26 @@
 
 .outlined {
   background: none;
-  border: 2px solid var(--icon-redesigned);
   border-radius: 34px;
   outline: none;
 
+  &.normal:hover,
+  &.accept:hover,
+  &.decline:hover,
   &:hover {
     border: 2px solid var(--accent-redesigned);
+  }
+
+  &.normal {
+    border: 2px solid var(--icon-redesigned);
+  }
+
+  &.accept {
+    border: 2px solid var(--save-redesigned);
+  }
+
+  &.decline {
+    border: 2px solid var(--cancel-redesigned);
   }
 }
 

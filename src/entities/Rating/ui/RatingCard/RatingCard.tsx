@@ -199,7 +199,7 @@ export const RatingCard: FC<IRatingCardProps> = memo((props) => {
         <Card
           className={className}
           padding="24"
-          border="round"
+          border="medium-round"
           fullWidth
           data-testid="RatingCard"
         >

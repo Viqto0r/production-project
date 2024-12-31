@@ -15,7 +15,7 @@ import { Text } from '@/shared/ui/redesigned/Text'
 
 export const ProfileCardRedesignedSkeleton = memo(() => {
   return (
-    <Card fullWidth padding="24">
+    <Card fullWidth padding="24" border="medium-round">
       <VStack gap="32">
         <HStack max justify="center">
           <Skeleton border="100%" width={128} height={128} />
@@ -67,7 +67,7 @@ export const ProfileCardRedesigned: FC<IProfileCardProps> = memo((props) => {
   )
 
   return (
-    <Card className={className} fullWidth padding="24">
+    <Card className={className} fullWidth padding="24" border="medium-round">
       <VStack gap="32">
         {data?.avatar && (
           <HStack justify="center" max>

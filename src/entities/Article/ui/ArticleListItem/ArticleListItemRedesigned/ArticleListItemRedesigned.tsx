@@ -90,7 +90,7 @@ export const ArticleListItemRedesigned: FC<IArticleListItemProps> = memo(
         target={target}
         data-testid="ArticleListItem"
       >
-        <Card className={cls.card} border="round" padding="0">
+        <Card className={cls.card} border="medium-round" padding="0">
           <AppImage
             className={cls.img}
             src={article.img}

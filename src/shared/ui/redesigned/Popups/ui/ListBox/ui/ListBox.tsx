@@ -44,7 +44,7 @@ export const ListBox = <T extends string>(props: IListBoxProps<T>) => {
   )
 
   return (
-    <HStack gap="4">
+    <HStack gap="8">
       {label && <span>{`${label}:`}</span>}
       <HListbox
         disabled={readOnly}

@@ -1,7 +1,7 @@
 import { memo, useCallback, useState, type FC } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Navbar.module.scss'
-import { Button } from '@/shared/ui/deprecated/Button'
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button'
 import { useTranslation } from 'react-i18next'
 import { EButtonTheme } from '@/shared/ui/deprecated/Button/ui/Button'
 import { LoginModal } from '@/features/AuthByUsername'
@@ -15,7 +15,8 @@ import { ETextTheme } from '@/shared/ui/deprecated/Text/ui/Text'
 import { HStack } from '@/shared/ui/redesigned/Stack'
 import { NotificationButton } from '@/features/NotificationButton'
 import { AvatarDropdown } from '@/features/AvatarDropdown'
-import { ToggleFeatures } from '@/shared/lib/features'
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features'
+import { Button } from '@/shared/ui/redesigned/Button'
 
 interface INavbarProps {
   className?: string
@@ -34,50 +35,71 @@ export const Navbar: FC<INavbarProps> = memo(({ className }) => {
     setIsOpenAuthModal(false)
   }, [])
 
+  const mainClass = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => cls.NavBarRedesigned,
+    off: () => cls.NavBar,
+  })
+
   if (authData) {
     return (
-      <ToggleFeatures
-        feature="isAppRedesigned"
-        on={
-          <header className={classNames(cls.NavBarRedesigned, {}, [className])}>
+      <header className={classNames(mainClass, {}, [className])}>
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={
             <HStack gap="16" className={cls.actions}>
               <NotificationButton />
               <AvatarDropdown />
             </HStack>
-          </header>
-        }
-        off={
-          <header className={classNames(cls.NavBar, {}, [className])}>
-            <Text
-              className={cls.appName}
-              title={t('мое приложение')}
-              theme={ETextTheme.INVERTED}
-            />
-            <AppLink
-              to={getRouteArticleCreate()}
-              theme={EAppLinkTheme.SECONDARY}
-            >
-              {t('создать статью')}
-            </AppLink>
-            <HStack gap="16" className={cls.actions}>
-              <NotificationButton />
-              <AvatarDropdown />
-            </HStack>
-          </header>
-        }
-      />
+          }
+          off={
+            <>
+              <Text
+                className={cls.appName}
+                title={t('мое приложение')}
+                theme={ETextTheme.INVERTED}
+              />
+              <AppLink
+                to={getRouteArticleCreate()}
+                theme={EAppLinkTheme.SECONDARY}
+              >
+                {t('создать статью')}
+              </AppLink>
+              <HStack gap="16" className={cls.actions}>
+                <NotificationButton />
+                <AvatarDropdown />
+              </HStack>
+            </>
+          }
+        />
+      </header>
     )
   }
 
   return (
-    <header className={classNames(cls.NavBar, {}, [className])}>
-      <Button
-        className={cls.links}
-        theme={EButtonTheme.CLEAR_INVERTED}
-        onClick={handleOpenModal}
-      >
-        {t('войти')}
-      </Button>
+    <header className={classNames(mainClass, {}, [className])}>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <Button
+            className={cls.links}
+            variant="clear"
+            onClick={handleOpenModal}
+          >
+            {t('войти')}
+          </Button>
+        }
+        off={
+          <ButtonDeprecated
+            className={cls.links}
+            theme={EButtonTheme.CLEAR_INVERTED}
+            onClick={handleOpenModal}
+          >
+            {t('войти')}
+          </ButtonDeprecated>
+        }
+      />
+
       {isOpenAuthModal && (
         <LoginModal isOpen={isOpenAuthModal} onClose={handleCloseModal} />
       )}
