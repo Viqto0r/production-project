@@ -41,3 +41,12 @@
 *::-webkit-scrollbar-thumb:active {
   cursor: grabbing;
 }
+
+*.app_redesigned::-webkit-scrollbar-track {
+  background: var(--light-bg-redesigned);
+}
+
+*.app_redesigned::-webkit-scrollbar-thumb {
+  background-color: var(--icon-redesigned);
+  border: 1px solid var(--accent-redesigned);
+}

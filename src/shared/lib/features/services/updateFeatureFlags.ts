@@ -12,7 +12,7 @@ export const updateFeatureFlags = createAsyncThunk<
   IUpdateFeatureFlagsArg,
   IThunkConfig<string>
 >(
-  'user/updateFeatureFlags',
+  'features/updateFeatureFlags',
   async ({ userId, features: newFeatures }, thunkApi) => {
     const { rejectWithValue, dispatch } = thunkApi
 
@@ -30,6 +30,7 @@ export const updateFeatureFlags = createAsyncThunk<
       )
 
       setFeatureFlags(features)
+      window.location.reload()
     } catch (e) {
       console.log(e)
       return rejectWithValue('error')
