@@ -55,17 +55,12 @@ export const ListBox = <T extends string>(props: IListBoxProps<T>) => {
         defaultValue={defaultValue}
       >
         <HListbox.Button
-          as="fieldset"
-          className={popupCls.trigger}
+          as={Button}
+          variant="filled"
           disabled={readOnly}
+          addonRight={<Icon Svg={ArrowIcon} />}
         >
-          <Button
-            variant="filled"
-            disabled={readOnly}
-            addonRight={<Icon Svg={ArrowIcon} />}
-          >
-            {selectedItem ?? defaultValue}
-          </Button>
+          {selectedItem ?? defaultValue}
         </HListbox.Button>
         <HListbox.Options
           className={classNames(cls.options, {}, [

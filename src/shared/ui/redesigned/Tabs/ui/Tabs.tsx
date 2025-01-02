@@ -30,7 +30,7 @@ export const Tabs: FC<ITabsProps> = memo((props) => {
   return (
     <Flex
       className={classNames(cls.Tabs, {}, [className])}
-      data-testId="ArticlesPageFilters.ArticleTypeTabs"
+      data-testid="ArticlesPageFilters.ArticleTypeTabs"
       direction={direction}
       gap="8"
       align="start"

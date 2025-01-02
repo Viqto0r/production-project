@@ -32,7 +32,7 @@ export const Tabs: FC<ITabsProps> = memo((props) => {
   return (
     <div
       className={classNames(cls.Tabs, {}, [className])}
-      data-testId="ArticlesPageFilters.ArticleTypeTabs"
+      data-testid="ArticlesPageFilters.ArticleTypeTabs"
     >
       {tabs.map((tab) => (
         <Card

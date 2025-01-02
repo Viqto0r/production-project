@@ -1,6 +1,12 @@
 import { classNames, TMods } from '@/shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
-import { memo, ReactNode, type FC, type InputHTMLAttributes } from 'react'
+import {
+  forwardRef,
+  memo,
+  ReactNode,
+  type FC,
+  type InputHTMLAttributes,
+} from 'react'
 import { HStack } from '../../Stack'
 import { Text } from '../../Text'
 
@@ -23,8 +29,8 @@ interface IInputProps extends THTMLInputProps {
   size?: TInputSize
 }
 
-export const Input: FC<IInputProps> = memo(
-  ({
+const InputComponent: FC<IInputProps> = forwardRef((props, ref) => {
+  const {
     onChange,
     value,
     className,
@@ -36,44 +42,44 @@ export const Input: FC<IInputProps> = memo(
     label,
     size = 'm',
     ...otherProps
-  }) => {
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (validate && !validate?.(value)) return
-      onChange?.(e)
-    }
+  } = props
 
-    const mods: TMods = {
-      [cls.readonly]: readonly,
-      [cls['with-addon-left']]: !!addonLeft,
-      [cls['with-addon-right']]: !!addonRight,
-    }
-
-    const input = (
-      <div
-        className={classNames(cls.InputWrapper, mods, [className, cls[size]])}
-      >
-        <div className={cls.addonLeft}>{addonLeft}</div>
-        <input
-          className={cls.input}
-          onChange={handleChange}
-          value={value}
-          readOnly={readonly}
-          placeholder={placeholder}
-          {...otherProps}
-        />
-        <div className={cls.addonRight}>{addonRight}</div>
-      </div>
-    )
-
-    if (label) {
-      return (
-        <HStack max gap="8">
-          <Text text={`${label}:`} />
-          {input}
-        </HStack>
-      )
-    }
-
-    return input
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (validate && !validate?.(value)) return
+    onChange?.(e)
   }
-)
+
+  const mods: TMods = {
+    [cls.readonly]: readonly,
+    [cls['with-addon-left']]: !!addonLeft,
+    [cls['with-addon-right']]: !!addonRight,
+  }
+
+  const input = (
+    <div className={classNames(cls.InputWrapper, mods, [className, cls[size]])}>
+      <div className={cls.addonLeft}>{addonLeft}</div>
+      <input
+        className={cls.input}
+        onChange={handleChange}
+        value={value}
+        readOnly={readonly}
+        placeholder={placeholder}
+        {...otherProps}
+      />
+      <div className={cls.addonRight}>{addonRight}</div>
+    </div>
+  )
+
+  if (label) {
+    return (
+      <HStack max gap="8">
+        <Text text={`${label}:`} />
+        {input}
+      </HStack>
+    )
+  }
+
+  return input
+})
+
+export const Input = memo(InputComponent)

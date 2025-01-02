@@ -49,7 +49,7 @@ export const ArticlesFilters: FC<IArticlesFiltersProps> = memo((props) => {
           placeholder={t('поиск')}
           value={search}
           onChange={onChangeSearch}
-          data-testId="ArticlesPageFilters.ArticlesSearch"
+          data-testid="ArticlesPageFilters.ArticlesSearch"
           addonLeft={<Icon Svg={SearchIcon} />}
           size="s"
         />

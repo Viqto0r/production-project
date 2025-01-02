@@ -1,4 +1,4 @@
-import { type ButtonHTMLAttributes, type FC } from 'react'
+import { forwardRef, type ButtonHTMLAttributes, type FC } from 'react'
 import { type TMods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
@@ -29,16 +29,18 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * Устарел, используем новые компоненты из папки redesigned
  * @deprecated
  */
-export const Button: FC<IButtonProps> = ({
-  children,
-  theme = EButtonTheme.OUTLINE,
-  size = EButtonSize.M,
-  square,
-  className,
-  disabled,
-  fullWidth,
-  ...otherProps
-}) => {
+export const Button: FC<IButtonProps> = forwardRef((props, ref) => {
+  const {
+    children,
+    theme = EButtonTheme.OUTLINE,
+    size = EButtonSize.M,
+    square,
+    className,
+    disabled,
+    fullWidth,
+    ...otherProps
+  } = props
+
   const mods: TMods = {
     [cls.square]: square,
     [cls.disabled]: disabled,
@@ -57,4 +59,4 @@ export const Button: FC<IButtonProps> = ({
       {children}
     </button>
   )
-}
+})

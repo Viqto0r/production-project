@@ -48,7 +48,7 @@ export const ArticlesPageFilters: FC<IArticlesPageFiltersProps> = memo(
             placeholder={t('поиск')}
             value={search}
             onChange={onChangeSearch}
-            data-testId="ArticlesPageFilters.ArticlesSearch"
+            data-testid="ArticlesPageFilters.ArticlesSearch"
           />
         </Card>
         <ArticleTypeTabs onChangeTab={onChangeTab} value={type} />

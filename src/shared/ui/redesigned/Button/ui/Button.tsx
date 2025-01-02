@@ -1,4 +1,9 @@
-import { ReactNode, type ButtonHTMLAttributes, type FC } from 'react'
+import {
+  forwardRef,
+  ReactNode,
+  type ButtonHTMLAttributes,
+  type FC,
+} from 'react'
 import { type TMods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
@@ -17,19 +22,21 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: TButtonColor
 }
 
-export const Button: FC<IButtonProps> = ({
-  children,
-  variant = 'outlined',
-  size = 'm',
-  square,
-  className,
-  disabled,
-  fullWidth,
-  addonLeft,
-  addonRight,
-  color = 'normal',
-  ...otherProps
-}) => {
+export const Button: FC<IButtonProps> = forwardRef((props, ref) => {
+  const {
+    children,
+    variant = 'outlined',
+    size = 'm',
+    square,
+    className,
+    disabled,
+    fullWidth,
+    addonLeft,
+    addonRight,
+    color = 'normal',
+    ...otherProps
+  } = props
+
   const mods: TMods = {
     [cls.square]: square,
     [cls.disabled]: disabled,
@@ -52,4 +59,4 @@ export const Button: FC<IButtonProps> = ({
       {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
     </button>
   )
-}
+})
