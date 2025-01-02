@@ -77,7 +77,7 @@ export const ProfileCardDeprecated: FC<IProfileCardProps> = memo((props) => {
         readOnly={readonly}
         onChange={handleChangeInputValue}
         maxLength={15}
-        name="nickName"
+        name="firstName"
         data-testid="ProfileCard.firstName"
       />
       <Input

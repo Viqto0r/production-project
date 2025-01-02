@@ -5,7 +5,7 @@ import { ETheme } from '@/shared/const/theme'
 import { ETextSize, ETextTheme, Text } from './Text'
 
 const meta = {
-  title: 'Shared/Text',
+  title: 'Shared/Deprecated/Text',
   component: Text,
   args: {},
 }

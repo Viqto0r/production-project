@@ -4,7 +4,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { articleMock } from './articleMock'
 
 const meta = {
-  title: 'Entities/ArticleDetails',
+  title: 'Entities/Article/ArticleDetails',
   component: ArticleDetails,
   args: {},
 }

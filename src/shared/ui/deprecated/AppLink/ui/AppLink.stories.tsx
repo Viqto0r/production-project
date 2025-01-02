@@ -3,7 +3,7 @@ import { fn } from '@storybook/test'
 import { AppLink, EAppLinkTheme } from './AppLink'
 
 const meta = {
-  title: 'Shared/AppLink',
+  title: 'Shared/Deprecated/AppLink',
   component: AppLink,
   args: { onClick: fn() },
 }

@@ -3,7 +3,7 @@ import { Popover } from './Popover'
 import { Button } from '../../../Button'
 
 const meta = {
-  title: 'Entities/Popover',
+  title: 'Shared/Deprecated/Popover',
   component: Popover,
   args: {},
 }

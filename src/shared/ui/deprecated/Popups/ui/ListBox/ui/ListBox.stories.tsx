@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ListBox } from './ListBox'
 
 const meta = {
-  title: 'Shared/ListBox',
+  title: 'Shared/Deprecated/ListBox',
   component: ListBox,
   args: {
     onChange() {},

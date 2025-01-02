@@ -11,6 +11,9 @@ export default meta
 export type Story = StoryObj<typeof meta>
 
 export const DrawerNormal: Story = {
-  args: {},
+  args: {
+    children: <div>{`Drawer`}</div>,
+    isOpen: true,
+  },
   decorators: [],
 }

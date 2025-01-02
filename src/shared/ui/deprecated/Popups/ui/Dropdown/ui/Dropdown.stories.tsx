@@ -3,7 +3,7 @@ import { Dropdown } from './Dropdown'
 import { Button } from '../../../../Button'
 
 const meta = {
-  title: 'Shared/Dropdown',
+  title: 'Shared/Deprecated/Dropdown',
   component: Dropdown,
   args: {},
 }

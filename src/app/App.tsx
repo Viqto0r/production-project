@@ -1,4 +1,4 @@
-import { type FC, Suspense, useEffect } from 'react'
+import { type FC, memo, Suspense, useEffect } from 'react'
 import { AppRouter } from './providers/router'
 import { Navbar } from '@/widgets/Navbar'
 import { Sidebar } from '@/widgets/Sidebar'
@@ -10,8 +10,9 @@ import { ToggleFeatures } from '@/shared/lib/features'
 import { MainLayout } from '@/shared/layouts/MainLayout'
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout'
 import { useAppToolbar } from './lib/useAppToolbar'
+import { withTheme } from './providers/ThemeProvider/lib/withTheme'
 
-export const App: FC = () => {
+const AppComponent: FC = memo(() => {
   const dispatch = useAppDispatch()
   const toolbar = useAppToolbar()
   const isUserInit = useSelector(getUserIsInit)
@@ -64,4 +65,6 @@ export const App: FC = () => {
       }
     />
   )
-}
+})
+
+export const App = withTheme(AppComponent)

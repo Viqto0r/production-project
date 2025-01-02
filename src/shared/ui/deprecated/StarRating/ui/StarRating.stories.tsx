@@ -2,7 +2,7 @@ import type { StoryObj } from '@storybook/react'
 import { StarRating } from './StarRating'
 
 const meta = {
-  title: 'Shared/StarRating',
+  title: 'Shared/Deprecated/StarRating',
   component: StarRating,
   args: {},
 }

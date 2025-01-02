@@ -3,7 +3,7 @@ import { Card } from './Card'
 import { Text } from '../../Text'
 
 const meta = {
-  title: 'Shared/Card',
+  title: 'Shared/Deprecated/Card',
   component: Card,
   args: {},
 }

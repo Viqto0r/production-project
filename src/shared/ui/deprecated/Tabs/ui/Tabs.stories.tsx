@@ -3,7 +3,7 @@ import { Tabs } from './Tabs'
 import { action } from '@storybook/addon-actions'
 
 const meta = {
-  title: 'Shared/Tabs',
+  title: 'Shared/Deprecated/Tabs',
   component: Tabs,
   args: {},
 }

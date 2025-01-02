@@ -4,7 +4,7 @@ import { ETheme } from '@/shared/const/theme'
 import { Loader } from './Loader'
 
 const meta = {
-  title: 'Shared/Loader',
+  title: 'Shared/Deprecated/Loader',
   component: Loader,
 }
 

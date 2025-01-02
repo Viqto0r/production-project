@@ -5,6 +5,7 @@ import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDe
 import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { TranslationDecorator } from '@/shared/config/storybook/TranslationDecorator/TranslationDecorator'
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FeatureFlagsDecorator/FeatureFlagsDecorator'
 
 const preview: Preview = {
   parameters: {
@@ -34,6 +35,7 @@ const preview: Preview = {
     RouterDecorator,
     SuspenseDecorator,
     TranslationDecorator,
+    FeatureFlagsDecorator({}),
   ],
 }
 

@@ -2,7 +2,7 @@ import type { StoryObj } from '@storybook/react'
 import { ESelectTheme, Select } from './Select'
 
 const meta = {
-  title: 'Shared/Select',
+  title: 'Shared/Deprecated/Select',
   component: Select,
   args: {},
 }

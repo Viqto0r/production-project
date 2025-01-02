@@ -3,7 +3,7 @@ import { ThemeSwitcher } from './ThemeSwitcher'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 const meta = {
-  title: 'Entities/ThemeSwitcher',
+  title: 'Features/ThemeSwitcher',
   component: ThemeSwitcher,
   args: {},
   decorators: [StoreDecorator({})],

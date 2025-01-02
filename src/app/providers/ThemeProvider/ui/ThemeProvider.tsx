@@ -7,7 +7,6 @@ import {
 } from 'react'
 import { ThemeContext } from '../../../../shared/lib/context/ThemeContext'
 import { ETheme } from '@/shared/const/theme'
-import { useJsonSettings } from '@/entities/User'
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage'
 import { toggleFeatures } from '@/shared/lib/features'
 
@@ -21,17 +20,16 @@ export const ThemeProvider: FC<IThemeProviderProps> = ({
   children,
   initialTheme,
 }) => {
-  const { theme: defaultTheme } = useJsonSettings()
   const [isThemeInit, setIsThemeInit] = useState(false)
   const [theme, setTheme] = useState(
     initialTheme ?? fallbackTheme ?? ETheme.LIGHT
   )
   useEffect(() => {
-    if (!isThemeInit && defaultTheme) {
-      setTheme(defaultTheme)
+    if (!isThemeInit && initialTheme) {
+      setTheme(initialTheme)
       setIsThemeInit(true)
     }
-  }, [defaultTheme, isThemeInit])
+  }, [initialTheme, isThemeInit])
 
   useEffect(() => {
     document.body.className =

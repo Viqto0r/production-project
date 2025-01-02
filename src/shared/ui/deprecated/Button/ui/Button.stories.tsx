@@ -5,7 +5,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { ETheme } from '@/shared/const/theme'
 
 const meta = {
-  title: 'Shared/Button',
+  title: 'Shared/Deprecated/Button',
   component: Button,
   args: { onClick: fn() },
   argTypes: {
