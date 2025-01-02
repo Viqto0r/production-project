@@ -8,6 +8,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { PageLoader } from '@/widgets/PageLoader'
 import { ToggleFeatures } from '@/shared/lib/features'
 import { MainLayout } from '@/shared/layouts/MainLayout'
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout'
 
 export const App: FC = () => {
   const dispatch = useAppDispatch()
@@ -21,7 +22,17 @@ export const App: FC = () => {
   }, [dispatch, isUserInit])
 
   if (!isUserInit) {
-    return <PageLoader />
+    return (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <div id="app" className="app_redesigned">
+            <AppLoaderLayout />
+          </div>
+        }
+        off={<PageLoader />}
+      />
+    )
   }
 
   return (

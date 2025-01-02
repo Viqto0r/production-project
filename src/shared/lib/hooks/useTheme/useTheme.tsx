@@ -1,7 +1,6 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { ThemeContext } from '../../context/ThemeContext'
 import { ETheme } from '../../../const/theme'
-import { toggleFeatures } from '../../features'
 
 type TSaveAction = (theme: ETheme) => void
 interface IUseThemeResult {
@@ -11,16 +10,6 @@ interface IUseThemeResult {
 
 export const useTheme = (): IUseThemeResult => {
   const { theme = ETheme.LIGHT, setTheme } = useContext(ThemeContext)
-
-  useEffect(() => {
-    document.body.className =
-      theme +
-      toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => ' app_redesigned',
-        off: () => '',
-      })
-  }, [theme])
 
   const toggleTheme = (saveAction?: TSaveAction): void => {
     let newTheme: ETheme

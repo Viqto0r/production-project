@@ -1,6 +1,9 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { IUser, type IUserSchema } from '../types/userSchema'
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage'
+import {
+  LOCAL_STORAGE_LAST_DESIGN_KEY,
+  USER_LOCALSTORAGE_KEY,
+} from '@/shared/const/localstorage'
 import { setFeatureFlags } from '@/shared/lib/features'
 import { saveJsonSettings } from '../services/saveJsonSettings'
 import { initAuthData } from '../services/initAuthData'
@@ -16,7 +19,12 @@ const userSlice = createSlice({
     setAuthData(state, { payload }: PayloadAction<IUser>) {
       state.authData = payload
       setFeatureFlags(payload.features)
+
       localStorage.setItem(USER_LOCALSTORAGE_KEY, payload.id)
+      localStorage.setItem(
+        LOCAL_STORAGE_LAST_DESIGN_KEY,
+        payload.features?.isAppRedesigned ? 'new' : 'old'
+      )
     },
     logout(state) {
       state.authData = undefined

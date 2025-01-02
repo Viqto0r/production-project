@@ -2,7 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type IThunkConfig } from '@/app/providers/StoreProvider'
 import { getUserDataByIdQuery } from '../../api/userApi'
 import { IUser } from '../types/userSchema'
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage'
+import {
+  LOCAL_STORAGE_LAST_DESIGN_KEY,
+  USER_LOCALSTORAGE_KEY,
+} from '@/shared/const/localstorage'
 
 // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
 export const initAuthData = createAsyncThunk<IUser, void, IThunkConfig<string>>(
@@ -18,6 +21,11 @@ export const initAuthData = createAsyncThunk<IUser, void, IThunkConfig<string>>(
 
     try {
       const response = await dispatch(getUserDataByIdQuery(userId)).unwrap()
+
+      localStorage.setItem(
+        LOCAL_STORAGE_LAST_DESIGN_KEY,
+        response.features?.isAppRedesigned ? 'new' : 'old'
+      )
 
       return response
     } catch (e) {

@@ -8,10 +8,14 @@ import {
 import { ThemeContext } from '../../../../shared/lib/context/ThemeContext'
 import { ETheme } from '@/shared/const/theme'
 import { useJsonSettings } from '@/entities/User'
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage'
+import { toggleFeatures } from '@/shared/lib/features'
 
 interface IThemeProviderProps extends PropsWithChildren {
   initialTheme?: ETheme
 }
+
+const fallbackTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ETheme
 
 export const ThemeProvider: FC<IThemeProviderProps> = ({
   children,
@@ -20,7 +24,7 @@ export const ThemeProvider: FC<IThemeProviderProps> = ({
   const { theme: defaultTheme } = useJsonSettings()
   const [isThemeInit, setIsThemeInit] = useState(false)
   const [theme, setTheme] = useState(
-    initialTheme ?? defaultTheme ?? ETheme.LIGHT
+    initialTheme ?? fallbackTheme ?? ETheme.LIGHT
   )
   useEffect(() => {
     if (!isThemeInit && defaultTheme) {
@@ -28,6 +32,18 @@ export const ThemeProvider: FC<IThemeProviderProps> = ({
       setIsThemeInit(true)
     }
   }, [defaultTheme, isThemeInit])
+
+  useEffect(() => {
+    document.body.className =
+      theme +
+      toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => ' app_redesigned',
+        off: () => '',
+      })
+
+    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme)
+  }, [theme])
 
   const defaultProps = useMemo(
     () => ({
