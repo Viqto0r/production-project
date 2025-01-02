@@ -24,3 +24,16 @@ export const getRouteArticleCreate = () => '/articles/new'
 export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`
 export const getRouteForbidden = () => '/forbidden'
 export const getRouteNotFound = () => '*'
+
+export const AppRouteByPathPattern: Record<string, EAppRoutes> = {
+  [getRouteMain()]: EAppRoutes.MAIN,
+  [getRouteSettings()]: EAppRoutes.SETTINGS,
+  [getRouteAbout()]: EAppRoutes.ABOUT,
+  [getRouteProfile(':id')]: EAppRoutes.PROFILE,
+  [getRouteArticles()]: EAppRoutes.ARTICLES,
+  [getRouteAdminPanel()]: EAppRoutes.ADMIN_PANEL,
+  [getRouteArticleDetails(':id')]: EAppRoutes.ARTICLE_DETAILS,
+  [getRouteArticleCreate()]: EAppRoutes.ARTICLE_CREATE,
+  [getRouteArticleEdit(':id')]: EAppRoutes.ARTICLE_EDIT,
+  [getRouteForbidden()]: EAppRoutes.FORBIDDEN,
+}

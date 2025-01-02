@@ -9,10 +9,11 @@ import { PageLoader } from '@/widgets/PageLoader'
 import { ToggleFeatures } from '@/shared/lib/features'
 import { MainLayout } from '@/shared/layouts/MainLayout'
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout'
+import { useAppToolbar } from './lib/useAppToolbar'
 
 export const App: FC = () => {
   const dispatch = useAppDispatch()
-
+  const toolbar = useAppToolbar()
   const isUserInit = useSelector(getUserIsInit)
 
   useEffect(() => {
@@ -45,6 +46,7 @@ export const App: FC = () => {
               header={<Navbar />}
               content={<AppRouter />}
               sidebar={<Sidebar />}
+              toolbar={toolbar}
             />
           </Suspense>
         </div>
