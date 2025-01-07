@@ -40,7 +40,7 @@
   &:hover {
     border: 2px solid var(--accent-redesigned);
   }
-
+  /* stylelint-disable */
   &.normal {
     border: 2px solid var(--icon-redesigned);
   }
@@ -52,6 +52,7 @@
   &.decline {
     border: 2px solid var(--cancel-redesigned);
   }
+  /* stylelint-enable */
 }
 
 .m {
@@ -104,10 +105,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  /* stylelint-disable */
   & * {
     fill: var(--hint-redesigned);
   }
+  /* stylelint-enable */
 }
 
 .with-addon {

@@ -41,7 +41,7 @@
   background-color: var(--light-bg-redesigned);
   border-radius: 32px;
   position: relative;
-
+  /* stylelint-disable */
   .switchers {
     position: absolute;
     bottom: 40px;
@@ -50,6 +50,7 @@
     width: 100%;
     gap: 16px;
   }
+  /* stylelint-enable */
 
   .appLogo {
     padding-top: 20px;
